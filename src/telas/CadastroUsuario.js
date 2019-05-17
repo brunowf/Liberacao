@@ -1,9 +1,7 @@
 import React from 'react';
-import Sidebar from './Sidebar';
-import MenuPrincipal from './telas/MenuPrincipal';
-import Routes from './Routes';
+import Sidebar from '../Sidebar';
 
-export default class App extends React.Component {
+export default class CadastroUsuario extends React.Component {
   showSettings (event) {
     event.preventDefault();
   }
@@ -13,9 +11,7 @@ export default class App extends React.Component {
       <div id="App">
         <Sidebar pageWrapId={"page-wrap"} outerContainerId={"App"}></Sidebar>
         <div id="page-wrap">
-          <MenuPrincipal>
-
-          </MenuPrincipal>
+          <h1>Cadastro</h1>
         </div>
       </div>
     );
