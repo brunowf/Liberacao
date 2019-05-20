@@ -1,12 +1,12 @@
 import React from 'react';
-
+//Feito por todos
 export default class MenuPrincipal extends React.Component {
 
-  render () {
+  render() {
     return (
-      <div id="MenuPrincipal">
+      <div id="App">
         <div id="page-wrap">
-          <h1>Cadastro</h1>
+          <h1>Menu Principal</h1>
         </div>
       </div>
     );

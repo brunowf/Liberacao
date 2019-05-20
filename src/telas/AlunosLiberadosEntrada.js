@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-//Marcelo
-export default class CadastroEntrada extends Component {
+//Daniel
+export default class AlunosLiberadosEntrada extends Component {
   showSettings(event) {
     event.preventDefault();
   }
@@ -9,7 +9,7 @@ export default class CadastroEntrada extends Component {
     return (
       <div id="App">
         <div id="page-wrap">
-          <h1>Cadastro Entrada</h1>
+          <h1>Alunos Liberados Entrada</h1>
         </div>
       </div>
     );
