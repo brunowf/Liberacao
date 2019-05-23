@@ -88,3 +88,9 @@ body {
 .alinhandoDireita{
   text-align: right;
 }
+.alinhandoCentro{
+  text-align:center;
+}
+.containerBorda{
+  border-color: black;
+}
