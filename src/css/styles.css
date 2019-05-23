@@ -88,3 +88,8 @@ body {
 .alinhandoDireita{
   text-align: right;
 }
+
+.tamanhoicone{
+  font-size: 25px; 
+  color:teal;
+}
