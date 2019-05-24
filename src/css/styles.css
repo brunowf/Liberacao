@@ -88,3 +88,13 @@ body {
 .alinhandoDireita{
   text-align: right;
 }
+.alinhandoCentro{
+  text-align:center;
+}
+.containerBorda{
+  border-color: black;
+}
+.tamanhoicone{
+  font-size: 25px; 
+  color:teal;
+}
