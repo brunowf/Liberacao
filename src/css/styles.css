@@ -88,13 +88,23 @@ body {
 .alinhandoDireita{
   text-align: right;
 }
-.alinhandoCentro{
-  text-align:center;
-}
-.containerBorda{
-  border-color: black;
-}
-.tamanhoicone{
+
+.tamanhoIcone{
   font-size: 25px; 
   color:teal;
+}
+.tamanhaSelect{
+  width: 250px;
+}
+
+.foto{
+  width: 500px;
+  height: 250px;
+}
+.tyleBotao{
+  text-align:center;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  color: white;
 }
