@@ -15,11 +15,6 @@ export default class CadastroProfessor extends Component {
           <div className='col-sm-2'></div>
           <form className='col-sm-8 alinhandoEsquerda'>
             <h1 className='alinhandoCentro'>Cadastro de Professor</h1>
-            <div class="md-form">
-              <i class="fas fa-envelope prefix"></i>
-              <input type="text" id="inputIconEx1" class="form-control"/>
-              <label for="inputIconEx1">E-mail address</label>
-            </div>
             <div className="form-group">
               <label htmlFor='nome'>Nome:</label>
               <input type="name" className='form-control' id='nome' placeholder='nome'></input>
