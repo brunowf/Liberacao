@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
 
+
 // Your components.
 import Login from './telas/Login'
 import MenuPrincipal from './telas/MenuPrincipal';
@@ -23,6 +24,7 @@ class Routes extends Component {
         <BrowserRouter>
           <Sidebar pageWrapId={"page-wrap"} outerContainerId={"App"}></Sidebar>
           <div id="page-wrap">
+
             {/* `component` will render when `path` matches the user's location */}
             {/* `exact` makes it so it only renders if `path` matches exactly. */}
             {/* Otherwise, `HomePage` would render on "mysite.com/About" as well as "mysite.com/". */}
