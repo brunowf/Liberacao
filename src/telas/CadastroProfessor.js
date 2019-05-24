@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { MDBInput, MDBBtn } from "mdbreact";
+import Navbarzin from './modal/Navbarzin'
+//import Modalzin from './modal/Modalzin';
+
 //Bruno
-//https://mdbootstrap.com/docs/jquery/forms/autocomplete/
+//mdbootstrap.com/docs/react/forms/basic/
 export default class CadastroProfessor extends Component {
   showSettings(event) {
     event.preventDefault();
@@ -12,24 +12,31 @@ export default class CadastroProfessor extends Component {
 
   render() {
     return (
-      <div className='container'>
-        <div className='row alinhandoEsquerda'>
+      <div className='container containerBorda'>
+        <div className='row'>
           <div className='col-sm-2'></div>
-          <form className='col-sm-8'>
-            <div>
-              <label>Email:</label>
-              <input type="email" className='form-control' aria-describedby="emailHelp" id='email'placeholder='email'></input>
-              <small id="emailHelp" className="form-text text-muted">Seu email nunca será compartilhado.</small>
+          <form className='col-sm-8 alinhandoEsquerda'>
+            <h1 className='alinhandoCentro'>Cadastro de Professor</h1>
+            
+            <div className="form-group">
+              <MDBInput label="Nome" background icon="user" />
             </div>
             <div className="form-group">
-              <label for="Password">Password</label>
-              <input type="password" className="form-control" id="Password" placeholder="Password"></input>
+              <MDBInput label="Email" type="email" background icon="envelope" />
             </div>
-            <div className="form-check">
+            <div className="form-group">
+              <MDBInput label="Senha" type="password" background icon="key" />
+            </div>
+            <div className="form-group">
+              <MDBInput label="Telefone" type="tel" background icon="phone" />
+            </div>
+            {/* <div className="form-check">
               <input type="checkbox" className="form-check-input" id="Check"></input>
-              <label className="form-check-label" for="Check">Check me out</label>
+              <label className="form-check-label" htmlFor="Check">Check me out</label>
+            </div> */}
+            <div className='styleBotao'>
+              <MDBBtn gradient="purple">Salvar</MDBBtn>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
           </form>
           <div className='col-sm-2'></div>
         </div>
