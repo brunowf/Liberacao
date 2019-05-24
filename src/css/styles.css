@@ -94,3 +94,7 @@ body {
 .containerBorda{
   border-color: black;
 }
+.tamanhoicone{
+  font-size: 25px; 
+  color:teal;
+}
