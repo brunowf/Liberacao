@@ -89,7 +89,16 @@ body {
   text-align: right;
 }
 
-.tamanhoicone{
+.tamanhoIcone{
   font-size: 25px; 
   color:teal;
+}
+
+.tamanhaSelect{
+  width: 250px;
+}
+
+.foto{
+  width: 500px;
+  height: 250px;
 }
