@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { MDBFreeBird, MDBInput, MDBCol, MDBRow, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBEdgeHeader } from
+  "mdbreact";
 //Rodrigo
 
 export default class CadastroUsuario extends Component {
@@ -12,45 +12,32 @@ export default class CadastroUsuario extends Component {
 
   render() {
     return (
-      <div className='container'>
-        <div>
-          <div id="page-wrap">
-            <h1>Cadastro Usuário</h1>
-          </div>
-        </div>
-        <div className='row alinhandoEsquerda'>
-          <div className='col-sm-2'></div>
-          <form className='col-sm-8'>
-            <div className="form-group">
-              <label htmlFor="nome">Nome Completo:</label>
-              <input type="text" className='form-control' aria-describedby="nameHelp" id='nome' placeholder='Nome'></input>
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input type="email" className='form-control' aria-describedby="emailHelp" id='email' placeholder='email'></input>
-            </div>
-            <div class="md-form">
-              <i class="fas fa-envelope prefix"></i>
-              <input type="text" id="inputIconEx1" class="form-control"></input>
-              <label for="inputIconEx1">E-mail address</label>
-            </div>
 
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" className="form-control" id="password" placeholder="Password"></input>
-            </div>
-            <div className="form-group">
-              <label htmlFor="telefone">Telefone / WhatsApp</label>
-              <input type="tel" className="form-control" id="telefone" placeholder="Telefone"></input>
-            </div>
-            <div className="form-check">
-              <input type="checkbox" className="form-check-input" id="Check"></input>
-              <label className="form-check-label" htmlFor="Check">Check me out</label>
-            </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
-        </div>
-      </div>
+
+
+        <MDBContainer className="mt-3">
+          <MDBFreeBird>
+            <MDBRow>
+              <MDBCol md="8" lg="7" className="mx-auto float-none white z-depth-1 py-2 px-2">
+                <MDBCardBody>
+                  <MDBCardTitle>Material Design Edge Headers</MDBCardTitle>
+                  <p className="pb-4">Example of Material Design Form</p>
+                  <form>
+                    <MDBInput label="Nome Completo" background icon="user" group type="text" id='nome' />
+                    <MDBInput label="E-mail" background icon="envelope" group type='email' id='email' />
+                    <MDBInput label="Senha" background icon="key" group type='password' id='senha' />
+                    <MDBInput label="Telefone / WhatsApp" background icon="phone" group type='tel' id='telefone' />
+
+                    <MDBBtn color="mdb-color" className="text-xs-left">Salvar</MDBBtn>
+                  </form>
+                  <div className="my-2">
+                    <p style={{ fontWeight: "300", fontSize: "0.75rem" }}>Never submit your passwords here</p>
+                  </div>
+                </MDBCardBody>
+              </MDBCol>
+            </MDBRow>
+          </MDBFreeBird>
+        </MDBContainer>
     );
   }
 }
