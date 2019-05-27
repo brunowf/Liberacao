@@ -17,9 +17,9 @@ export default class CadastroUsuario extends Component {
 
 
 
-      <MDBContainer>
-        <MDBEdgeHeader color="green"></MDBEdgeHeader>
-        <MDBFreeBird>
+      <MDBContainer style={{marginTop:10}}>
+        {/* <MDBEdgeHeader color="white"></MDBEdgeHeader>
+        <MDBFreeBird> */}
           <MDBRow>
             <MDBCol size="2"></MDBCol>
             <MDBCol size="8" md="8" lg="7" className="mx-auto float-none white z-depth-1 py-2 px-2">
@@ -45,7 +45,7 @@ export default class CadastroUsuario extends Component {
             </MDBCol>
             <MDBCol size="2"></MDBCol>
           </MDBRow>
-        </MDBFreeBird>
+        {/* </MDBFreeBird> */}
       </MDBContainer>
     );
   }

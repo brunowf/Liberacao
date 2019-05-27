@@ -15,13 +15,13 @@ export default class CadastroTurma extends Component {
             <h1 className='alinhandoCentro'>Cadastro de Turma</h1>
             
             <div className="form-group">
-              <MDBInput label="Turma"/>
+              <MDBInput label="Turma" icon="door-closed"/>
             </div>
             <div className="form-group">
-              <MDBInput label="Periodo"/>
+              <MDBInput label="Periodo" icon="calendar-alt"/>
             </div>
             <div className="form-group">
-              <MDBInput label="Duração"/>
+              <MDBInput label="Duração" icon="hourglass"/>
             </div>
             {/* <div className="form-check">
               <input type="checkbox" className="form-check-input" id="Check"></input>
