@@ -17,12 +17,12 @@ export default class CadastroUsuario extends Component {
 
 
 
-      <MDBContainer style={{marginTop:10}}>
+      <MDBContainer style={{marginTop:60, marginBottom:60}}>
         {/* <MDBEdgeHeader color="white"></MDBEdgeHeader>
         <MDBFreeBird> */}
           <MDBRow>
             <MDBCol size="2"></MDBCol>
-            <MDBCol size="8" md="8" lg="7" className="mx-auto float-none white z-depth-1 py-2 px-2">
+            <MDBCol size="8" md="8" lg="7" className="mx-auto float-none white z-depth-3 py-2 px-2">
               <MDBCardBody>
                 <MDBCardTitle>Cadastro de Usuário</MDBCardTitle>
                 <form className='alinhandoEsquerda'>
@@ -45,6 +45,7 @@ export default class CadastroUsuario extends Component {
             </MDBCol>
             <MDBCol size="2"></MDBCol>
           </MDBRow>
+          
         {/* </MDBFreeBird> */}
       </MDBContainer>
     );
