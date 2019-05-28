@@ -88,6 +88,9 @@ body {
 .alinhandoDireita{
   text-align: right;
 }
+.alinhandoCentro{
+  text-align: center;
+}
 
 .tamanhoIcone{
   font-size: 25px; 
