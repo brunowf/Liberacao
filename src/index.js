@@ -10,6 +10,7 @@ import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'mdbreact/dist/css/mdb.css';
 import 'mdbootstrap/css/mdb.min.css';
+import 'antd/dist/antd.css';
 
 ReactDOM.render(<Routes></Routes>, document.getElementById('root'));
 
