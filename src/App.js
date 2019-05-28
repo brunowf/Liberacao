@@ -4,17 +4,16 @@ import MenuPrincipal from './telas/MenuPrincipal';
 import Routes from './Routes';
 
 export default class App extends Component {
-  showSettings (event) {
+  showSettings(event) {
     event.preventDefault();
   }
 
-  render () {
+  render() {
     return (
       <div id="App">
         <Sidebar pageWrapId={"page-wrap"} outerContainerId={"App"}></Sidebar>
         <div id="page-wrap">
           <MenuPrincipal>
-
           </MenuPrincipal>
         </div>
       </div>
