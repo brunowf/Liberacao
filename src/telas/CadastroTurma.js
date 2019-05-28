@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBInput, MDBBtn } from "mdbreact";
+import { MDBInput, MDBBtn, MDBCardBody, MDBCardTitle } from "mdbreact";
 //Bruno
 export default class CadastroTurma extends Component {
   showSettings(event) {
@@ -8,29 +8,22 @@ export default class CadastroTurma extends Component {
 
   render() {
     return (
-      <div className='container containerBorda'>
+      <div className='container containerBorda' style={ {marginTop:60, marginBottom:60 }}>
         <div className='row'>
           <div className='col-sm-2'></div>
-          <form className='col-sm-8 alinhandoEsquerda'>
-            <h1 className='alinhandoCentro'>Cadastro de Turma</h1>
-            
-            <div className="form-group">
-              <MDBInput label="Turma" icon="door-closed"/>
-            </div>
-            <div className="form-group">
-              <MDBInput label="Periodo" icon="calendar-alt"/>
-            </div>
-            <div className="form-group">
-              <MDBInput label="Duração" icon="hourglass"/>
-            </div>
-            {/* <div className="form-check">
-              <input type="checkbox" className="form-check-input" id="Check"></input>
-              <label className="form-check-label" htmlFor="Check">Check me out</label>
-            </div> */}
-            <div className='styleBotao'>
-              <MDBBtn gradient="purple">Salvar</MDBBtn>
-            </div>
-          </form>
+          <div className='col-sm-8 alinhandoEsquerda z-depth-3'>
+          <MDBCardBody>
+          <MDBCardTitle>Cadastro de Turma</MDBCardTitle>
+            <form>
+                <MDBInput label="Turma" background icon="door-closed"/>
+                <MDBInput label="Periodo" background icon="calendar-alt"/>
+                <MDBInput label="Duração" background icon="hourglass"/>
+                <div className='tyleBotao'>
+                  <MDBBtn className="dusty-grass-gradient">Salvar</MDBBtn>
+                </div>
+            </form>
+            </MDBCardBody>
+          </div>
           <div className='col-sm-2'></div>
         </div>
       </div>
