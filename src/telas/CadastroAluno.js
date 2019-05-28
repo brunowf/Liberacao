@@ -1,6 +1,7 @@
 import React, { Component, Image } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
+import { MDBInput, MDBBtn, MDBRow, MDBCol,MDBIcon } from "mdbreact";
 import Imagem from '../foto.jpg';
 
 
@@ -15,20 +16,20 @@ export default class CadastroAluno extends Component {
           <div className="container">
             <div className="row">
               <div className="col">
-                <form>
+                <form className="alinhandoEsquerda">
                   <div className="card">
                     <div className="card-body">
-                      
+
                       <div className="form-group">
-                        <input className="from-Control " placeholder="CPF"></input><i className="fas fa-user tamanhoIcone"></i>
-                      </div>
-                      
-                      <div className="form-group">
-                        <input className="from-Control " placeholder="Nome"></input><i className="fas fa-user tamanhoIcone"></i>
+                        <MDBInput label="CPF" type="text" background icon="user" />
                       </div>
 
                       <div className="form-group">
-                        <input type="date" className="from-Control" ></input><i className="fas fa-calendar-week tamanhoIcone"></i>
+                        <MDBInput label="Nome" type="text" background icon="user" />
+                      </div>
+
+                      <div className="form-group">
+                        <MDBInput label="Data" type="date" background icon="calendar-day" />
                       </div>
 
                     </div>
@@ -36,19 +37,19 @@ export default class CadastroAluno extends Component {
 
                   <div className="card">
                     <div className="card-body">
-                      
+
                       <div className="form-group">
-                        <input className="from-Control" placeholder="CPF Resp"></input><i className="fas fa-user tamanhoIcone"></i>
+                        <MDBInput label="CPF responsável" type="text" background icon="user" />
                       </div>
 
                       <div className="form-group">
-                        <input className="from-Control" placeholder="Nome Resp"></input><i className="fas fa-user tamanhoIcone"></i>
+                        <MDBInput label="Nome responsável" type="text" background icon="user" />
                       </div>
 
                       <div >
-                        <input className="from-Control" placeholder="Email Resp"></input><i className="fas fa-envelope tamanhoIcone"></i>
+                        <MDBInput label="Email responsável" type="text" background icon="envelope" />
                       </div>
-                      
+
                     </div>
                   </div>
                 </form>
@@ -62,24 +63,31 @@ export default class CadastroAluno extends Component {
                   </div>
 
                   <div>
-                    <a href="#" className="btn btn-info"><i className="fas fa-camera"></i></a>
+                  <MDBBtn color="success" className="text-xs-left"><i className="fas fa-camera"></i></MDBBtn>
                   </div>
 
                   <br></br>
 
                   <div>
-                    <select className="custom-select tamanhaSelect" id="CadastroTurma">
-                      <option selected>Selecionar Turma</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
+                    <MDBRow>
+
+                      <MDBCol size="2"></MDBCol>
+
+                      <MDBCol size="8">
+                        <select className="custom-select custom-select-lg mb-5" id="Turma" defaultValue="1">
+                          <option disabled value="1">Turma</option>
+                          <option value="2">Assinstente Administrativo</option>
+                          <option value="3">Logistica industrial</option>
+                        </select>
+                      </MDBCol>
+                      <MDBCol size="2"></MDBCol>
+                    </MDBRow>
                   </div>
 
                   <br></br>
 
                   <div>
-                    <a href="#" className="btn btn-info">CADASTRAR</a>
+                  <MDBBtn color="success" className="text-xs-left">Cadastrar</MDBBtn>
                   </div>
 
                 </div>

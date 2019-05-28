@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MDBInput, MDBBtn } from "mdbreact";
+import { MDBInput, MDBBtn, MDBCardBody, MDBCardTitle } from "mdbreact";
 import Navbarzin from './modal/Navbarzin'
 //import Modalzin from './modal/Modalzin';
 
@@ -12,32 +12,23 @@ export default class CadastroProfessor extends Component {
 
   render() {
     return (
-      <div className='container containerBorda'>
+      <div className='container containerBorda' style={ {marginTop:60, marginBottom:60 }}>
         <div className='row'>
           <div className='col-sm-2'></div>
-          <form className='col-sm-8 alinhandoEsquerda'>
-            <h1 className='alinhandoCentro'>Cadastro de Professor</h1>
-            
-            <div className="form-group">
-              <MDBInput label="Nome" background icon="user" />
-            </div>
-            <div className="form-group">
-              <MDBInput label="Email" type="email" background icon="envelope" />
-            </div>
-            <div className="form-group">
-              <MDBInput label="Senha" type="password" background icon="key" />
-            </div>
-            <div className="form-group">
-              <MDBInput label="Telefone" type="tel" background icon="phone" />
-            </div>
-            {/* <div className="form-check">
-              <input type="checkbox" className="form-check-input" id="Check"></input>
-              <label className="form-check-label" htmlFor="Check">Check me out</label>
-            </div> */}
-            <div className='styleBotao'>
-              <MDBBtn gradient="purple">Salvar</MDBBtn>
-            </div>
-          </form>
+          <div className='col-sm-8 alinhandoEsquerda z-depth-3'>
+            <MDBCardBody>
+              <form>
+                  <MDBCardTitle>Cadastro de Professor</MDBCardTitle>
+                  <MDBInput label="Nome" background icon="user" />
+                  <MDBInput label="Email" type="email" background icon="envelope" />
+                  <MDBInput label="Senha" type="password" background icon="key" />
+                  <MDBInput label="Telefone" type="tel" background icon="phone" />
+                <div className='tyleBotao'>
+                  <MDBBtn className="dusty-grass-gradient">Salvar</MDBBtn>
+                </div>
+              </form>
+            </MDBCardBody>
+          </div>
           <div className='col-sm-2'></div>
         </div>
       </div>
