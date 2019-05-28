@@ -17,19 +17,10 @@ export default class CadastroProfessor extends Component {
           <div className='col-sm-2'></div>
           <form className='col-sm-8 alinhandoEsquerda'>
             <h1 className='alinhandoCentro'>Cadastro de Professor</h1>
-            
-            <div className="form-group">
               <MDBInput label="Nome" background icon="user" />
-            </div>
-            <div className="form-group">
               <MDBInput label="Email" type="email" background icon="envelope" />
-            </div>
-            <div className="form-group">
               <MDBInput label="Senha" type="password" background icon="key" />
-            </div>
-            <div className="form-group">
               <MDBInput label="Telefone" type="tel" background icon="phone" />
-            </div>
             {/* <div className="form-check">
               <input type="checkbox" className="form-check-input" id="Check"></input>
               <label className="form-check-label" htmlFor="Check">Check me out</label>

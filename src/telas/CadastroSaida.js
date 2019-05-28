@@ -5,6 +5,7 @@ import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 import '../css/searchBar.css';
+import { MDBInput, MDBBtn, MDBDatePicker } from "mdbreact";
 
 
 //Marcelo
@@ -15,7 +16,7 @@ export default class CadastroSaida extends Component {
 
   render() {
     return (
-      <div id="App">
+      <div>
         <div id="page-wrap">
           <h1>Cadastro Saída</h1>
           <div className='container'>
@@ -27,15 +28,28 @@ export default class CadastroSaida extends Component {
 
                     <br />
 
-                    <form className="form-inline">
-                      <i className="fas fa-search" aria-hidden="false"></i>
-                      <input className="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search" />
+                    <form className="alinhandoEsquerda">
+                    <MDBInput label="Nome" background icon="user" />
                     </form>
 
                     <br />
                     <div className="input-group mb-3">
-                      <select className="custom-select" id="inputGroupSelect02">
-                        <option selected>Choose...</option>
+                      <select className="custom-select" id="inputGroupSelect02" defaultValue="0">
+                        <option value="0" disabled>Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <div className="input-group-append">
+                        <label className="input-group-text" for="inputGroupSelect02">Options</label>
+                      </div>
+                    </div>
+
+
+                    <br />
+                    <div className="input-group mb-3">
+                      <select className="custom-select" id="inputGroupSelect02" defaultValue="0">
+                        <option value="0" disabled>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -49,7 +63,7 @@ export default class CadastroSaida extends Component {
                     <br />
                     <div className="input-group mb-3">
                       <select className="custom-select" id="inputGroupSelect02">
-                        <option selected>Choose...</option>
+                        <option value="0" disabled>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -58,32 +72,18 @@ export default class CadastroSaida extends Component {
                         <label className="input-group-text" for="inputGroupSelect02">Options</label>
                       </div>
                     </div>
-
-
-                    <br />
-                    <div className="input-group mb-3">
-                      <select className="custom-select" id="inputGroupSelect02">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <div className="input-group-append">
-                        <label className="input-group-text" for="inputGroupSelect02">Options</label>
-                      </div>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." />
-                      <label class="form-check-label" for="gridCheck1">
-                        <strong class="d-inline-block mb-2 text-success">Notificar responsável</strong>
+                    <div className="form-check">
+                      <input className="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." />
+                      <label className="form-check-label" for="gridCheck1">
+                        <strong className="d-inline-block mb-2 text-success">Notificar responsável</strong>
                       </label>
                     </div>
 
 
                     <br />
                     <div className="input-group mb-3">
-                      <select className="custom-select" id="inputGroupSelect02">
-                        <option selected>Choose...</option>
+                      <select className="custom-select" id="inputGroupSelect02" defaultValue="0">
+                        <option value="0" disabled>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -96,8 +96,8 @@ export default class CadastroSaida extends Component {
 
                     <br />
                     <div className="input-group mb-3">
-                      <select className="custom-select" id="inputGroupSelect02">
-                        <option selected>Choose...</option>
+                      <select className="custom-select" id="inputGroupSelect02" defaultValue="0">
+                        <option value="0" disabled>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -108,20 +108,17 @@ export default class CadastroSaida extends Component {
                     </div>
 
 
-                    <div class="form-check">
-                      <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." />
+                    <div className="form-check">
+                      <input className="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." />
 
 
 
-                      <label class="form-check-label" for="gridCheck1">
-                        <strong class="d-inline-block mb-2 text-success">Notificar professor</strong>
+                      <label className="form-check-label" for="gridCheck1">
+                        <strong className="d-inline-block mb-2 text-success">Notificar professor</strong>
                       </label>
                     </div>
 
-                    <h3 className="mb-0">Featured post</h3>
-                    <div className="mb-1 text-muted">Nov 12</div>
-                    <p className="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" className="stretched-link">Continue reading</a>
+                    
                   </div>
 
                 </div>
@@ -136,37 +133,30 @@ export default class CadastroSaida extends Component {
                 <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                   <div className="col p-4 d-flex flex-column position-static">
 
-
-
-
-
-
-
-
-                    <div className="container">
-                      <div className="row">
-                        <div className='col-sm-6'>
-                          <div className="form-group">
-                            <div className='input-group date' id='datetimepicker1'>
-                              <input type='text' className="form-control" />
-                              <span className="input-group-addon">
-                                <span className="glyphicon glyphicon-calendar"></span>
-                              </span>
-                            </div>
-                          </div>
+                        <div className='alinhandoEsquerda'>
+                          <MDBInput label="Nome" type="date" background icon="calendar" />
                         </div>
                         {/*<script type="text/javascript">
                           $(function () {
                             $('#datetimepicker1').datetimepicker();
                           });
                         </script>*/}
-                      </div>
-                    </div>
 
                     <br />
                     <div className="input-group mb-3">
-                      <select className="custom-select" id="inputGroupSelect02">
-                        <option selected>Choose...</option>
+                      
+                    <select className="custom-select custom-select-lg mb-5" id="categoria" defaultValue="1">
+                      <option disabled value="1">Tipo de Usuário</option>
+                      <option value="2">Administrador</option>
+                      <option value="3">Guarda</option>
+                    </select>
+                    </div>
+
+
+                    <br />
+                    <div className="input-group mb-3">
+                      <select className="custom-select" id="inputGroupSelect02" defaultValue="0">
+                        <option value="0" disabled>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -177,31 +167,12 @@ export default class CadastroSaida extends Component {
                     </div>
 
 
-                    <br />
-                    <div className="input-group mb-3">
-                      <select className="custom-select" id="inputGroupSelect02">
-                        <option selected>Choose...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <div className="input-group-append">
-                        <label className="input-group-text" for="inputGroupSelect02">Options</label>
-                      </div>
-                    </div>
-
-
-                    <div class="form-check">
-                      <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." />
-                      <label class="form-check-label" for="gridCheck1">
-                        <strong class="d-inline-block mb-2 text-success">Example</strong>
+                    <div className="form-check">
+                      <input className="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." />
+                      <label className="form-check-label" for="gridCheck1">
+                        <strong className="d-inline-block mb-2 text-success">Example</strong>
                       </label>
                     </div>
-
-                    <h3 className="mb-0">Post title</h3>
-                    <div className="mb-1 text-muted">Nov 11</div>
-                    <p className="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" className="stretched-link">Continue reading</a>
                   </div>
 
                 </div>
