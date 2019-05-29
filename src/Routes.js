@@ -8,7 +8,7 @@ import Sidebar from './Sidebar';
 // Your components.
 import Login from './telas/Login';
 import MenuPrincipal from './telas/MenuPrincipal';
-import CadastroUsuario from './telas/CadastroUsuario';
+import MainUsuario from './telas/User/MainUser';
 import CadastroEntrada from './telas/CadastroEntrada';
 import CadastroSaida from './telas/CadastroSaida';
 import CadastroTurma from './telas/CadastroTurma';
@@ -29,7 +29,7 @@ class Routes extends Component {
             {/* `exact` makes it so it only renders if `path` matches exactly. */}
             {/* Otherwise, `HomePage` would render on "mysite.com/About" as well as "mysite.com/". */}
             <Route exact path="/" component={Login} />
-            <Route path="/cadastro_usuario" component={CadastroUsuario} />
+            <Route path="/usuario" component={MainUsuario} />
             <Route path="/cadastro_entrada" component={CadastroEntrada}/>
             <Route path="/cadastro_saida" component={CadastroSaida}/>
             <Route path="/cadastro_turma" component={CadastroTurma}/>
