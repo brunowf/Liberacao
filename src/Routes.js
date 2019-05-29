@@ -6,16 +6,16 @@ import Sidebar from './Sidebar';
 
 
 // Your components.
-import Login from './telas/Login'
+import Login from './telas/Login';
 import MenuPrincipal from './telas/MenuPrincipal';
-import CadastroUsuario from './telas/CadastroUsuario'
-import CadastroEntrada from './telas/CadastroEntrada'
-import CadastroSaida from './telas/CadastroSaida'
-import CadastroTurma from './telas/CadastroTurma'
-import CadastroProfessor from './telas/CadastroProfessor'
-import CadastroAluno from './telas/CadastroAluno'
-import AlunosLiberadosEntrada from './telas/AlunosLiberadosEntrada'
-import AlunosLiberadosSaida from './telas/AlunosLiberadosSaida'
+import MainUsuario from './telas/User/MainUser';
+import CadastroEntrada from './telas/CadastroEntrada';
+import CadastroSaida from './telas/CadastroSaida';
+import MainTurma from './telas/Turma/MainTurma';
+import MainProfessor from './telas//Professor/MainProfessor';
+import MainAluno from './telas/Aluno/MainAluno';
+import AlunosLiberadosEntrada from './telas/AlunosLiberadosEntrada';
+import AlunosLiberadosSaida from './telas/AlunosLiberadosSaida';
 
 class Routes extends Component {
   render() {
@@ -29,12 +29,12 @@ class Routes extends Component {
             {/* `exact` makes it so it only renders if `path` matches exactly. */}
             {/* Otherwise, `HomePage` would render on "mysite.com/About" as well as "mysite.com/". */}
             <Route exact path="/" component={Login} />
-            <Route path="/cadastro_usuario" component={CadastroUsuario} />
+            <Route path="/usuario" component={MainUsuario} />
             <Route path="/cadastro_entrada" component={CadastroEntrada}/>
             <Route path="/cadastro_saida" component={CadastroSaida}/>
-            <Route path="/cadastro_turma" component={CadastroTurma}/>
-            <Route path="/cadastro_professor" component={CadastroProfessor} />
-            <Route path="/cadastro_aluno" component={CadastroAluno} />
+            <Route path="/turma" component={MainTurma}/>
+            <Route path="/professor" component={MainProfessor} />
+            <Route path="/aluno" component={MainAluno} />
             <Route path="/menu_principal" component={MenuPrincipal} />
             <Route path="/alunos_liberados_entrada" component={AlunosLiberadosEntrada}/>
             <Route path="/alunos_liberados_saida" component={AlunosLiberadosSaida}/>

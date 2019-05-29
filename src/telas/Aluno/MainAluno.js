@@ -1,54 +1,44 @@
 import React, { Component, Image } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import { MDBInput, MDBBtn, MDBRow, MDBCol,MDBIcon } from "mdbreact";
-import Imagem from '../foto.jpg';
-
+import { MDBInput, MDBBtn, MDBRow, MDBCol, MDBIcon } from "mdbreact";
+import Imagem from '../../foto.jpg';
+import CadastroResposavel from "./CadastroResponsavel";
+import CadastroAluno from "./CadastroAluno";
+import ListaAlunos from "./ListaAlunos"
 
 
 //Marcio
-export default class CadastroAluno extends Component {
+export default class MainAluno extends Component {
   render() {
     return (
       <div id="App">
         <div id="page-wrap">
-          <h1>Cadastro Aluno</h1>
-          <div className="container">
+          <h1>Aluno</h1>
+          <div className="container" style={{ marginBottom: 30, marginTop: 30 }}>
+
+            <ListaAlunos></ListaAlunos>
+
             <div className="row">
               <div className="col">
                 <form className="alinhandoEsquerda">
                   <div className="card">
                     <div className="card-body">
 
-                      <div className="form-group">
-                        <MDBInput label="CPF" type="text" background icon="user" />
-                      </div>
 
-                      <div className="form-group">
-                        <MDBInput label="Nome" type="text" background icon="user" />
-                      </div>
+                      <CadastroAluno></CadastroAluno>
 
-                      <div className="form-group">
-                        <MDBInput label="Data" type="date" background icon="calendar-day" />
-                      </div>
 
                     </div>
                   </div>
 
-                  <div className="card">
+
+                  <div className="card" style={{ marginBottom: 30 }}>
                     <div className="card-body">
 
-                      <div className="form-group">
-                        <MDBInput label="CPF responsável" type="text" background icon="user" />
-                      </div>
 
-                      <div className="form-group">
-                        <MDBInput label="Nome responsável" type="text" background icon="user" />
-                      </div>
+                      <CadastroResposavel></CadastroResposavel>
 
-                      <div >
-                        <MDBInput label="Email responsável" type="text" background icon="envelope" />
-                      </div>
 
                     </div>
                   </div>
@@ -63,7 +53,7 @@ export default class CadastroAluno extends Component {
                   </div>
 
                   <div>
-                  <MDBBtn color="success" className="text-xs-left"><i className="fas fa-camera"></i></MDBBtn>
+                    <MDBBtn color="success" className="text-xs-left"><i className="fas fa-camera"></i></MDBBtn>
                   </div>
 
                   <br></br>
@@ -87,7 +77,7 @@ export default class CadastroAluno extends Component {
                   <br></br>
 
                   <div>
-                  <MDBBtn color="success" className="text-xs-left">Cadastrar</MDBBtn>
+                    <MDBBtn color="success" className="text-xs-left">Cadastrar</MDBBtn>
                   </div>
 
                 </div>
