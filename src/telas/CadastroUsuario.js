@@ -42,14 +42,20 @@ export default class CadastroUsuario extends Component {
           sort: 'asc',
           width: 200
         },
+        {
+          label: 'Ativo',
+          field: 'ativo',
+          sort: 'asc',
+          width: 200
+        },
       ],
       rows: [{ 
-        id: '1',
+        id: 1,
       nome: 'Admin João da Silva',
       email: 'joao@gmail.com',
       senha: '12345',
-      create_time: '2019-05-28T00:55:53.622+0000'}//, "ativo": true, "telefones": ["(48)999887766"], "registros_saidas": [{ "id": 1, "observacao": "Obs", "hora_saida": "1970-01-01T22:26:00.000+0000", "repetir_ate": "2019-04-25T03:00:00.000+0000", "segunda": false, "terca": true, "quarta": false, "quinta": false, "sexta": false, "sabado": false, "notificar_resp": true, "notificar_prof": true, "create_time": "2019-05-28T00:55:53.623+0000" }], "registros_entradas": [{ "id": 1, "observacao": "obs", "hora_entrada": "1970-01-01T23:44:00.000+0000", "repetir_ate": "2019-04-25T03:00:00.000+0000", "segunda": false, "terca": true, "quarta": false, "quinta": false, "sexta": false, "sabado": false, "notificar_resp": true, "notificar_prof": true, "create_time": "2019-05-28T00:55:53.623+0000" }] }, 
-      // { "id": 2, "nome": "Admin Manoel Heleno", "email": "manuel@gmail.com", "senha": "12345", "create_time": "2019-05-28T00:55:53.622+0000", "ativo": true, "telefones": [], "registros_saidas": [], "registros_entradas": [] }, 
+      create_time: '2019-05-28T00:55:53.622+0000', ativo: true, },//"telefones": ["(48)999887766"], "registros_saidas": [{ "id": 1, "observacao": "Obs", "hora_saida": "1970-01-01T22:26:00.000+0000", "repetir_ate": "2019-04-25T03:00:00.000+0000", "segunda": false, "terca": true, "quarta": false, "quinta": false, "sexta": false, "sabado": false, "notificar_resp": true, "notificar_prof": true, "create_time": "2019-05-28T00:55:53.623+0000" }], "registros_entradas": [{ "id": 1, "observacao": "obs", "hora_entrada": "1970-01-01T23:44:00.000+0000", "repetir_ate": "2019-04-25T03:00:00.000+0000", "segunda": false, "terca": true, "quarta": false, "quinta": false, "sexta": false, "sabado": false, "notificar_resp": true, "notificar_prof": true, "create_time": "2019-05-28T00:55:53.623+0000" }] }, 
+       { id: 2, nome: "Admin Manoel Heleno", email: "manuel@gmail.com", senha: "12345", create_time: "2019-05-28T00:55:53.622+0000"}//, "ativo": true, "telefones": [], "registros_saidas": [], "registros_entradas": [] }, 
       // { "id": 3, "nome": "Admin Helena Filha", "email": "helena@gmail.com", "senha": "12345", "create_time": "2019-05-28T00:55:53.622+0000", "ativo": false, "telefones": [], "registros_saidas": [], "registros_entradas": [] }, 
       // { "id": 4, "nome": "Guarda João da Silva", "email": "joao@gmail.com", "senha": "12345", "create_time": "2019-05-28T00:55:53.622+0000", "ativo": true, "telefones": [] }, 
       // { "id": 5, "nome": "Guarda Manoel Heleno", "email": "manuel@gmail.com", "senha": "12345", "create_time": "2019-05-28T00:55:53.622+0000", "ativo": true, "telefones": [] }, 
