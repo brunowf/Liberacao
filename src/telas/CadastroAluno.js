@@ -1,7 +1,7 @@
 import React, { Component, Image } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import { MDBInput, MDBBtn, MDBRow, MDBCol,MDBIcon } from "mdbreact";
+import { MDBInput, MDBBtn, MDBRow, MDBCol, MDBIcon } from "mdbreact";
 import Imagem from '../foto.jpg';
 
 
@@ -13,7 +13,7 @@ export default class CadastroAluno extends Component {
       <div id="App">
         <div id="page-wrap">
           <h1>Cadastro Aluno</h1>
-          <div className="container">
+          <div className="container" style={{ marginBottom: 30, marginTop: 30 }}>
             <div className="row">
               <div className="col">
                 <form className="alinhandoEsquerda">
@@ -35,7 +35,8 @@ export default class CadastroAluno extends Component {
                     </div>
                   </div>
 
-                  <div className="card">
+
+                  <div className="card" style={{ marginBottom: 30 }}>
                     <div className="card-body">
 
                       <div className="form-group">
@@ -63,7 +64,7 @@ export default class CadastroAluno extends Component {
                   </div>
 
                   <div>
-                  <MDBBtn color="success" className="text-xs-left"><i className="fas fa-camera"></i></MDBBtn>
+                    <MDBBtn color="success" className="text-xs-left"><i className="fas fa-camera"></i></MDBBtn>
                   </div>
 
                   <br></br>
@@ -87,7 +88,7 @@ export default class CadastroAluno extends Component {
                   <br></br>
 
                   <div>
-                  <MDBBtn color="success" className="text-xs-left">Cadastrar</MDBBtn>
+                    <MDBBtn color="success" className="text-xs-left">Cadastrar</MDBBtn>
                   </div>
 
                 </div>
