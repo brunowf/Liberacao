@@ -12,40 +12,35 @@ export default class AlunosLiberadosSaida extends Component {
   render() {
     return (
       <div className='container'>
-        <div class="container">
-          <h2>Alunos liberado para saida</h2>
-          
-          <div class="card-group">
+        <h2>Alunos liberado para saida</h2>
+       
+         <div class="card-group">
             <div class="card bg-primary">
-            <img src='https://i.pinimg.com/originals/b6/6d/bd/b66dbd1d1a8e9810716d8b29cf2e9d6b.jpg'></img>
+              <img src="imagens/aluna1.jpg"></img>
               <div class="card-body text-center">
-                <p class="card-text">Proximo aluno liberado</p>
-                
+                 <p class="card-text">Proximo aluno liberado</p>
               </div>
             </div>
-            <div class="card-group">
-            <div class="card bg-warning">
+            <div class="card bg-primary">
+              <img src="imagens/eduardo.jpg"></img>
               <div class="card-body text-center">
-              <img src='https://i.pinimg.com/originals/b6/6d/bd/b66dbd1d1a8e9810716d8b29cf2e9d6b.jpg'></img>
-                <p class="card-text">Proximo aluno liberado</p>
+                 <p class="card-text">Proximo aluno liberado</p>
               </div>
             </div>
-            <div class="card bg-success">
+            <div class="card bg-primary">
+              <img src="imagens/aluna3.jpg"></img>
               <div class="card-body text-center">
-              <img src='https://i.pinimg.com/originals/b6/6d/bd/b66dbd1d1a8e9810716d8b29cf2e9d6b.jpg'></img>
-                <p class="card-text">Proximo aluno liberado</p>
+                 <p class="card-text">Proximo aluno liberado</p>
               </div>
             </div>
             <div class="card bg-danger">
-              <div class="card-body text-center">
-              <img src='https://i.pinimg.com/originals/b6/6d/bd/b66dbd1d1a8e9810716d8b29cf2e9d6b.jpg'></img>
-                <p class="card-text">Proximo aluno liberado</p>
-              </div>
+            <div class="card-body text-center">
+            <img src="imagens/aluna4.jpg"></img>
+               <p class="card-text">Proximo aluno liberado</p>
+               </div>
             </div>
           </div>
-        </div>
-      </div>
-      </div>
-    );
-  }
+    </div>
+   );
+ }
 }
