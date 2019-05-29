@@ -1,107 +1,52 @@
-import React, { Component} from "react";
-import axios from 'axios';
-import { DataTable } from "mdbreact";
-import { urlServidor } from '../../Variaveis.json'
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import { MDBCardBody, MDBCardTitle, MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import ListaUser from './ListaUser';
+import CadastroUser from './CadastroUser';
+//Rodrigo
 
+export default class CadastroUsuario extends Component {
 
-
-
-export default class MainUser extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      listaUsers:{
-        columns:[
-          {
-            label: 'ID',
-            field: 'id',
-            sort: 'asc',
-            width: 150
-          },
-          {
-            label: 'Nome',
-            field: 'nome',
-            sort: 'asc',
-            width: 150
-          },
-          {
-            label: 'E-mail',
-            field: 'email',
-            sort: 'asc',
-            width: 270
-          },
-          {
-            label: 'Senha',
-            field: 'senha',
-            sort: 'asc',
-            width: 200
-          },
-          {
-            label: 'Data de Cadastro',
-            field: 'create_time',
-            sort: 'asc',
-            width: 200
-          },
-          {
-            label: 'Ativo',
-            field: 'ativo',
-            sort: 'asc',
-            width: 200
-          },
-          {
-            label: 'Telefones',
-            field: 'telefones',
-            sort: 'asc',
-            width: 200
-          },
-          // {
-          //   label: 'Registros de Saídas',
-          //   field: 'registros_saidas',
-          //   sort: 'asc',
-          //   width: 200
-          // },
-          // {
-          //   label: 'Registros de Entradas',
-          //   field: 'registros_entradas',
-          //   sort: 'asc',
-          //   width: 200
-          // },
-        ],
-        rows:[
-          {
-
-          }
-        ]
-      }
-    }
+  showSettings(event) {
+    event.preventDefault();
   }
 
-  componentDidMount() {
-    axios.get(urlServidor + '/users')
-      .then(resposta => {
-        //se deu certo:
-        //this.setState({ listaProfessores: resposta.data })
-        let data = {...this.state.listaUsers}
-        data.rows = resposta.data
-        console.log(data)
-        this.setState( { listaUsers : data } )
-
-      })
-      .catch(resposta => {
-        //se deu errado:
-        alert('Deu errado!')
-        console.log(resposta)
-      })
-  }
   render() {
     return (
-            <DataTable
-            striped
-            bordered
-            hover
-            data={this.state.listaUsers}
-            />
+      <MDBContainer>
+        <MDBContainer style={{ marginTop: 60, marginBottom: 60 }}>
+          <MDBRow>
+            <MDBCol size="1"></MDBCol>
+            <MDBCol size="10" md="10" lg="10" className="mx-auto float-none white z-depth-3 py-2 px-2">
+              <MDBCardBody>
+                <MDBCardTitle>Lista de Usuários</MDBCardTitle>
+
+                <ListaUser></ListaUser>
+
+              </MDBCardBody>
+            </MDBCol>
+            <MDBCol size="1"></MDBCol>
+          </MDBRow>
+        </MDBContainer>
+
+        <MDBContainer style={{ marginTop: 60, marginBottom: 60 }}>
+          <MDBRow>
+            <MDBCol size="2"></MDBCol>
+            <MDBCol size="8" md="8" lg="8" className="mx-auto float-none white z-depth-3 py-2 px-2">
+              <MDBCardBody>
+                <MDBCardTitle>Cadastro de Usuário</MDBCardTitle>
+                
+                <CadastroUser></CadastroUser>
+
+              </MDBCardBody>
+            </MDBCol>
+            <MDBCol size="2"></MDBCol>
+          </MDBRow>
+        </MDBContainer>
+
+
+      </MDBContainer>
     );
   }
-
 }
