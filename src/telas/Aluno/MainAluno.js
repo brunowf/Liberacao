@@ -16,53 +16,34 @@ export default class MainAluno extends Component {
         <div id="page-wrap">
           <h1>Aluno</h1>
           <div className="container" style={{ marginBottom: 30, marginTop: 30 }}>
-
             <ListaAlunos></ListaAlunos>
-
             <div className="row">
               <div className="col">
                 <form className="alinhandoEsquerda">
                   <div className="card">
                     <div className="card-body">
-
-
                       <CadastroAluno></CadastroAluno>
-
-
                     </div>
                   </div>
-
-
                   <div className="card" style={{ marginBottom: 30 }}>
                     <div className="card-body">
-
-
                       <CadastroResposavel></CadastroResposavel>
-
-
                     </div>
                   </div>
                 </form>
-
               </div>
               <div className="col">
                 <div className="card">
-
                   <div className="card-body">
                     <img className="foto" src={Imagem}></img>
                   </div>
-
                   <div>
                     <MDBBtn color="success" className="text-xs-left"><i className="fas fa-camera"></i></MDBBtn>
                   </div>
-
                   <br></br>
-
                   <div>
                     <MDBRow>
-
                       <MDBCol size="2"></MDBCol>
-
                       <MDBCol size="8">
                         <select className="custom-select custom-select-lg mb-5" id="Turma" defaultValue="1">
                           <option disabled value="1">Turma</option>
@@ -73,13 +54,10 @@ export default class MainAluno extends Component {
                       <MDBCol size="2"></MDBCol>
                     </MDBRow>
                   </div>
-
                   <br></br>
-
                   <div>
                     <MDBBtn color="success" className="text-xs-left">Cadastrar</MDBBtn>
                   </div>
-
                 </div>
               </div>
             </div>

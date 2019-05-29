@@ -22,16 +22,10 @@ export default class ListaAlunos extends Component {
             width: 150
           },
           {
-            label: 'E-mail',
-            field: 'email',
+            label: 'CPF',
+            field: 'cpf',
             sort: 'asc',
             width: 270
-          },
-          {
-            label: 'Senha',
-            field: 'senha',
-            sort: 'asc',
-            width: 200
           },
           {
             label: 'Data de Cadastro',
