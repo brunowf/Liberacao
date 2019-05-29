@@ -1,8 +1,9 @@
 import React, { Component} from "react";
 import axios from 'axios';
 import { DataTable } from "mdbreact";
+import { urlServidor } from '../../Variaveis.json'
 
-const url = 'http://localhost:8080';
+
 
 
 export default class MainProfessor extends Component {
@@ -52,7 +53,7 @@ export default class MainProfessor extends Component {
   }
 
   componentDidMount() {
-    axios.get(url + '/users/professores')
+    axios.get(urlServidor + '/users/professores')
       .then(resposta => {
         //se deu certo:
         //this.setState({ listaProfessores: resposta.data })
