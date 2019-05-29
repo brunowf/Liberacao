@@ -13,7 +13,7 @@ import CadastroEntrada from './telas/CadastroEntrada';
 import CadastroSaida from './telas/CadastroSaida';
 import MainTurma from './telas/Turma/MainTurma';
 import MainProfessor from './telas//Professor/MainProfessor';
-import CadastroAluno from './telas/CadastroAluno';
+import MainAluno from './telas/Aluno/MainAluno';
 import AlunosLiberadosEntrada from './telas/AlunosLiberadosEntrada';
 import AlunosLiberadosSaida from './telas/AlunosLiberadosSaida';
 
@@ -34,7 +34,7 @@ class Routes extends Component {
             <Route path="/cadastro_saida" component={CadastroSaida}/>
             <Route path="/turma" component={MainTurma}/>
             <Route path="/professor" component={MainProfessor} />
-            <Route path="/cadastro_aluno" component={CadastroAluno} />
+            <Route path="/aluno" component={MainAluno} />
             <Route path="/menu_principal" component={MenuPrincipal} />
             <Route path="/alunos_liberados_entrada" component={AlunosLiberadosEntrada}/>
             <Route path="/alunos_liberados_saida" component={AlunosLiberadosSaida}/>
