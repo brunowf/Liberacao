@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'antd/dist/antd.css';
+
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import {
   MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer,
   MDBRow, MDBCol, MDBFreeBird, MDBEdgeHeader
 } from "mdbreact";
 //Rodrigo
+import { DatePicker } from 'antd';
 
+const { RangePicker } = DatePicker;
 
+function onChange(value, dateString) {
+  console.log('Selected Time: ', value);
+  console.log('Formatted Selected Time: ', dateString);
+}
+
+function onOk(value) {
+  console.log('onOk: ', value);
+}
 
 
 export default class CadastroSaida extends Component {
   showSettings(event) {
     event.preventDefault();
   }
+
 
   render() {
     return (
@@ -28,10 +41,12 @@ export default class CadastroSaida extends Component {
             <MDBCardBody>
               <MDBCardTitle></MDBCardTitle>
               <form className='alinhandoEsquerda'>
-                <MDBInput label="Nome Completo" background icon="user" group type="text" id='nome' />
-                <MDBInput label="E-mail" background icon="envelope" color="success" group type='email' id='email' />
-                <MDBInput label="Senha" background icon="key" group type='password' id='senha' />
-                <MDBInput label="Telefone / WhatsApp" background icon="phone" group type='tel' id='telefone' />
+                <MDBInput hint="CPF" type="text" containerClass="active-pink active-pink-2 mt-0 mb-3" />
+
+                <MDBInput label="Nome Completo" icon="user" group type="text" id='nome' />
+                <MDBInput label="E-mail" icon="envelope" color="success" group type='email' id='email' />
+                <MDBInput label="Senha" icon="key" group type='password' id='senha' />
+                <MDBInput label="Telefone / WhatsApp" icon="phone" group type='tel' id='telefone' />
 
                 <div>
                   <select className="custom-select custom-select-lg mb-5" id="categoria" defaultValue="1">
@@ -50,11 +65,17 @@ export default class CadastroSaida extends Component {
               <MDBCardTitle></MDBCardTitle>
               <form className='alinhandoEsquerda'>
 
+                <RangePicker className='alinhandoCentro'
+                  showTime={{ format: 'HH:mm' }}
+                  format="YYYY-MM-DD HH:mm"
+                  placeholder={['Start Time', 'End Time']}
+                  onChange={onChange}
+                  onOk={onOk}
+                />
 
-
-                <MDBInput label="E-mail" background icon="envelope" color="success" group type='email' id='email' />
-                <MDBInput label="Senha" background icon="key" group type='password' id='senha' />
-                <MDBInput label="Telefone / WhatsApp" background icon="phone" group type='tel' id='telefone' />
+                <MDBInput label="E-mail" icon="envelope" color="success" group type='email' id='email' />
+                <MDBInput label="Senha" icon="key" group type='password' id='senha' />
+                <MDBInput label="Telefone / WhatsApp" icon="phone" group type='tel' id='telefone' />
 
                 <div>
                   <select className="custom-select custom-select-lg mb-5" id="categoria" defaultValue="1">
