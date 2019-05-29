@@ -11,7 +11,7 @@ import MenuPrincipal from './telas/MenuPrincipal';
 import MainUsuario from './telas/User/MainUser';
 import CadastroEntrada from './telas/CadastroEntrada';
 import CadastroSaida from './telas/CadastroSaida';
-import CadastroTurma from './telas/CadastroTurma';
+import MainTurma from './telas/Turma/MainTurma';
 import MainProfessor from './telas//Professor/MainProfessor';
 import CadastroAluno from './telas/CadastroAluno';
 import AlunosLiberadosEntrada from './telas/AlunosLiberadosEntrada';
@@ -32,7 +32,7 @@ class Routes extends Component {
             <Route path="/usuario" component={MainUsuario} />
             <Route path="/cadastro_entrada" component={CadastroEntrada}/>
             <Route path="/cadastro_saida" component={CadastroSaida}/>
-            <Route path="/cadastro_turma" component={CadastroTurma}/>
+            <Route path="/turma" component={MainTurma}/>
             <Route path="/professor" component={MainProfessor} />
             <Route path="/cadastro_aluno" component={CadastroAluno} />
             <Route path="/menu_principal" component={MenuPrincipal} />
