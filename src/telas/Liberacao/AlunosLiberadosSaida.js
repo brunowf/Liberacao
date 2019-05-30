@@ -1,12 +1,8 @@
-<<<<<<< HEAD:src/telas/Liberacao/AlunosLiberadosSaida.js
-import React, { Component } from '../../../node_modules/react';
-=======
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
->>>>>>> 47955d267414094c69d30dc99bf3914e6de6f480:src/telas/AlunosLiberadosSaida.js
 //Daniel
 export default class AlunosLiberadosSaida extends Component {
   showSettings(event) {

@@ -3,35 +3,17 @@ import React, { Component } from 'react';
 // The are other routers for other environments, though.
 import { BrowserRouter, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
-
-import FixedNavbar from './components/NavBarMDB';
-
 // Your components.
 import Login from './telas/Login';
 import MenuPrincipal from './telas/MenuPrincipal';
-
 import MainUsuario from './telas/User/MainUser';
-<<<<<<< HEAD
-
-import CadastroAluno from './telas/Aluno/CadastroAluno';
-import CadastroTurma from './telas/Aluno/CadastroTurma';
-
-import MainProfessor from './telas/Professor/MainProfessor';
-
-
-import AlunosLiberadosEntrada from './telas/Liberacao/AlunosLiberadosEntrada';
-import AlunosLiberadosSaida from './telas/Liberacao/AlunosLiberadosSaida';
 import CadastroEntrada from './telas/Liberacao/CadastroEntrada';
 import CadastroSaida from './telas/Liberacao/CadastroSaida';
-=======
-import CadastroEntrada from './telas/CadastroEntrada';
-import CadastroSaida from './telas/CadastroSaida';
 import MainTurma from './telas/Turma/MainTurma';
 import MainProfessor from './telas//Professor/MainProfessor';
 import MainAluno from './telas/Aluno/MainAluno';
-import AlunosLiberadosEntrada from './telas/AlunosLiberadosEntrada';
-import AlunosLiberadosSaida from './telas/AlunosLiberadosSaida';
->>>>>>> 47955d267414094c69d30dc99bf3914e6de6f480
+import AlunosLiberadosEntrada from './telas/Liberacao/AlunosLiberadosEntrada';
+import AlunosLiberadosSaida from './telas/Liberacao/AlunosLiberadosSaida';
 
 class Routes extends Component {
   render() {
@@ -47,15 +29,9 @@ class Routes extends Component {
             {/* Otherwise, `HomePage` would render on "mysite.com/About" as well as "mysite.com/". */}
             <Route exact path="/" component={Login} />
             <Route path="/usuario" component={MainUsuario} />
-<<<<<<< HEAD
-            <Route path="/cadastro_entrada" component={CadastroEntrada} />
-            <Route path="/cadastro_saida" component={CadastroSaida} />
-            <Route path="/cadastro_turma" component={CadastroTurma} />
-=======
             <Route path="/cadastro_entrada" component={CadastroEntrada}/>
             <Route path="/cadastro_saida" component={CadastroSaida}/>
             <Route path="/turma" component={MainTurma}/>
->>>>>>> 47955d267414094c69d30dc99bf3914e6de6f480
             <Route path="/professor" component={MainProfessor} />
             <Route path="/aluno" component={MainAluno} />
             <Route path="/menu_principal" component={MenuPrincipal} />
