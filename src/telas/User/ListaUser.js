@@ -1,6 +1,6 @@
 import React, { Component} from "react";
 import axios from 'axios';
-import { DataTable } from "mdbreact";
+import { MDBDataTable, MDBInput } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json'
 
 
@@ -83,6 +83,9 @@ export default class ListaUser extends Component {
         //this.setState({ listaProfessores: resposta.data })
         let data = {...this.state.listaUsers}
         data.rows = resposta.data
+        data.rows.map(linha => {
+          linha.check = <MDBInput type="checkbox" id={`${linha.id}`} />
+        });
         console.log(data)
         this.setState( { listaUsers : data } )
 
@@ -95,7 +98,7 @@ export default class ListaUser extends Component {
   }
   render() {
     return (
-            <DataTable
+            <MDBDataTable
             striped
             bordered
             hover
