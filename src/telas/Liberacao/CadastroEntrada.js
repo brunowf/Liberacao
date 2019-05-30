@@ -1,19 +1,20 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'antd/dist/antd.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+
+import React, { Component } from '../../../node_modules/react';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../../node_modules/antd/dist/antd.css';
+import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
 import {
   MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer,
   MDBRow, MDBCol, MDBFreeBird, MDBEdgeHeader
-} from "mdbreact";
-import '../css/styles.css';
+} from "../../../node_modules/mdbreact";
+import '../../css/styles.css';
 
-import { DatePicker } from 'antd';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import { DatePicker } from '../../../node_modules/antd';
+import { makeStyles } from '../../../node_modules/@material-ui/core/styles';
+import InputLabel from '../../../node_modules/@material-ui/core/InputLabel';
+import MenuItem from '../../../node_modules/@material-ui/core/MenuItem';
+import FormControl from '../../../node_modules/@material-ui/core/FormControl';
+import Select from '../../../node_modules/@material-ui/core/Select';
 
 
 // Range Picker
@@ -47,7 +48,7 @@ function onOk(value) {
 
 
 
-export default class CadastroSaida extends Component {
+export default class CadastroEntrada extends Component {
 
   constructor(props) {
     super(props)
@@ -87,24 +88,35 @@ export default class CadastroSaida extends Component {
 
 
                 <MDBInput label="Telefone / WhatsApp" icon="phone" group type='tel' id='telefone' />
-        
-               {/* <InputLabel htmlFor="turma-simple">Turma</InputLabel> */}   
-                  <Select 
-                    value={this.state.turma}
-                    onChange={this.handleChangeTurma}
-                    inputProps={{
-                      name: 'turma',
-                      id: 'turma-simple',
-                    }}
-                  >
-                    <MenuItem value="">
-                      <em>Escolha Turma</em>
-                    </MenuItem>
-                    <MenuItem value={10}> Connect 2A </MenuItem>
-                    <MenuItem value={20}> Connect 2B </MenuItem>
 
-                  </Select>
-           
+
+
+
+                {/* 
+              
+              
+              
+                  to do: 
+                      Tentar acertar o CSS
+              
+               */}
+                <InputLabel htmlFor="turma-simple">Turma</InputLabel>
+                <Select
+                  value={this.state.turma}
+                  onChange={this.handleChangeTurma}
+                  inputProps={{
+                    name: 'turma',
+                    id: 'turma-simple',
+                  }}
+                >
+                  <MenuItem value="">
+                    <em>Escolha Turma</em>
+                  </MenuItem>
+                  <MenuItem value={10}> Connect 2A </MenuItem>
+                  <MenuItem value={20}> Connect 2B </MenuItem>
+
+                </Select>
+
 
 
               </form>

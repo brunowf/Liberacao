@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from '../../../node_modules/react';
 //Daniel
 export default class AlunosLiberadosEntrada extends Component {
   showSettings(event) {
