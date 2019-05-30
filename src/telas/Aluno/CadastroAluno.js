@@ -2,7 +2,7 @@ import React, { Component, Image } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import { MDBInput, MDBBtn, MDBRow, MDBCol,MDBIcon } from "mdbreact";
-import Imagem from '../foto.jpg';
+import Imagem from '../../foto.jpg';
 
 
 

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from '../../../node_modules/react';
 //Daniel
-export default class AlunosLiberadosSaida extends Component {
+export default class AlunosLiberadosEntrada extends Component {
   showSettings(event) {
     event.preventDefault();
   }
@@ -9,7 +9,7 @@ export default class AlunosLiberadosSaida extends Component {
     return (
       <div id="App">
         <div id="page-wrap">
-          <h1>Alunos Liberados Saida</h1>
+          <h1>Alunos Liberados Entrada</h1>
         </div>
       </div>
     );
