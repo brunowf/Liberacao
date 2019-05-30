@@ -3,41 +3,36 @@ import axios from 'axios';
 import { DataTable } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json'
 
-export default class ListaProfessores extends Component {
+export default class ListaTurmas extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listaProfessores: {
+      listaTurmas: {
         columns: [
           {
             label: 'ID',
             field: 'id',
             sort: 'asc',
-            width: 150
           },
           {
-            label: 'Nome',
-            field: 'nome',
+            label: 'Curso',
+            field: 'nome_curso',
             sort: 'asc',
-            width: 150
           },
           {
-            label: 'E-mail',
-            field: 'email',
+            label: 'Período',
+            field: 'periodo',
             sort: 'asc',
-            width: 270
           },
           {
-            label: 'Senha',
-            field: 'senha',
+            label: 'Fase',
+            field: 'fase',
             sort: 'asc',
-            width: 200
           },
           {
-            label: 'Data de Cadastro',
-            field: 'create_time',
+            label: 'Ano/Semestre',
+            field: 'ano_semestre',
             sort: 'asc',
-            width: 200
           },
         ],
         rows: [
@@ -50,14 +45,14 @@ export default class ListaProfessores extends Component {
   }
 
   componentDidMount() {
-    axios.get(urlServidor + '/users/professores')
+    axios.get(urlServidor + '/turmas')
       .then(resposta => {
         //se deu certo:
-        //this.setState({ listaProfessores: resposta.data })
-        let data = { ...this.state.listaProfessores }
+        //this.setState({ listaTurmas: resposta.data })
+        let data = { ...this.state.listaTurmas }
         data.rows = resposta.data
         console.log(data)
-        this.setState({ listaProfessores: data })
+        this.setState({ listaTurmas: data })
 
       })
       .catch(resposta => {
@@ -72,7 +67,7 @@ export default class ListaProfessores extends Component {
         striped
         bordered
         hover
-        data={this.state.listaProfessores}
+        data={this.state.listaTurmas}
       />
     );
   }

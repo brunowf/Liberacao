@@ -1,4 +1,12 @@
+<<<<<<< HEAD:src/telas/Liberacao/AlunosLiberadosSaida.js
 import React, { Component } from '../../../node_modules/react';
+=======
+import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import $ from 'jquery';
+import Popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+>>>>>>> 47955d267414094c69d30dc99bf3914e6de6f480:src/telas/AlunosLiberadosSaida.js
 //Daniel
 export default class AlunosLiberadosSaida extends Component {
   showSettings(event) {
@@ -7,11 +15,36 @@ export default class AlunosLiberadosSaida extends Component {
 
   render() {
     return (
-      <div id="App">
-        <div id="page-wrap">
-          <h1>Alunos Liberados Saida</h1>
-        </div>
-      </div>
-    );
-  }
+      <div className='container'>
+        <h2>Alunos liberado para saida</h2>
+       
+         <div class="card-group">
+            <div class="card bg-primary">
+              <img src="imagens/aluna1.jpg"></img>
+              <div class="card-body text-center">
+                 <p class="card-text">Proximo aluno liberado</p>
+              </div>
+            </div>
+            <div class="card bg-primary">
+              <img src="imagens/eduardo.jpg"></img>
+              <div class="card-body text-center">
+                 <p class="card-text">Proximo aluno liberado</p>
+              </div>
+            </div>
+            <div class="card bg-primary">
+              <img src="imagens/aluna3.jpg"></img>
+              <div class="card-body text-center">
+                 <p class="card-text">Proximo aluno liberado</p>
+              </div>
+            </div>
+            <div class="card bg-danger">
+            <div class="card-body text-center">
+            <img src="imagens/aluna4.jpg"></img>
+               <p class="card-text">Proximo aluno liberado</p>
+               </div>
+            </div>
+          </div>
+    </div>
+   );
+ }
 }

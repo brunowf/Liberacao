@@ -5,9 +5,6 @@ import CadastroProfessor from './CadastroProfessor.js';
 import { urlServidor } from '../../Variaveis.json';
 import ListaProfessores from "./ListaProfessores.js";
 
-
-
-
 export default class MainProfessor extends Component {
 
   render() {
