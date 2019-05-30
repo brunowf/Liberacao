@@ -3,11 +3,11 @@ import axios from 'axios';
 import { DataTable } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json'
 
-export default class ListaAlunos extends Component {
+export default class ListaSaidas extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listaAlunos: {
+      listaSaidas: {
         columns: [
           {
             label: 'ID',
@@ -22,10 +22,16 @@ export default class ListaAlunos extends Component {
             width: 150
           },
           {
-            label: 'CPF',
-            field: 'cpf',
+            label: 'E-mail',
+            field: 'email',
             sort: 'asc',
             width: 270
+          },
+          {
+            label: 'Senha',
+            field: 'senha',
+            sort: 'asc',
+            width: 200
           },
           {
             label: 'Data de Cadastro',
@@ -44,14 +50,14 @@ export default class ListaAlunos extends Component {
   }
 
   componentDidMount() {
-    axios.get(urlServidor + '/alunos')
+    axios.get(urlServidor + '/users/saidas')
       .then(resposta => {
         //se deu certo:
-        //this.setState({ listaAlunos: resposta.data })
-        let data = { ...this.state.listaAlunos }
+        //this.setState({ listaProfessores: resposta.data })
+        let data = { ...this.state.listaSaidas }
         data.rows = resposta.data
         console.log(data)
-        this.setState({ listaAlunos: data })
+        this.setState({ listaSaidas: data })
 
       })
       .catch(resposta => {
@@ -66,7 +72,7 @@ export default class ListaAlunos extends Component {
         striped
         bordered
         hover
-        data={this.state.listaAlunos}
+        data={this.state.listaSaidas}
       />
     );
   }

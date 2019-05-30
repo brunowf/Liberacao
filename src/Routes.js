@@ -3,28 +3,27 @@ import React, { Component } from 'react';
 // The are other routers for other environments, though.
 import { BrowserRouter, Route } from 'react-router-dom';
 import Sidebar from './Sidebar';
-
-
 // Your components.
 import Login from './telas/Login';
 import MenuPrincipal from './telas/MenuPrincipal';
 import MainUsuario from './telas/User/MainUser';
-import CadastroEntrada from './telas/CadastroEntrada';
-import CadastroSaida from './telas/CadastroSaida';
+import CadastroEntrada from './telas/Liberacao/CadastroEntrada';
+import CadastroSaida from './telas/Liberacao/CadastroSaida';
 import MainTurma from './telas/Turma/MainTurma';
 import MainProfessor from './telas//Professor/MainProfessor';
 import MainAluno from './telas/Aluno/MainAluno';
-import AlunosLiberadosEntrada from './telas/AlunosLiberadosEntrada';
-import AlunosLiberadosSaida from './telas/AlunosLiberadosSaida';
+import AlunosLiberadosEntrada from './telas/Liberacao/AlunosLiberadosEntrada';
+import AlunosLiberadosSaida from './telas/Liberacao/AlunosLiberadosSaida';
 
 class Routes extends Component {
   render() {
     return (
       <div id="App">
+
         <BrowserRouter>
+
           <Sidebar pageWrapId={"page-wrap"} outerContainerId={"App"}></Sidebar>
           <div id="page-wrap">
-
             {/* `component` will render when `path` matches the user's location */}
             {/* `exact` makes it so it only renders if `path` matches exactly. */}
             {/* Otherwise, `HomePage` would render on "mysite.com/About" as well as "mysite.com/". */}
@@ -36,8 +35,8 @@ class Routes extends Component {
             <Route path="/professor" component={MainProfessor} />
             <Route path="/aluno" component={MainAluno} />
             <Route path="/menu_principal" component={MenuPrincipal} />
-            <Route path="/alunos_liberados_entrada" component={AlunosLiberadosEntrada}/>
-            <Route path="/alunos_liberados_saida" component={AlunosLiberadosSaida}/>
+            <Route path="/alunos_liberados_entrada" component={AlunosLiberadosEntrada} />
+            <Route path="/alunos_liberados_saida" component={AlunosLiberadosSaida} />
           </div>
         </BrowserRouter>
       </div>
