@@ -3,7 +3,6 @@ import axios from 'axios';
 import { DataTable } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json'
 
-
 export default class ListaAlunos extends Component {
   constructor(props) {
     super(props);
