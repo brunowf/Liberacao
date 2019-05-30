@@ -1,5 +1,5 @@
 import React,{ Component } from "react";
-import { MDBInput, MDBBtn, MDBRow, MDBCol, MDBIcon } from "mdbreact";
+import { MDBInput} from "mdbreact";
 
 export default class CadastroResponsavel extends Component{
   render(){

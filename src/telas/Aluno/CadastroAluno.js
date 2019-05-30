@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+import React, { Component } from "react";
+import { MDBInput} from "mdbreact";
+
+export default class CadastroAluno extends Component{
+  render(){
+    return(
+      <div>
+        <MDBInput label="CPF" type="text" background icon="user" />
+        <MDBInput label="Nome" type="text" background icon="user" />
+        <MDBInput label="Data" type="date" background icon="calendar-day" />
+      </div>
+    );
+  }
+}
+=======
 import React, { Component, Image } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
@@ -41,6 +57,7 @@ export default class CadastroAluno extends Component {
                       <div className="form-group">
                         <MDBInput label="CPF responsável" type="text" background icon="user" />
                       </div>
+>>>>>>> ef9e3ba717e9076be80238c8d230d76261596c5f
 
                       <div className="form-group">
                         <MDBInput label="Nome responsável" type="text" background icon="user" />
