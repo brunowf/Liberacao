@@ -27,7 +27,7 @@ export default class CadastroTurma extends Component {
       ano_semestre: this.state.turmaAnoSemestre
     }).then(resposta => {
       //se deu certo:
-      alert('deu certo')
+      alert('Cadastrado com sucesso!')
     })
       .catch(resposta => {
         //se der errado
