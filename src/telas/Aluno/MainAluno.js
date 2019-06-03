@@ -1,7 +1,7 @@
-import React, { Component, Image } from 'react';
+import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import { MDBInput, MDBBtn, MDBRow, MDBCol, MDBIcon } from "mdbreact";
+import { MDBBtn, MDBRow, MDBCol } from "mdbreact";
 import Imagem from '../../foto.jpg';
 import CadastroResposavel from "./CadastroResponsavel";
 import CadastroAluno from "./CadastroAluno";
@@ -35,7 +35,7 @@ export default class MainAluno extends Component {
               <div className="col">
                 <div className="card">
                   <div className="card-body">
-                    <img className="foto" src={Imagem}></img>
+                    <img className="foto" src={Imagem} alt="Foto do aluno"></img>
                   </div>
                   <div>
                     <MDBBtn color="success" className="text-xs-left"><i className="fas fa-camera"></i></MDBBtn>

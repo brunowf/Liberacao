@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import { MDBCardBody } from "mdbreact";
 import CadastroProfessor from './CadastroProfessor.js';
-import { urlServidor } from '../../Variaveis.json';
 import ListaProfessores from "./ListaProfessores.js";
 
 export default class MainProfessor extends Component {
