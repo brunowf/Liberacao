@@ -9,6 +9,10 @@ export default class CadastroResponsavel extends Component{
         <MDBInput label="Nome responsável" type="text" background icon="user" />
         <MDBInput label="Email responsável" type="text" background icon="envelope" />
       </div>
+
+      
     );
   }
 }
+
+                     
