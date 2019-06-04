@@ -19,7 +19,8 @@
     "react-dom": "^16.8.6",
     "react-md": "^1.12.1",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "reactstrap": "^8.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
