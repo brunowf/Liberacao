@@ -15,13 +15,18 @@ import InputLabel from '../../../node_modules/@material-ui/core/InputLabel';
 import MenuItem from '../../../node_modules/@material-ui/core/MenuItem';
 import FormControl from '../../../node_modules/@material-ui/core/FormControl';
 import Select from '../../../node_modules/@material-ui/core/Select';
+import { SVGIcon, SelectionControl, SelectionControlGroup, Checkbox, Switch, Grid, Cell } from '../../../node_modules/react-md'
 
+
+
+
+import check from '../../icons/check.svg';
+import favorite from '../../icons/favorite.svg';
+import favoriteBorder from '../../icons/favorite_border.svg';
 
 // Range Picker
 
 const { RangePicker } = DatePicker;
-
-
 
 
 function onChange(value, dateString) {
@@ -44,6 +49,35 @@ function onOk(value) {
 
 
 
+const checkboxControls = [{
+  label: 'Checkbox 1',
+  value: '1',
+  checkedCheckboxIcon: <SVGIcon use={favorite.url} />,
+  uncheckedCheckboxIcon: <SVGIcon use={favoriteBorder.url} />,
+}, {
+  label: 'Checkbox 2',
+  value: '2',
+}, {
+  label: 'Checkbox 3',
+  value: '3',
+  disabled: true,
+  uncheckedCheckboxIcon: null,
+}];
+
+const radioControls = [{
+  label: 'Radio 1',
+  value: '1',
+  checkedRadioIcon: <SVGIcon use={favorite.url} />,
+  uncheckedRadioIcon: <SVGIcon use={favoriteBorder.url} />,
+}, {
+  label: 'Radio 2',
+  value: '2',
+}, {
+  label: 'Radio 3',
+  value: '3',
+  disabled: true,
+  uncheckedRadioIcon: null,
+}];
 
 
 
@@ -136,7 +170,64 @@ export default class CadastroEntrada extends Component {
                   onOk={onOk}
                 />
 
+
+                <MDBInput label="Nome Professor" icon="user" group type="text" id='professor' />
+
+
+                <Checkbox
+                  id="checkbox-read-material-design-spec"
+                  name="segunda"
+                  label="Segunda"
+                  type="checkbox"
+                  value="true"
+                  defaultChecked
+                />
+                <Checkbox
+                  id="checkbox-read-material-design-spec"
+                  name="terca"
+                  label="Terça"
+                  type="checkbox"
+                  value="true"
+                  defaultChecked
+                />
+                <Checkbox
+                  id="checkbox-read-material-design-spec"
+                  name="quarta"
+                  label="Quarta"
+                  type="checkbox"
+                  value="true"
+                  defaultChecked
+                />
+                <Checkbox
+                  id="checkbox-read-material-design-spec"
+                  name="quinta"
+                  label="Quinta"
+                  type="checkbox"
+                  value="true"
+                  defaultChecked
+                />
+                <Checkbox
+                  id="checkbox-read-material-design-spec"
+                  name="sexta"
+                  label="Sexta"
+                  type="checkbox"
+                  value="true"
+                  defaultChecked
+                />
+                <Checkbox
+                  id="checkbox-read-material-design-spec"
+                  name="sabado"
+                  label="Sábado"
+                  type="checkbox"
+                  value="true"
+                  defaultChecked
+                />
+
+
+
               </form>
+
+
               <MDBBtn color="success" className="text-xs-left embaixo">Salvar</MDBBtn>
             </MDBCardBody>
           </MDBCol>
