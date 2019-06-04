@@ -2,12 +2,39 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { MDBInput, MDBBtn} from "mdbreact";
+import axios from 'axios';
+import { urlServidor } from '../../Variaveis.json'
 //Rodrigo
 
 export default class CadastroUsuario extends Component {
 
-  showSettings(event) {
-    event.preventDefault();
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: null,
+      userNome: 'josinsei',
+      userSenha: '123',
+      userEmail: 'j1234@gmail.com',
+      userTelefone: '12345'
+    }
+  }
+
+  userAdminPost() {
+    axios.post(urlServidor + '/users/administradores', {
+      id: null,
+      nome: this.state.userNome,
+      email: this.state.userEmail,
+      senha: this.state.userSenha,
+      //telefone: this.state.userTelefone
+    }).then(resposta => {
+      //se deu certo:
+      alert('Cadastrado com sucesso!')
+    })
+      .catch(resposta => {
+        //se der errado
+        console.log(resposta)
+        alert('Deu errado!')
+      })
   }
 
   render() {
@@ -28,7 +55,7 @@ export default class CadastroUsuario extends Component {
           </div>
 
         </form>
-        <MDBBtn color="success" className="text-xs-left">Salvar</MDBBtn>
+        <MDBBtn color="success" className="text-xs-left"  onClick={() => this.userAdminPost()}>Salvar</MDBBtn>
       </div>
     );
   }
