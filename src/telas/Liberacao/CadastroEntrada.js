@@ -15,13 +15,18 @@ import InputLabel from '../../../node_modules/@material-ui/core/InputLabel';
 import MenuItem from '../../../node_modules/@material-ui/core/MenuItem';
 import FormControl from '../../../node_modules/@material-ui/core/FormControl';
 import Select from '../../../node_modules/@material-ui/core/Select';
+import { SVGIcon, SelectionControl, SelectionControlGroup, Checkbox, Switch, Grid, Cell } from '../../../node_modules/react-md'
+import { Container, Row, Col } from 'reactstrap';
 
+
+
+import check from '../../icons/check.svg';
+import favorite from '../../icons/favorite.svg';
+import favoriteBorder from '../../icons/favorite_border.svg';
 
 // Range Picker
 
 const { RangePicker } = DatePicker;
-
-
 
 
 function onChange(value, dateString) {
@@ -44,6 +49,35 @@ function onOk(value) {
 
 
 
+const checkboxControls = [{
+  label: 'Checkbox 1',
+  value: '1',
+  checkedCheckboxIcon: <SVGIcon use={favorite.url} />,
+  uncheckedCheckboxIcon: <SVGIcon use={favoriteBorder.url} />,
+}, {
+  label: 'Checkbox 2',
+  value: '2',
+}, {
+  label: 'Checkbox 3',
+  value: '3',
+  disabled: true,
+  uncheckedCheckboxIcon: null,
+}];
+
+const radioControls = [{
+  label: 'Radio 1',
+  value: '1',
+  checkedRadioIcon: <SVGIcon use={favorite.url} />,
+  uncheckedRadioIcon: <SVGIcon use={favoriteBorder.url} />,
+}, {
+  label: 'Radio 2',
+  value: '2',
+}, {
+  label: 'Radio 3',
+  value: '3',
+  disabled: true,
+  uncheckedRadioIcon: null,
+}];
 
 
 
@@ -60,7 +94,7 @@ export default class CadastroEntrada extends Component {
   }
 
   state = {
-    turma: 10
+    turma: 0
   }
 
   handleChangeTurma(event) {
@@ -100,22 +134,7 @@ export default class CadastroEntrada extends Component {
                       Tentar acertar o CSS
               
                */}
-                <InputLabel htmlFor="turma-simple">Turma</InputLabel>
-                <Select
-                  value={this.state.turma}
-                  onChange={this.handleChangeTurma}
-                  inputProps={{
-                    name: 'turma',
-                    id: 'turma-simple',
-                  }}
-                >
-                  <MenuItem value="">
-                    <em>Escolha Turma</em>
-                  </MenuItem>
-                  <MenuItem value={10}> Connect 2A </MenuItem>
-                  <MenuItem value={20}> Connect 2B </MenuItem>
 
-                </Select>
 
 
 
@@ -128,15 +147,96 @@ export default class CadastroEntrada extends Component {
 
               <form className='alinhandoEsquerda'>
 
-                <RangePicker className='alinhandoCentro'
-                  showTime={{ format: 'HH:mm' }}
-                  format="YYYY-MM-DD HH:mm"
-                  placeholder={['Start Time', 'End Time']}
-                  onChange={onChange}
-                  onOk={onOk}
-                />
 
+
+                <MDBInput label="Nome Professor" icon="user" group type="text" id='professor' />
               </form>
+              {/*<InputLabel htmlFor="turma-simple">Turma</InputLabel>*/}
+              <Select
+                value={this.state.turma}
+                onChange={this.handleChangeTurma}
+              >
+                {/*inputProps={{name: 'turma',id: 'turma-simple',}}*/}
+
+                <MenuItem value={0}>
+                  <em>Escolha Turma</em>
+                </MenuItem>
+                <MenuItem value={10}> Connect 2A </MenuItem>
+                <MenuItem value={20}> Connect 2B </MenuItem>
+
+              </Select>
+              <hr />
+
+
+              <RangePicker className='alinhandoCentro'
+                showTime={{ format: 'HH:mm' }}
+                format="YYYY-MM-DD HH:mm"
+                placeholder={['Start Time', 'End Time']}
+                onChange={onChange}
+                onOk={onOk}
+              />
+
+
+              <Container>
+                <Row>
+                  <Col>
+                    <Checkbox
+                      id="checkbox-read-material-design-spec"
+                      name="segunda"
+                      label="Segunda"
+                      type="checkbox"
+                      value="true"
+                      defaultChecked
+                    /></Col>
+                  <Col>           <Checkbox
+                    id="checkbox-read-material-design-spec"
+                    name="terca"
+                    label="Terça"
+                    type="checkbox"
+                    value="true"
+                    defaultChecked
+                  />
+                  </Col>
+                  <Col> <Checkbox
+                    id="checkbox-read-material-design-spec"
+                    name="quarta"
+                    label="Quarta"
+                    type="checkbox"
+                    value="true"
+                    defaultChecked
+                  />
+                  </Col>
+                </Row>
+                <Row>
+                  <Col><Checkbox
+                    id="checkbox-read-material-design-spec"
+                    name="quinta"
+                    label="Quinta"
+                    type="checkbox"
+                    value="true"
+                    defaultChecked
+                  />
+                  </Col>
+                  <Col> <Checkbox
+                    id="checkbox-read-material-design-spec"
+                    name="sexta"
+                    label="Sexta"
+                    type="checkbox"
+                    value="true"
+                    defaultChecked
+                  />
+                  </Col>
+                  <Col><Checkbox
+                    id="checkbox-read-material-design-spec"
+                    name="sabado"
+                    label="Sábado"
+                    type="checkbox"
+                    value="true"
+                    defaultChecked
+                  /></Col>
+                </Row>
+              </Container>
+
               <MDBBtn color="success" className="text-xs-left embaixo">Salvar</MDBBtn>
             </MDBCardBody>
           </MDBCol>
