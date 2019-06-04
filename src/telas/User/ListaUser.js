@@ -86,7 +86,7 @@ export default class ListaUser extends Component {
         data.rows.map(linha => {
           linha.check = <MDBInput type="checkbox" id={`${linha.id}`} />
         });
-        console.log(data)
+        //console.log(data)
         this.setState( { listaUsers : data } )
 
       })
@@ -99,6 +99,8 @@ export default class ListaUser extends Component {
   render() {
     return (
             <MDBDataTable
+            scrollY
+            scrollX
             striped
             bordered
             hover
