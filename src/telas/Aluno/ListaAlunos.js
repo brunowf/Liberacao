@@ -27,12 +27,6 @@ export default class ListaAlunos extends Component {
             sort: 'asc',
             width: 270
           },
-          {
-            label: 'Data de Cadastro',
-            field: 'create_time',
-            sort: 'asc',
-            width: 200
-          },
         ],
         rows: [
           {

@@ -19,8 +19,8 @@ export default class MainAluno extends Component {
   alunoPost(){
     Axios.post(urlServidor + '/alunos',{
       id: null,
-      nome: this.state.alunoNome,
-      cpf: this.state.alunoCpf,
+      nome: this.state.aluno.nome,
+      cpf: this.state.aluno.cpf,
       }).then(resposta => {
         alert('Cadastrado com sucesso')
       }).catch(resposta => {
@@ -28,23 +28,56 @@ export default class MainAluno extends Component {
       })
   }
 
+  responsavelPost(){
+    Axios.post(urlServidor + '/responsavel',{
+      id:null,
+      nome: this.state.responsavel.nome,
+      email: this.state.responsavel.email,
+    }).then(resposta => {
+      alert('Cadastrado sucesso')
+    }).catch(resposta => {
+      alert('Não cadastrado')
+    })
+  }
+
   constructor(props){
     super(props);
     this.state = {
-      alunoId: '',
-      alunoNome: '',
-      alunoCpf: '', 
-      responsavelId: null,
-      responsavelNome: '',
-      responsavelCpf: '',
-      responsavelEmail: '',
+      aluno : {
+        id: null,
+        nome: '',
+        cpf: '', 
+      },
+      
+      responsavel : {
+      id: null,
+      nome: '',
+      cpf: '',
+      email: '',
+      }
+
     }
 
-    this.changeCampo = this.changeCampo.bind(this)
+    this.changeAluno = this.changeAluno.bind(this)
+    this.changeResponsavel = this.changeResponsavel.bind(this)
   }
 
-  changeCampo(e) {
-    alert(e.target.name +"="+ e.target.value)
+  changeAluno(e) {
+    //alert(e.target.name +"="+ e.target.value)
+    const aluno = {... this.state.aluno}
+    aluno[e.target.cpf] = e.target.value
+    aluno[e.target.name] = e.target.value
+    this.setState({ aluno })
+    console.log(this.state)
+  }
+
+  changeResponsavel(i){
+    const responsavel ={... this.state.responsavel}
+    //responsavel[i.target.cpf] = i.target.value
+    responsavel[i.target.nome] = i.target.value
+    responsavel[i.target.email] = i.target.value
+    this.setState({ responsavel })
+    console.log(this.state)
   }
 
   render() {
@@ -59,12 +92,12 @@ export default class MainAluno extends Component {
                 <form className="alinhandoEsquerda">
                   <div className="card">
                     <div className="card-body">
-                      <CadastroAluno change={this.changeCampo}></CadastroAluno>
+                      <CadastroAluno change={this.changeAluno}></CadastroAluno>
                     </div>
                   </div>
                   <div className="card" style={{ marginBottom: 30 }}>
                     <div className="card-body">
-                      <CadastroResposavel></CadastroResposavel>
+                      <CadastroResposavel change={this.changeResponsavel}></CadastroResposavel>
                     </div>
                   </div>
                 </form>
@@ -93,7 +126,7 @@ export default class MainAluno extends Component {
                   </div>
                   <br></br>
                   <div>
-                    <MDBBtn color="success" className="text-xs-left" onClick={() => this.alunoPost()}>Cadastrar</MDBBtn>
+                    <MDBBtn color="success" className="text-xs-left" onClick={() => this.alunoPost() + this.responsavelPost()}>Cadastrar</MDBBtn>
                   </div>
                 </div>
               </div>
