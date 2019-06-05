@@ -5,17 +5,18 @@ import '../../../node_modules/antd/dist/antd.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
 import {
   MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer,
-  MDBRow, MDBCol, MDBFreeBird, MDBEdgeHeader
+  MDBRow, MDBCol,
+  //  MDBFreeBird, MDBEdgeHeader
 } from "../../../node_modules/mdbreact";
 import '../../css/styles.css';
 
 import { DatePicker } from '../../../node_modules/antd';
-import { makeStyles } from '../../../node_modules/@material-ui/core/styles';
-import InputLabel from '../../../node_modules/@material-ui/core/InputLabel';
+// import { makeStyles } from '../../../node_modules/@material-ui/core/styles';
+// import InputLabel from '../../../node_modules/@material-ui/core/InputLabel';
 import MenuItem from '../../../node_modules/@material-ui/core/MenuItem';
-import FormControl from '../../../node_modules/@material-ui/core/FormControl';
+// import FormControl from '../../../node_modules/@material-ui/core/FormControl';
 import Select from '../../../node_modules/@material-ui/core/Select';
-import { SVGIcon, SelectionControl, SelectionControlGroup, Checkbox, Switch, Grid, Cell } from '../../../node_modules/react-md'
+import { SVGIcon, Checkbox} from '../../../node_modules/react-md';// Switch, Grid, Cell, SelectionControl, SelectionControlGroup, 
 import { Container, Row, Col } from 'reactstrap';
 
 

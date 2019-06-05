@@ -5,8 +5,6 @@ import Routes from './Routes';
 import './css/styles.css'
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'mdbreact/dist/css/mdb.css';
 import 'mdbootstrap/css/mdb.min.css';
