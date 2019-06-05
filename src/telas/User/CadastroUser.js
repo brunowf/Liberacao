@@ -12,20 +12,30 @@ export default class CadastroUsuario extends Component {
     super(props);
     this.state = {
       userId: null,
-      userNome: 'josinsei',
-      userSenha: '123',
-      userEmail: 'j1234@gmail.com',
-      userTelefone: '12345'
+      userNome: null,
+      userSenha: null,
+      userEmail: null,
+      userTelefone: null,
+      userTipo: null,
+      urlTipoUser: null
     }
   }
 
-  userAdminPost() {
-    axios.post(urlServidor + '/users/administradores', {
+  userPost() {
+    if(this.state.userTipo === 'ADMINISTRADOR'){
+      this.setState({ userTipo: "/users/administradores"});
+    } else if (this.state.userTipo === 'GUARDA'){
+      this.setState({ userTipo: "/users/guardas"});
+    } else {
+      alert('Selecione o tipo de Usuário.')
+    }
+    axios.post(urlServidor + this.state.urlTipoUser, {
       id: null,
       nome: this.state.userNome,
       email: this.state.userEmail,
       senha: this.state.userSenha,
-      //telefone: this.state.userTelefone
+      telefone: this.state.userTelefone
+
     }).then(resposta => {
       //se deu certo:
       alert('Cadastrado com sucesso!')
@@ -41,21 +51,21 @@ export default class CadastroUsuario extends Component {
     return (
       <div>
         <form className='alinhandoEsquerda'>
-          <MDBInput label="Nome Completo" background icon="user" group type="text" id='nome' />
-          <MDBInput label="E-mail" background icon="envelope" color="success" group type='email' id='email' />
-          <MDBInput label="Senha" background icon="key" group type='password' id='senha' />
-          <MDBInput label="Telefone / WhatsApp" background icon="phone" group type='tel' id='telefone' />
+          <MDBInput label="Nome Completo" background icon="user" group type="text" id='nome' onChange={(event => this.setState({ userNome: event.target.value }))} />
+          <MDBInput label="E-mail" background icon="envelope" color="success" group type='email' id='email' onChange={(event => this.setState({ userEmail: event.target.value }))} />
+          <MDBInput label="Senha" background icon="key" group type='password' id='senha' onChange={(event => this.setState({ userSenha: event.target.value }))} />
+          <MDBInput label="Telefone / WhatsApp" background icon="phone" group type='tel' id='telefone' onChange={(event => this.setState({ userTelefone: event.target.value }))} />
 
           <div>
-            <select className="custom-select custom-select-lg mb-5" id="categoria" defaultValue="1">
+            <select className="custom-select custom-select-lg mb-5" id="categoria" defaultValue="1"  onChange={(event => this.setState({ userTipo: event.target.value }))} >
               <option disabled value="1">Tipo de Usuário</option>
-              <option value="2">Administrador</option>
-              <option value="3">Guarda</option>
+              <option value="ADMINISTRADOR">Administrador</option>
+              <option value="GUARDA">Guarda</option>
             </select>
           </div>
 
         </form>
-        <MDBBtn color="success" className="text-xs-left"  onClick={() => this.userAdminPost()}>Salvar</MDBBtn>
+        <MDBBtn color="success" className="text-xs-left"  onClick={() => this.userPost()}>Salvar</MDBBtn>
       </div>
     );
   }
