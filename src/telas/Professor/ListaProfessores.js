@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import api from '../../services/api';
 import { DataTable } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json'
 
@@ -50,7 +50,7 @@ export default class ListaProfessores extends Component {
   }
 
   componentDidMount() {
-    axios.get(urlServidor + '/users/professores')
+    api.get(urlServidor + '/users/professores')
       .then(resposta => {
         //se deu certo:
         //this.setState({ listaProfessores: resposta.data })
@@ -60,10 +60,15 @@ export default class ListaProfessores extends Component {
         this.setState({ listaProfessores: data })
 
       })
-      .catch(resposta => {
-        //se deu errado:
-        alert('Deu errado!')
-        console.log(resposta)
+      // .catch(resposta => {
+      //   //se deu errado:
+      //   alert('Deu errado!')
+      //   console.log(resposta)
+      // })
+      .catch(erro => {
+          if (erro.response.status === 403) {
+              this.props.history.push("/");    
+          }
       })
   }
   render() {
