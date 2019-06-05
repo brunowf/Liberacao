@@ -1,44 +1,62 @@
 import React, { Component } from 'react';
+import { MDBInput, MDBBtn } from "mdbreact";
+import api from '../services/api';
+import { login } from '../services/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-//Daniel
-
-
-
-
+//Daniel / Bruno
 
 export default class Login extends Component {
-  showSettings(event) {
-    event.preventDefault();
+
+  constructor(props) {
+    super(props);
+    this.handleLogar = this.handleLogar.bind(this)
   }
+
+  state = {
+    email: "",
+    senha: "",
+    erro: ""
+  };
+
+  handleLogar = async e => {
+    e.preventDefault();
+    const { email, senha } = this.state;
+    if (!email || !senha) {
+      this.setState({ erro: "Preencha e-mail e senha para continuar!" });
+    } else {
+      try {
+        const response = await api.post("/login", { email, senha });
+        login(response.headers.authorization);
+        this.props.history.push("/professor");
+      } catch (err) {
+        this.setState({
+          erro:
+            "Houve um problema com o login, verifique suas credenciais."
+        });
+      }
+    }
+  };
 
   render() {
     return (
       <div className='container'>
-        <div className='row alinhandoEsquerda'>
+        <div className='row'>
           <div className='col-sm-2'></div>
-          <form className='col-sm-8'>
-            
-           <h1>  Login   </h1>
-            
-            <div> 
-              
-              <label>E-mail:</label>
-              <input type="Email" className='form-control' aria-describedby="emailHelp" id='email'placeholder='email'></input>
-              <small id="Email" className="form-text text-muted">Digite Seu E-mail: .</small>
-            </div>
-            <div className="form-group">
-              <label htmlFor="E-mail">Senha</label>
-              <input type="Senhar" className="form-control" id="Senhar" placeholder="Senhar"></input>
-              <small id="Senhar" className="form-text text-muted">Digite Sua senhar: .</small>
-            </div>
-                    
-        
-            <button type="submit" className="btn btn-primary">Enter</button>
-          </form>
-          <div className='col-sm-2'></div>
+          <div className='col-sm-8'>
+            <h1>Login</h1>
+            {this.state.erro && <div className="alert alert-danger">{this.state.erro}</div>}
+            <form className='alinhandoEsquerda' onSubmit={this.handleLogar}>
+              <MDBInput label="Email" type="email" background icon="envelope" onChange={(event => this.setState({ email: event.target.value }))}/>
+              <MDBInput label="Senha" type="password" background icon="key" onChange={(event => this.setState({ senha: event.target.value }))}/>
+              <div className='alinhandoDireita tyleBotao'>
+                <MDBBtn className="dusty-grass-gradient" type="submit">Salvar</MDBBtn>
+              </div>
+            </form>
           </div>
-                </div>
+          <div className='col-sm-2'></div>
+        </div>
+      </div>
     );
   }
 }
