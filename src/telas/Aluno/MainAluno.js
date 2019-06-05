@@ -6,7 +6,7 @@ import Imagem from '../../foto.jpg';
 import CadastroResposavel from "./CadastroResponsavel";
 import CadastroAluno from "./CadastroAluno";
 import ListaAlunos from "./ListaAlunos";
-import Axios from "axios";
+import api from '../../services/api';
 import { urlServidor } from '../../Variaveis.json';
 
 
@@ -17,7 +17,7 @@ export default class MainAluno extends Component {
 
 
   alunoPost() {
-    Axios.post(urlServidor + '/alunos', {
+    api.post(urlServidor + '/alunos', {
       id: null,
       nome: this.state.aluno.nome,
       cpf: this.state.aluno.cpf,
@@ -29,7 +29,7 @@ export default class MainAluno extends Component {
   }
 
   responsavelPost() {
-    Axios.post(urlServidor + '/responsavel', {
+    api.post(urlServidor + '/responsavel', {
       id: null,
       nome: this.state.responsavel.nome,
       email: this.state.responsavel.email,
@@ -95,9 +95,9 @@ export default class MainAluno extends Component {
                   </div>
                   <div className="card" style={{ marginBottom: 30 }}>
                     <div className="card-body">
-                      <MDBInput label="Nome" type="text" name="nome" background icon="user" onChange={(event => this.setState({ nome: event.target.value }))} />
-                      <MDBInput label="Email" type="text" name="email" background icon="envelope" onChange={(e => this.changeResponsavel(e))} />
-                      {/* <CadastroResposavel change={this.changeResponsavel}></CadastroResposavel> */}
+                      {/* <MDBInput label="Nome" type="text" name="nome" background icon="user" onChange={(event => this.setState({ responsavel: event.target.value }))} />
+                      <MDBInput label="Email" type="text" name="email" background icon="envelope" onChange={(e => this.changeResponsavel(e))} /> */}
+                      <CadastroResposavel change={this.changeResponsavel}></CadastroResposavel>
                     </div>
                   </div>
                 </form>
@@ -126,7 +126,7 @@ export default class MainAluno extends Component {
                   </div>
                   <br></br>
                   <div>
-                    <MDBBtn color="success" className="text-xs-left" onClick={() => this.responsavelPost()}>Cadastrar</MDBBtn>
+                    <MDBBtn color="success" className="text-xs-left" onClick={() => this.responsavelPost() + this.alunoPost()}>Cadastrar</MDBBtn>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import api from '../../services/api';
 import { DataTable } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json'
 
@@ -38,7 +38,7 @@ export default class ListaAlunos extends Component {
   }
 
   componentDidMount() {
-    axios.get(urlServidor + '/alunos')
+    api.get(urlServidor + '/alunos')
       .then(resposta => {
         //se deu certo:
         //this.setState({ listaAlunos: resposta.data })
