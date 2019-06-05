@@ -23,11 +23,9 @@ export default class CadastroResponsavel extends Component{
   render(){
     return(
       <div>
-        <MDBInput label="CPF responsável" type="text" background icon="user" onChange={(event => this.setState({ responsavelCpf: event.target.value }))}/>
-        <MDBInput label="Nome responsável" type="text" background icon="user" onChange={(event => this.setState({ responsavelNome: event.target.value }))}/>
-        <MDBInput label="Email responsável" type="text" background icon="envelope" onChange={(event => this.setState({ responsavelEmail: event.target.value }))}/>
-
-        <MDBBtn onClick={() => this.responsavelPost()}></MDBBtn>
+        <MDBInput label="CPF responsável" type="text" nome= "cpf" background icon="user" onChange={(i => props.changer(i))}/>
+        <MDBInput label="Nome responsável" type="text" nome= "nome" background icon="user" onChange={(i => props.changer(i))}/>
+        <MDBInput label="Email responsável" type="text" nome= "email" background icon="envelope" onChange={(i => props.changer(i))}/>
       </div>
 
       
