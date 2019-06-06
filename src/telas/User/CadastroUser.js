@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { MDBInput, MDBBtn} from "mdbreact";
-import axios from 'axios';
+import api from '../../services/api';
 import { urlServidor } from '../../Variaveis.json'
 //Rodrigo
 
@@ -23,28 +23,40 @@ export default class CadastroUsuario extends Component {
 
   userPost() {
     if(this.state.userTipo === 'ADMINISTRADOR'){
-      this.setState({ userTipo: "/users/administradores"});
+      api.post(urlServidor + "/users/administradores", {
+        id: null,
+        nome: this.state.userNome,
+        email: this.state.userEmail,
+        senha: this.state.userSenha,
+        telefone: this.state.userTelefone
+      }).then(resposta => {
+        //se deu certo:
+        alert('Cadastrado com sucesso!')
+      })
+        .catch(resposta => {
+          //se der errado
+          console.log(resposta)
+          alert('Deu errado!')
+        })
     } else if (this.state.userTipo === 'GUARDA'){
-      this.setState({ userTipo: "/users/guardas"});
+      api.post(urlServidor + "/users/guardas", {
+        id: null,
+        nome: this.state.userNome,
+        email: this.state.userEmail,
+        senha: this.state.userSenha,
+        telefone: this.state.userTelefone
+      }).then(resposta => {
+        //se deu certo:
+        alert('Cadastrado com sucesso!')
+      })
+        .catch(resposta => {
+          //se der errado
+          console.log(resposta)
+          alert('Deu errado!')
+        })
     } else {
       alert('Selecione o tipo de Usuário.')
     }
-    axios.post(urlServidor + this.state.urlTipoUser, {
-      id: null,
-      nome: this.state.userNome,
-      email: this.state.userEmail,
-      senha: this.state.userSenha,
-      telefone: this.state.userTelefone
-
-    }).then(resposta => {
-      //se deu certo:
-      alert('Cadastrado com sucesso!')
-    })
-      .catch(resposta => {
-        //se der errado
-        console.log(resposta)
-        alert('Deu errado!')
-      })
   }
 
   render() {
