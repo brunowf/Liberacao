@@ -60,16 +60,16 @@ export default class ListaProfessores extends Component {
         this.setState({ listaProfessores: data })
 
       })
-      // .catch(resposta => {
-      //   //se deu errado:
-      //   alert('Deu errado!')
-      //   console.log(resposta)
-      // })
-      .catch(erro => {
-          if (erro.response.status === 403) {
-              this.props.history.push("/");    
-          }
+      .catch(resposta => {
+        //se deu errado:
+        alert('Deu errado!')
+        console.log(resposta)
       })
+      // .catch(erro => {
+      //     if (erro.response.status === 403) {
+      //         this.props.history.push("/");    
+      //     }
+      // })
   }
   render() {
     return (
