@@ -3,26 +3,20 @@ import React, { Component } from '../../../node_modules/react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../node_modules/antd/dist/antd.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
-import {
-  MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer,
-  MDBRow, MDBCol, MDBFreeBird, MDBEdgeHeader
-} from "../../../node_modules/mdbreact";
+import { MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBFormInline } from "../../../node_modules/mdbreact";
 import '../../css/styles.css';
 
+
 import { DatePicker } from '../../../node_modules/antd';
-import { makeStyles } from '../../../node_modules/@material-ui/core/styles';
-import InputLabel from '../../../node_modules/@material-ui/core/InputLabel';
 import MenuItem from '../../../node_modules/@material-ui/core/MenuItem';
-import FormControl from '../../../node_modules/@material-ui/core/FormControl';
 import Select from '../../../node_modules/@material-ui/core/Select';
-import { SVGIcon, SelectionControl, SelectionControlGroup, Checkbox, Switch, Grid, Cell } from '../../../node_modules/react-md'
-import { Container, Row, Col } from 'reactstrap';
+/*import { SVGIcon } from '../../../node_modules/react-md';// Switch, Grid, Cell, SelectionControl, SelectionControlGroup, 
 
-
-
-import check from '../../icons/check.svg';
 import favorite from '../../icons/favorite.svg';
-import favoriteBorder from '../../icons/favorite_border.svg';
+import favoriteBorder from '../../icons/favorite_border.svg';*/
+
+import { urlServidor } from '../../Variaveis.json';
+import api from '../../services/api';
 
 // Range Picker
 
@@ -48,7 +42,7 @@ function onOk(value) {
 
 
 
-
+/*
 const checkboxControls = [{
   label: 'Checkbox 1',
   value: '1',
@@ -79,27 +73,89 @@ const radioControls = [{
   uncheckedRadioIcon: null,
 }];
 
-
+*/
 
 
 export default class CadastroEntrada extends Component {
-
-  constructor(props) {
-    super(props)
-    this.handleChangeTurma = this.handleChangeTurma.bind(this)
-  }
 
   showSettings(event) {
     event.preventDefault();
   }
 
-  state = {
-    turma: 0
+  constructor(props) {
+    super(props)
+    this.handleChangeTurma = this.handleChangeTurma.bind(this)
+    this.state = {
+      id: 1,
+      hora_entrada: '1970-01-01 20:44:00',
+      notificar_prof: true,
+      notificar_resp: true,
+      observacao: 'asedfd dfad sfa ds',
+      segunda: false,
+      terca: false,
+      quarta: false,
+      quinta: false,
+      sexta: false,
+      sabado: false,
+      administrador_id: '2',
+      aluno_id: '1',
+      turma: '0',
+      nome_aluno: '',
+      nome_resp: '',
+      tel_aluno: '',
+      tel_resp: ''
+    }
   }
 
   handleChangeTurma(event) {
     this.setState({ turma: event.target.value })
   }
+
+
+  entradaPost() {
+    api.post(urlServidor + '/registroentradas', {
+      id: this.state.id,
+      hora_entrada: this.state.hora_entrada,
+      notificar_prof: this.state.notificar_prof,
+      notificar_resp: this.state.notificar_resp,
+      observacao: this.state.observacao,
+      segunda: this.state.segunda,
+      terca: this.state.terca,
+      quarta: this.state.quarta,
+      quinta: this.state.quinta,
+      sexta: this.state.sexta,
+      sabado: this.state.sabado
+      /*administrador_id: this.state.adminnistrador_id,
+      aluno_id: this.state.aluno_id*/
+
+    }).then(resposta => {
+      //se deu certo:
+      alert('Cadastrado com sucesso!')
+    })
+      .catch(resposta => {
+        //se der errado
+        console.log(resposta)
+        alert('Deu errado!')
+      })
+  }
+
+
+  buscaAluno() {
+    api.get(urlServidor + '/alunos/'+ this.state.id)
+      .then(resposta => {
+        console.log(resposta)
+        this.setState({ name: resposta.data.nome, aluno_id: resposta.data.id });
+        
+
+      })
+      .catch(resposta => {
+        //se deu errado:
+        alert('Deu errado!')
+        console.log(resposta)
+        this.props.history.push("/");
+      })
+  }
+
 
   render() {
     return (
@@ -115,8 +171,9 @@ export default class CadastroEntrada extends Component {
               <MDBCardTitle></MDBCardTitle>
               <form className='alinhandoEsquerda'>
                 <MDBInput hint="CPF" type="text" containerClass="active-pink active-pink-2 mt-0 mb-3" />
+                <MDBBtn color="success" className="text-xs-left embaixo" onClick={() => this.buscaAluno()}>Buscar</MDBBtn>
 
-                <MDBInput label="Nome Completo" icon="user" group type="text" id='nome' />
+                <MDBInput label="Nome Completo" icon="user" group type="text" id='nome' value={this.state.name} />
                 <MDBInput label="Responsável" icon="envelope" color="success" group type='email' id='email' />
                 <MDBInput label="Whatsapp" icon="key" group type='password' id='senha' />
 
@@ -176,68 +233,16 @@ export default class CadastroEntrada extends Component {
                 onOk={onOk}
               />
 
+              <MDBFormInline>
+                <MDBInput label="SEG" type="checkbox" id="segunda" name="segunda" value="true" />
+                <MDBInput label="TER" type="checkbox" id="terca" name="terca" value="true" />
+                <MDBInput label="QUA" type="checkbox" id="quarta" name="quarta" value="true" />
+                <MDBInput label="QUI" type="checkbox" id="quinta" name="quinta" value="true" />
+                <MDBInput label="SEX" type="checkbox" id="sexta" name="sexta" value="true" />
+                <MDBInput label="SAB" type="checkbox" id="sabado" name="sabado" value="true" />
+              </MDBFormInline>
 
-              <Container>
-                <Row>
-                  <Col>
-                    <Checkbox
-                      id="checkbox-read-material-design-spec"
-                      name="segunda"
-                      label="Segunda"
-                      type="checkbox"
-                      value="true"
-                      defaultChecked
-                    /></Col>
-                  <Col>           <Checkbox
-                    id="checkbox-read-material-design-spec"
-                    name="terca"
-                    label="Terça"
-                    type="checkbox"
-                    value="true"
-                    defaultChecked
-                  />
-                  </Col>
-                  <Col> <Checkbox
-                    id="checkbox-read-material-design-spec"
-                    name="quarta"
-                    label="Quarta"
-                    type="checkbox"
-                    value="true"
-                    defaultChecked
-                  />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col><Checkbox
-                    id="checkbox-read-material-design-spec"
-                    name="quinta"
-                    label="Quinta"
-                    type="checkbox"
-                    value="true"
-                    defaultChecked
-                  />
-                  </Col>
-                  <Col> <Checkbox
-                    id="checkbox-read-material-design-spec"
-                    name="sexta"
-                    label="Sexta"
-                    type="checkbox"
-                    value="true"
-                    defaultChecked
-                  />
-                  </Col>
-                  <Col><Checkbox
-                    id="checkbox-read-material-design-spec"
-                    name="sabado"
-                    label="Sábado"
-                    type="checkbox"
-                    value="true"
-                    defaultChecked
-                  /></Col>
-                </Row>
-              </Container>
-
-              <MDBBtn color="success" className="text-xs-left embaixo">Salvar</MDBBtn>
+              <MDBBtn color="success" className="text-xs-left embaixo" onClick={() => this.entradaPost()}>Salvar</MDBBtn>
             </MDBCardBody>
           </MDBCol>
           <MDBCol size="2"></MDBCol>

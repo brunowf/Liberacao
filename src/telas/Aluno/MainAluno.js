@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
-import { MDBBtn, MDBRow, MDBCol } from "mdbreact";
+import { MDBBtn, MDBRow, MDBCol, MDBInput } from "mdbreact";
 import Imagem from '../../foto.jpg';
-import CadastroResposavel from "./CadastroResponsavel";
+// import CadastroResposavel from "./CadastroResponsavel";
 import CadastroAluno from "./CadastroAluno";
 import ListaAlunos from "./ListaAlunos";
-import Axios from "axios";
+import api from '../../services/api';
 import { urlServidor } from '../../Variaveis.json';
 
 
@@ -16,23 +16,23 @@ import { urlServidor } from '../../Variaveis.json';
 export default class MainAluno extends Component {
 
 
-  alunoPost(){
-    Axios.post(urlServidor + '/alunos',{
+  alunoPost() {
+    api.post(urlServidor + '/alunos', {
       id: null,
       nome: this.state.aluno.nome,
       cpf: this.state.aluno.cpf,
-      }).then(resposta => {
-        alert('Cadastrado com sucesso')
-      }).catch(resposta => {
-        alert('Não cadastrado')
-      })
+    }).then(resposta => {
+      alert('Cadastrado com sucesso')
+    }).catch(resposta => {
+      alert('Não cadastrado')
+    })
   }
 
-  responsavelPost(){
-    Axios.post(urlServidor + '/responsavel',{
-      id:null,
-      nome: this.state.responsavel.nome,
-      email: this.state.responsavel.email,
+  responsavelPost() {
+    api.post(urlServidor + '/responsavel', {
+      id: null,
+      nome: this.state.nome,
+      email: this.state.email,
     }).then(resposta => {
       alert('Cadastrado sucesso')
     }).catch(resposta => {
@@ -40,45 +40,46 @@ export default class MainAluno extends Component {
     })
   }
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      aluno : {
+      aluno: {
         id: null,
         nome: '',
-        cpf: '', 
+        cpf: '',
       },
-      
-      responsavel : {
       id: null,
-      nome: '',
-      cpf: '',
-      email: '',
+      nome: 'nuuhj',
+      email: 'gyugy',
+      responsavel: {
+        id: null,
+        nome: '',
+        email: '',
       }
 
     }
 
     this.changeAluno = this.changeAluno.bind(this)
-    this.changeResponsavel = this.changeResponsavel.bind(this)
+    // this.changeResponsavel = this.changeResponsavel.bind(this)
   }
 
   changeAluno(e) {
     //alert(e.target.name +"="+ e.target.value)
-    const aluno = {... this.state.aluno}
+    const aluno = { ...this.state.aluno }
     aluno[e.target.cpf] = e.target.value
     aluno[e.target.name] = e.target.value
     this.setState({ aluno })
     console.log(this.state)
   }
 
-  changeResponsavel(i){
-    const responsavel ={... this.state.responsavel}
-    //responsavel[i.target.cpf] = i.target.value
-    responsavel[i.target.nome] = i.target.value
-    responsavel[i.target.email] = i.target.value
-    this.setState({ responsavel })
-    console.log(this.state)
-  }
+  // changeResponsavel(e) {
+  //   //responsavel[i.target.cpf] = i.target.value
+  //   const responsavel = { ... this.state.responsavel }
+  //   responsavel[e.target.email] = e.target.value
+  //   responsavel[e.target.nome] = e.target.value
+  //   this.setState({ responsavel })
+  //   console.log(this.state)
+  // }
 
   render() {
     return (
@@ -97,7 +98,9 @@ export default class MainAluno extends Component {
                   </div>
                   <div className="card" style={{ marginBottom: 30 }}>
                     <div className="card-body">
-                      <CadastroResposavel change={this.changeResponsavel}></CadastroResposavel>
+                      <MDBInput label="Nome" type="text" name="nome" background icon="user" onChange={(e => this.setState({ nome: e.target.value }))} />
+                      <MDBInput label="Email" type="text" name="email" background icon="envelope" onChange={(e => this.setState({ email: e.target.value }))} />
+                      {/* <CadastroResposavel change={this.changeResponsavel}></CadastroResposavel> */}
                     </div>
                   </div>
                 </form>
@@ -126,7 +129,7 @@ export default class MainAluno extends Component {
                   </div>
                   <br></br>
                   <div>
-                    <MDBBtn color="success" className="text-xs-left" onClick={() => this.alunoPost() + this.responsavelPost()}>Cadastrar</MDBBtn>
+                    <MDBBtn color="success" className="text-xs-left" onClick={() => this.responsavelPost() + this.alunoPost()}>Cadastrar</MDBBtn>
                   </div>
                 </div>
               </div>

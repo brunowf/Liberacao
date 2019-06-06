@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MDBInput, MDBBtn, MDBCardTitle } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json';
-import axios from 'axios';
+import api from '../../services/api';
 // import { DatePicker } from 'antd/lib/date-picker';
 //import Modalzin from './modal/Modalzin';
 
@@ -21,7 +21,7 @@ export default class CadastroProfessor extends Component {
   }
 
   professorPost() {
-    axios.post(urlServidor + '/users/professores', {
+    api.post(urlServidor + '/users/professores', {
       id: null,
       nome: this.state.professorNome,
       email: this.state.professorEmail,
