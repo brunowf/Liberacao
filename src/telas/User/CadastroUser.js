@@ -31,12 +31,13 @@ export default class CadastroUsuario extends Component {
         telefone: this.state.userTelefone
       }).then(resposta => {
         //se deu certo:
-        alert('Cadastrado com sucesso!')
+        alert('Cadastrado com sucesso!');
+        window.location.reload();
       })
         .catch(resposta => {
           //se der errado
-          console.log(resposta)
-          alert('Deu errado!')
+          console.log(resposta);
+          alert('Dados incorretos!');
         })
     } else if (this.state.userTipo === 'GUARDA'){
       api.post(urlServidor + "/users/guardas", {
@@ -47,15 +48,15 @@ export default class CadastroUsuario extends Component {
         telefone: this.state.userTelefone
       }).then(resposta => {
         //se deu certo:
-        alert('Cadastrado com sucesso!')
+        alert('Cadastrado com sucesso!');
       })
         .catch(resposta => {
           //se der errado
-          console.log(resposta)
-          alert('Deu errado!')
+          console.log(resposta);
+          alert('Deu errado!');
         })
     } else {
-      alert('Selecione o tipo de Usuário.')
+      alert('Selecione o tipo de Usuário.');
     }
   }
 
