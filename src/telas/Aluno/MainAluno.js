@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import { MDBBtn, MDBRow, MDBCol, MDBInput } from "mdbreact";
 import Imagem from '../../foto.jpg';
-import CadastroResposavel from "./CadastroResponsavel";
+// import CadastroResposavel from "./CadastroResponsavel";
 import CadastroAluno from "./CadastroAluno";
 import ListaAlunos from "./ListaAlunos";
 import api from '../../services/api';
@@ -31,8 +31,8 @@ export default class MainAluno extends Component {
   responsavelPost() {
     api.post(urlServidor + '/responsavel', {
       id: null,
-      nome: this.state.responsavel.nome,
-      email: this.state.responsavel.email,
+      nome: this.state.nome,
+      email: this.state.email,
     }).then(resposta => {
       alert('Cadastrado sucesso')
     }).catch(resposta => {
@@ -48,35 +48,38 @@ export default class MainAluno extends Component {
         nome: '',
         cpf: '',
       },
+      id: null,
+      nome: 'nuuhj',
+      email: 'gyugy',
       responsavel: {
         id: null,
-        nome: 'nuuhj',
-        email: 'gyugy',
+        nome: '',
+        email: '',
       }
 
     }
 
     this.changeAluno = this.changeAluno.bind(this)
-    this.changeResponsavel = this.changeResponsavel.bind(this)
+    // this.changeResponsavel = this.changeResponsavel.bind(this)
   }
 
   changeAluno(e) {
     //alert(e.target.name +"="+ e.target.value)
-    const aluno = { ... this.state.aluno }
+    const aluno = { ...this.state.aluno }
     aluno[e.target.cpf] = e.target.value
     aluno[e.target.name] = e.target.value
     this.setState({ aluno })
     console.log(this.state)
   }
 
-  changeResponsavel(e) {
-    //responsavel[i.target.cpf] = i.target.value
-    const responsavel = { ... this.state.responsavel }
-    responsavel[e.target.email] = e.target.value
-    responsavel[e.target.nome] = e.target.value
-    this.setState({ responsavel })
-    console.log(this.state)
-  }
+  // changeResponsavel(e) {
+  //   //responsavel[i.target.cpf] = i.target.value
+  //   const responsavel = { ... this.state.responsavel }
+  //   responsavel[e.target.email] = e.target.value
+  //   responsavel[e.target.nome] = e.target.value
+  //   this.setState({ responsavel })
+  //   console.log(this.state)
+  // }
 
   render() {
     return (
@@ -95,9 +98,9 @@ export default class MainAluno extends Component {
                   </div>
                   <div className="card" style={{ marginBottom: 30 }}>
                     <div className="card-body">
-                      {/* <MDBInput label="Nome" type="text" name="nome" background icon="user" onChange={(event => this.setState({ responsavel: event.target.value }))} />
-                      <MDBInput label="Email" type="text" name="email" background icon="envelope" onChange={(e => this.changeResponsavel(e))} /> */}
-                      <CadastroResposavel change={this.changeResponsavel}></CadastroResposavel>
+                      <MDBInput label="Nome" type="text" name="nome" background icon="user" onChange={(e => this.setState({ nome: e.target.value }))} />
+                      <MDBInput label="Email" type="text" name="email" background icon="envelope" onChange={(e => this.setState({ email: e.target.value }))} />
+                      {/* <CadastroResposavel change={this.changeResponsavel}></CadastroResposavel> */}
                     </div>
                   </div>
                 </form>

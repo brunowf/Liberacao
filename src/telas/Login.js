@@ -14,8 +14,8 @@ export default class Login extends Component {
   }
 
   state = {
-    email: "",
-    senha: "",
+    email: "testando@gmail.com",
+    senha: "123",
     erro: ""
   };
 

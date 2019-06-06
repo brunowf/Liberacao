@@ -37,7 +37,7 @@ export default class ListaAlunos extends Component {
     }
   }
 
-  componentDidMount() {
+  componentDidMount = async e => {
     api.get(urlServidor + '/alunos')
       .then(resposta => {
         //se deu certo:
@@ -46,12 +46,12 @@ export default class ListaAlunos extends Component {
         data.rows = resposta.data
         console.log(data)
         this.setState({ listaAlunos: data })
-
       })
       .catch(resposta => {
         //se deu errado:
         alert('Deu errado!')
         console.log(resposta)
+        this.props.history.push("/");
       })
   }
   render() {
