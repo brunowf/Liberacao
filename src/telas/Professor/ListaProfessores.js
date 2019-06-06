@@ -15,30 +15,34 @@ export default class ListaProfessores extends Component {
             sort: 'asc',
             width: 150
           },
-          {
-            label: 'Nome',
-            field: 'nome',
-            sort: 'asc',
-            width: 150
-          },
-          {
-            label: 'E-mail',
-            field: 'email',
-            sort: 'asc',
-            width: 270
-          },
-          {
-            label: 'Senha',
-            field: 'senha',
-            sort: 'asc',
-            width: 200
-          },
-          {
-            label: 'Data de Cadastro',
-            field: 'create_time',
-            sort: 'asc',
-            width: 200
-          },
+          // {
+          //   label: 'Nome',
+          //   field: 'nome',
+          //   sort: 'asc',
+          //   width: 150
+          // },
+          // {
+          //   label: 'E-mail',
+          //   field: 'email',
+          //   sort: 'asc',
+          //   width: 270
+          // },
+          // {
+          //   label: 'Senha',
+          //   field: 'senha',
+          //   sort: 'asc',
+          //   width: 200
+          // },
+          // {
+          //   label: 'Telefone',
+          //   field: 'telefone',
+          //   sort: 'asc',  
+          // },
+          // {
+          //   label: 'Tipo',
+          //   field: 'perfil',
+          //   sort: 'asc',  
+          // },
         ],
         rows: [
           {
@@ -56,7 +60,11 @@ export default class ListaProfessores extends Component {
         //this.setState({ listaProfessores: resposta.data })
         let data = { ...this.state.listaProfessores }
         data.rows = resposta.data
-        console.log(data)
+        data.rows.map(linha => {
+          // data.rows = linha.slice(1,2)
+          console.log(linha.perfis)
+        });
+        // console.log(data)
         this.setState({ listaProfessores: data })
 
       })
