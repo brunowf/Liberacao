@@ -15,34 +15,34 @@ export default class ListaProfessores extends Component {
             sort: 'asc',
             width: 150
           },
-          // {
-          //   label: 'Nome',
-          //   field: 'nome',
-          //   sort: 'asc',
-          //   width: 150
-          // },
-          // {
-          //   label: 'E-mail',
-          //   field: 'email',
-          //   sort: 'asc',
-          //   width: 270
-          // },
+          {
+            label: 'Nome',
+            field: 'nome',
+            sort: 'asc',
+            width: 150
+          },
+          {
+            label: 'E-mail',
+            field: 'email',
+            sort: 'asc',
+            width: 270
+          },
           // {
           //   label: 'Senha',
           //   field: 'senha',
           //   sort: 'asc',
           //   width: 200
           // },
-          // {
-          //   label: 'Telefone',
-          //   field: 'telefone',
-          //   sort: 'asc',  
-          // },
-          // {
-          //   label: 'Tipo',
-          //   field: 'perfil',
-          //   sort: 'asc',  
-          // },
+          {
+            label: 'Telefone',
+            field: 'telefone',
+            sort: 'asc',  
+          },
+          {
+            label: 'Tipo',
+            field: 'perfil',
+            sort: 'asc',  
+          },
         ],
         rows: [
           {
