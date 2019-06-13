@@ -10,12 +10,12 @@ export default class CadastroTurma extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      turmaId: null,
+      turmaId: '1',
       turmaNome: null,
       turmaPeriodo: 'MATUTINO',
       turmaFase: null,
       turmaAnoSemestre: null,
-      erro:''
+      erro: ''
     }
   }
 

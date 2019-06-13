@@ -1,12 +1,23 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { DataTable } from "mdbreact";
-import { urlServidor } from '../../Variaveis.json'
+import { DataTable, MDBCollapse, MDBBtn, MDBInput } from "mdbreact";
+import { urlServidor } from '../../Variaveis.json';
+//import EditarTurma from './EditarTurma';
 
 export default class ListaTurmas extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      collapseID: false,
+      turmaIdAtual: '',
+      turmaNomeAtual: '',
+      turmaFaseAtual: '',
+      AnoSemestreAtual: '',
+      turmaPeriodoAtual:'',
+      turmaNomeNovo: '',
+      turmaFaseNovo: '',
+      AnoSemestreNovo: '',
+      turmaPeriodoNovo:'',
       listaTurmas: {
         columns: [
           {
@@ -34,6 +45,16 @@ export default class ListaTurmas extends Component {
             field: 'ano_semestre',
             sort: 'asc',
           },
+          {
+            label: 'Editar',
+            field: 'editar',
+            sort: 'asc',
+          },
+          {
+            label: 'Deletar',
+            field: 'deletar',
+            sort: 'asc',
+          },
         ],
         rows: [
           {
@@ -44,6 +65,16 @@ export default class ListaTurmas extends Component {
     }
   }
 
+  toggleCollapse() {
+    let colapsado = ''
+    if (this.state.collapseID === false) {
+      colapsado = true
+    } else {
+      colapsado = false
+    }
+    this.setState({ collapseID: colapsado })
+  }
+
   componentDidMount() {
     axios.get(urlServidor + '/turmas')
       .then(resposta => {
@@ -51,6 +82,22 @@ export default class ListaTurmas extends Component {
         //this.setState({ listaTurmas: resposta.data })
         let data = { ...this.state.listaTurmas }
         data.rows = resposta.data
+        data.rows.map(linha => {
+          linha.edit =
+            <div>
+              <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ turmaIdAtual: linha.id, turmaNomeAtual: linha.nome_curso, turmaFaseAtual: linha.fase, AnoSemestreAtual: linha.ano_semestre, turmaPeriodoAtual:linha.periodo })}>
+                Editar
+              </button>
+            </div>
+        })
+        data.rows.map(linha => {
+          // data.rows = linha.slice(1,2)
+          linha.delete =
+            <div className='tyleBotao'>
+              <button onClick={() => this.turmaDelete(linha.id)}>Deletar</button>
+            </div>;
+          console.log(linha.perfis)
+        });
         console.log(data)
         this.setState({ listaTurmas: data })
 
@@ -61,14 +108,62 @@ export default class ListaTurmas extends Component {
         console.log(resposta)
       })
   }
+
+  turmaEditar() {
+    axios.put(urlServidor + '/turmas/' + this.state.turmaIdAtual, {
+      id: this.state.turmaIdAtual,
+      nome_curso: this.state.turmaNomeNovo,
+      periodo: this.state.turmaPeriodoNovo,
+      fase: this.state.turmaFaseNovo,
+      ano_semestre: this.state.AnoSemestreNovo
+    })
+  }
+
+  turmaDelete(idzin) {
+    axios.delete(urlServidor + '/turmas/' + idzin)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        alert('Turma deletada')
+        window.location.reload();
+      }).catch(resposta => {
+        //se der errado
+        console.log(resposta);
+        alert('Dados incorretos!');
+      })
+  }
+
+
+
   render() {
     return (
-      <DataTable
-        striped
-        bordered
-        hover
-        data={this.state.listaTurmas}
-      />
+      <div>
+        <DataTable
+          striped
+          bordered
+          hover
+          data={this.state.listaTurmas}
+        />
+        <MDBCollapse isOpen={this.state.collapseID}>
+
+          {this.state.erro && <div className="alert alert-danger">{this.state.erro}</div>}
+          <MDBInput label={this.state.turmaNomeAtual} name="turmaNome" background icon="door-closed" onChange={(event => this.setState({ turmaNomeNovo: event.target.value }))} />
+          <MDBInput label={this.state.turmaFaseAtual} background icon="hourglass" onChange={(event => this.setState({ turmaFaseNovo: event.target.value }))} />
+          <MDBInput label={this.state.AnoSemestreAtual} background icon="hourglass" onChange={(event => this.setState({ AnoSemestreNovo: event.target.value }))} />
+
+          <select className="browser-default custom-select" defaultValue={this.state.turmaPeriodoAtual} onChange={(event => this.setState({ turmaPeriodoNovo: event.target.value }))} >
+            <option disabled>Período</option>
+            <option value="MATUTINO">Matutino</option>
+            <option value="VESPERTINO">Vespertino</option>
+            <option value="DIURNO">Diurno</option>
+            <option value="NOTURNO">Noturno</option>
+          </select>
+          <div className='tyleBotao'>
+            <MDBBtn className="dusty-grass-gradient" onClick={() => this.turmaEditar()}>Salvar</MDBBtn>
+          </div>
+
+        </MDBCollapse>
+      </div>
     );
   }
 
