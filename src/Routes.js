@@ -15,6 +15,9 @@ import MainProfessor from './telas//Professor/MainProfessor';
 import MainAluno from './telas/Aluno/MainAluno';
 import AlunosLiberadosEntrada from './telas/Liberacao/AlunosLiberadosEntrada';
 import AlunosLiberadosSaida from './telas/Liberacao/AlunosLiberadosSaida';
+//TestValidation
+import Validation from './telas/Validation/Validation';
+
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -51,6 +54,7 @@ class Routes extends Component {
             <PrivateRoute path="/menu_principal" component={MenuPrincipal} />
             <PrivateRoute path="/alunos_liberados_entrada" component={AlunosLiberadosEntrada} />
             <PrivateRoute path="/alunos_liberados_saida" component={AlunosLiberadosSaida} />
+            <PrivateRoute path="/validation_test" component={Validation} />            
           </div>
         </BrowserRouter>
       </div>
