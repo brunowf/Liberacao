@@ -81,7 +81,7 @@ export default class Validation extends Component {
       default:
         break;
     }
-    this.setState({ formErrors, [name] : value});
+    this.setState({ formErrors, [name] : value}, () => console.log(this.state));
 
   }
 
