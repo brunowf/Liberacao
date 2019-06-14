@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { MDBDataTable, MDBInput } from "mdbreact";
+import { MDBDataTable, MDBInput, MDBCollapse, MDBBtn } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json'
 
 
@@ -115,7 +115,7 @@ export default class ListaUser extends Component {
               </button>
             </div>
         })
-       
+
         data.rows.map(linha => {
           // data.rows = linha.slice(1,2)
           linha.delete =
@@ -136,7 +136,7 @@ export default class ListaUser extends Component {
   }
 
 
-  
+
   userEditar() {
     axios.put(urlServidor + '/users/' + this.state.userIdAtual, {
       id: this.state.userIdAtual,
@@ -163,17 +163,37 @@ export default class ListaUser extends Component {
   }
 
 
-
   render() {
     return (
-      <MDBDataTable
-        scrollY
-        scrollX
-        striped
-        bordered
-        hover
-        data={this.state.listaUsers}
-      />
+      <div>
+        <MDBDataTable
+          scrollY
+          scrollX
+          striped
+          bordered
+          hover
+          data={this.state.listaUsers}
+        />
+
+        <MDBCollapse isOpen={this.state.collapseID}>
+
+          {this.state.erro && <div className="alert alert-danger">{this.state.erro}</div>}
+          <MDBInput label={this.state.userNomeAtual} name="userNome" background icon="door-closed" onChange={(event => this.setState({ userNomeNovo: event.target.value }))} />
+          <MDBInput label={this.state.userEmailAtual} background icon="email" onChange={(event => this.setState({ userEmailNovo: event.target.value }))} />
+          <MDBInput label={this.state.userSenhaAtual} background icon="password" onChange={(event => this.setState({ userSenhaNovo: event.target.value }))} />
+          <MDBInput label={this.state.userTelefoneAtual} background icon="telephone" onChange={(event => this.setState({ userTelefoneNovo: event.target.value }))} />
+   
+          <select className="browser-default custom-select" defaultValue={this.state.userTipoAtual} onChange={(event => this.setState({ userTipoNovo: event.target.value }))} >
+            <option disabled>Tipo de Usuário</option>
+            <option value="ADMINISTRADOR">Administrador</option>
+            <option value="GUARDA">Guarda</option>
+          </select>
+          <div className='tyleBotao'>
+            <MDBBtn className="dusty-grass-gradient" onClick={() => this.userEditar()}>Salvar</MDBBtn>
+          </div>
+
+        </MDBCollapse>
+      </div>
     );
   }
 
