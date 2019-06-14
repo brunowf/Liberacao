@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import axios from '../../services/api';
 import { DataTable, MDBCollapse, MDBBtn, MDBInput } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json';
 //import EditarTurma from './EditarTurma';
@@ -115,7 +115,8 @@ export default class ListaTurmas extends Component {
       nome_curso: this.state.turmaNomeNovo,
       periodo: this.state.turmaPeriodoNovo,
       fase: this.state.turmaFaseNovo,
-      ano_semestre: this.state.AnoSemestreNovo
+      ano_semestre: this.state.AnoSemestreNovo,
+      // aluno:[{id:1}]
     })
   }
 
@@ -134,11 +135,12 @@ export default class ListaTurmas extends Component {
   }
 
 
-
   render() {
     return (
       <div>
         <DataTable
+          scrollY
+          scrollX
           striped
           bordered
           hover
