@@ -117,6 +117,8 @@ export default class ListaTurmas extends Component {
       fase: this.state.turmaFaseNovo,
       ano_semestre: this.state.AnoSemestreNovo,
       // aluno:[{id:1}]
+    }).then(res => {
+      window.location.reload();
     })
   }
 
@@ -138,6 +140,7 @@ export default class ListaTurmas extends Component {
   render() {
     return (
       <div>
+        <h2>{this.state.turmaPeriodoAtual}</h2>
         <DataTable
           scrollY
           scrollX
@@ -153,8 +156,8 @@ export default class ListaTurmas extends Component {
           <MDBInput label={this.state.turmaFaseAtual} background icon="hourglass" onChange={(event => this.setState({ turmaFaseNovo: event.target.value }))} />
           <MDBInput label={this.state.AnoSemestreAtual} background icon="hourglass" onChange={(event => this.setState({ AnoSemestreNovo: event.target.value }))} />
 
-          <select className="browser-default custom-select" defaultValue={this.state.turmaPeriodoAtual} onChange={(event => this.setState({ turmaPeriodoNovo: event.target.value }))} >
-            <option disabled>Período</option>
+          <select className="browser-default custom-select" defaultValue="MATUTINO" onChange={(event => this.setState({ turmaPeriodoNovo: event.target.value }))} >
+            <option disabled>{this.state.turmaPeriodoAtual}</option>
             <option value="MATUTINO">Matutino</option>
             <option value="VESPERTINO">Vespertino</option>
             <option value="DIURNO">Diurno</option>
