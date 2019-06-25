@@ -1,18 +1,19 @@
-import React,{ Component } from "react";
-import { MDBInput} from "mdbreact";
+import React from "react";
+import { MDBInput } from "mdbreact";
+//não funcionando
 
-export default class CadastroResponsavel extends Component{
-  render(){
-    return(
-      <div>
-        <MDBInput label="CPF responsável" type="text" background icon="user" />
-        <MDBInput label="Nome responsável" type="text" background icon="user" />
-        <MDBInput label="Email responsável" type="text" background icon="envelope" />
-      </div>
 
-      
-    );
-  }
+export default props => {
+
+  return (
+    <div>
+      {/* <MDBInput label="CPF responsável" type="text" nome= "cpf" background icon="user" onChange={(i => props.change(i))}/> */}
+      <MDBInput label="Nome" type="text" name="nome" background icon="user" onChange={(e => props.change(e))} />
+      <MDBInput label="Email" type="text" name="email" background icon="envelope" onChange={(e => props.change(e))} />
+    </div>
+
+
+  );
 }
 
-                     
+

@@ -1,16 +1,14 @@
-import React, { Component } from "react";
-import { MDBInput } from "mdbreact";
+import React from "react";
+import { MDBInput, } from "mdbreact";
 
-export default class CadastroAluno extends Component {
-  render() {
-    return (
+export default props => {
+
+  return (
       <div>
-        <MDBInput label="CPF" type="text" background icon="user" />
-        <MDBInput label="Nome" type="text" background icon="user" />
+        <MDBInput label="CPF" type="text" name="cpf" background icon="user" onChange={(e => props.change(e))} />
+        <MDBInput label="Nome" type="text" name="nome" background icon="user" onChange={(e => props.change(e))} />
         <MDBInput label="Data" type="date" background icon="calendar-day" />
       </div>
 
-
     );
-  }
 }

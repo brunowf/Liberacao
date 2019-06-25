@@ -1,9 +1,24 @@
-import React, { Component } from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 //Daniel
+
+import React, { Component } from '../../../node_modules/react';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../../../node_modules/antd/dist/antd.css';
+import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
+import { MDBContainer, MDBRow, MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardTitle, MDBCardText, MDBCol } from "../../../node_modules/mdbreact";
+import '../../css/styles.css';
+import "../../img/joana.jpg";
+
+
+
+
+
+
+
+
+
 export default class AlunosLiberadosSaida extends Component {
   showSettings(event) {
     event.preventDefault();
@@ -82,4 +97,7 @@ export default class AlunosLiberadosSaida extends Component {
     );
   }
 }
+
+
+
 

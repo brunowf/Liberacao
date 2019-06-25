@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import axios from 'axios';
 import { MDBCardBody } from "mdbreact";
 import CadastroProfessor from './CadastroProfessor.js';
-import { urlServidor } from '../../Variaveis.json';
 import ListaProfessores from "./ListaProfessores.js";
 
 export default class MainProfessor extends Component {
@@ -15,6 +13,7 @@ export default class MainProfessor extends Component {
           <div className='col-sm-10 alinhandoEsquerda z-depth-3'>
 
             <MDBCardBody>
+              <h1 className='tyleBotao'>Professores</h1>
               <ListaProfessores></ListaProfessores>
               <CadastroProfessor></CadastroProfessor>
             </MDBCardBody>

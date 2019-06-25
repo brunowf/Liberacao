@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import api from '../../services/api';
 import { DataTable } from "mdbreact";
 import { urlServidor } from '../../Variaveis.json'
 
@@ -27,17 +27,21 @@ export default class ListaProfessores extends Component {
             sort: 'asc',
             width: 270
           },
+          // {
+          //   label: 'Senha',
+          //   field: 'senha',
+          //   sort: 'asc',
+          //   width: 200
+          // },
           {
-            label: 'Senha',
-            field: 'senha',
-            sort: 'asc',
-            width: 200
+            label: 'Telefone',
+            field: 'telefone',
+            sort: 'asc',  
           },
           {
-            label: 'Data de Cadastro',
-            field: 'create_time',
-            sort: 'asc',
-            width: 200
+            label: 'Tipo',
+            field: 'perfil',
+            sort: 'asc',  
           },
         ],
         rows: [
@@ -50,13 +54,17 @@ export default class ListaProfessores extends Component {
   }
 
   componentDidMount() {
-    axios.get(urlServidor + '/users/professores')
+    api.get(urlServidor + '/users/professores')
       .then(resposta => {
         //se deu certo:
         //this.setState({ listaProfessores: resposta.data })
         let data = { ...this.state.listaProfessores }
         data.rows = resposta.data
-        console.log(data)
+        data.rows.map(linha => {
+          // data.rows = linha.slice(1,2)
+          console.log(linha.perfis)
+        });
+        // console.log(data)
         this.setState({ listaProfessores: data })
 
       })
@@ -65,6 +73,11 @@ export default class ListaProfessores extends Component {
         alert('Deu errado!')
         console.log(resposta)
       })
+      // .catch(erro => {
+      //     if (erro.response.status === 403) {
+      //         this.props.history.push("/");    
+      //     }
+      // })
   }
   render() {
     return (
