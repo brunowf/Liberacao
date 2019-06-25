@@ -87,7 +87,9 @@ export default class MainAluno extends Component {
         <div id="page-wrap">
           <h1>Aluno</h1>
           <div className="container" style={{ marginBottom: 30, marginTop: 30 }}>
-            <ListaAlunos></ListaAlunos>
+            <div className="alinhandoEsquerda"> 
+              <ListaAlunos></ListaAlunos>
+            </div>
             <div className="row">
               <div className="col">
                 <form className="alinhandoEsquerda">
