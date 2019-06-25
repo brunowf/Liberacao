@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import api from '../../services/api';
-import { DataTable } from "mdbreact";
-import { urlServidor } from '../../Variaveis.json'
+import { DataTable, MDBCollapse, MDBBtn, MDBInput } from "mdbreact";
+import { urlServidor } from '../../Variaveis.json';
 
 export default class ListaAlunos extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      collapseID: false,
+      aLunoIdAtual: '',
+      alunoNomeAtual: '',
+      alunoCpfAtual: '',
+      alunoomeNovo: '',
+      alunoCpfNovo: '',
       listaAlunos: {
         columns: [
           {
@@ -27,6 +33,16 @@ export default class ListaAlunos extends Component {
             sort: 'asc',
             width: 270
           },
+          {
+            label: 'Editar',
+            field: 'editar',
+            sort: 'asc',
+          },
+          {
+            label: 'Deletar',
+            field: 'deletar',
+            sort: 'asc',
+          },
         ],
         rows: [
           {
@@ -36,6 +52,16 @@ export default class ListaAlunos extends Component {
       }
     }
   }
+  
+  toggleCollapse() {
+    let colapsado = ''
+    if (this.state.collapseID === false) {
+      colapsado = true
+    } else {
+      colapsado = false
+    }
+    this.setState({ collapseID: colapsado })
+  }
 
   componentDidMount = async e => {
     api.get(urlServidor + '/alunos')
@@ -44,6 +70,22 @@ export default class ListaAlunos extends Component {
         //this.setState({ listaAlunos: resposta.data })
         let data = { ...this.state.listaAlunos }
         data.rows = resposta.data
+        data.rows.map(linha => {
+          linha.edit =
+            <div>
+              <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ alunoIdAtual: linha.id, alunoNomeAtual: linha.nome, alunoCpfAtual: linha.cpf})}>
+                Editar
+              </button>
+            </div>
+          })
+          data.rows.map(linha => {
+            // data.rows = linha.slice(1,2)
+            linha.delete =
+              <div className='tyleBotao'>
+                <button onClick={() => this.alunoDelete(linha.id)}>Deletar</button>
+              </div>;
+            console.log(linha.perfis)
+          });
         console.log(data)
         this.setState({ listaAlunos: data })
       })
@@ -51,18 +93,59 @@ export default class ListaAlunos extends Component {
         //se deu errado:
         alert('Deu errado!')
         console.log(resposta)
-        this.props.history.push("/");
       })
   }
-  render() {
-    return (
-      <DataTable
-        striped
-        bordered
-        hover
-        data={this.state.listaAlunos}
-      />
-    );
+
+  alunoEditar() {
+    api.put(urlServidor + '/alunos/' + this.state.alunoIdAtual, {
+      id: this.state.alunoIdAtual,
+      nome: this.state.alunoNomeNovo,
+      cpf: this.state.alunoCpfNovo,
+      // aluno:[{id:1}]
+    }).then(res => {
+      window.location.reload();
+    })
   }
 
+  alunoDelete(idzinho) {
+    api.delete(urlServidor + '/alunos/' + idzinho)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        alert('aluno deletada')
+        window.location.reload();
+      }).catch(resposta => {
+        //se der errado
+        console.log(resposta);
+        alert('Dados incorretos!');
+      })
+  }
+
+
+  render() {
+    return (
+    
+      <div>
+        <DataTable
+          scrollY
+          scrollX
+          striped
+          bordered
+          hover
+          data={this.state.listaAlunos}
+        />
+        <MDBCollapse isOpen={this.state.collapseID}>
+
+          {this.state.erro && <div className="alert alert-danger">{this.state.erro}</div>}
+          <MDBInput label={this.state.alunoCpfAtual} name="AlunoCpf" background icon="door-closed" onChange={(event => this.setState({ alunoCpfNovo: event.target.value }))} />
+          <MDBInput label={this.state.alunoNomeAtual} background icon="hourglass" onChange={(event => this.setState({ alunoNomeNovo: event.target.value }))} />
+        
+          <div className='tyleBotao'>
+            <MDBBtn className="dusty-grass-gradient" onClick={() => this.alunoEditar()}>Salvar</MDBBtn>
+          </div>
+
+        </MDBCollapse>
+      </div>
+    );
+  }
 }
