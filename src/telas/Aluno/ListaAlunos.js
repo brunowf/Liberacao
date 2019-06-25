@@ -37,11 +37,14 @@ export default class ListaAlunos extends Component {
             label: 'Editar',
             field: 'editar',
             sort: 'asc',
+            width: 270
           },
           {
             label: 'Deletar',
             field: 'deletar',
             sort: 'asc',
+            width: 270
+            
           },
         ],
         rows: [
@@ -137,8 +140,8 @@ export default class ListaAlunos extends Component {
         <MDBCollapse isOpen={this.state.collapseID}>
 
           {this.state.erro && <div className="alert alert-danger">{this.state.erro}</div>}
-          <MDBInput label={this.state.alunoCpfAtual} name="AlunoCpf" background icon="door-closed" onChange={(event => this.setState({ alunoCpfNovo: event.target.value }))} />
-          <MDBInput label={this.state.alunoNomeAtual} background icon="hourglass" onChange={(event => this.setState({ alunoNomeNovo: event.target.value }))} />
+          <MDBInput label={this.state.alunoCpfAtual} name="AlunoCpf" background icon="user" onChange={(event => this.setState({ alunoCpfNovo: event.target.value }))} />
+          <MDBInput label={this.state.alunoNomeAtual} background icon="user" onChange={(event => this.setState({ alunoNomeNovo: event.target.value }))} />
         
           <div className='tyleBotao'>
             <MDBBtn className="dusty-grass-gradient" onClick={() => this.alunoEditar()}>Salvar</MDBBtn>
