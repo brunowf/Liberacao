@@ -21,8 +21,10 @@ export default class CadastroUsuario extends Component {
             <MDBCol size="10" md="10" lg="10" className="mx-auto float-none white z-depth-3 py-2 px-2">
               <MDBCardBody>
                 <MDBCardTitle>Lista de Usuários</MDBCardTitle>
+                <div className="alinhandoEsquerda">
+                  <ListaUser></ListaUser>
 
-                <ListaUser></ListaUser>
+                </div>
 
               </MDBCardBody>
             </MDBCol>

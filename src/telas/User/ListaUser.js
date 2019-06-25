@@ -26,7 +26,7 @@ export default class ListaUser extends Component {
             label: 'ID',
             field: 'id',
             sort: 'asc',
-            width: 150
+            width: 45
           },
           {
             label: 'Nome',
@@ -38,17 +38,29 @@ export default class ListaUser extends Component {
             label: 'E-mail',
             field: 'email',
             sort: 'asc',
-            width: 270
+            width: 200
           },
+          // {
+          //   label: 'Senha',
+          //   field: 'senha',
+          //   sort: 'asc',
+          //   width: 200
+          // },
           {
-            label: 'Senha',
-            field: 'senha',
+            label: 'Telefones',
+            field: 'telefones',
             sort: 'asc',
             width: 200
           },
+          // {
+          //   label: 'Data de Cadastro',
+          //   field: 'create_time',
+          //   sort: 'asc',
+          //   width: 200
+          // },
           {
-            label: 'Data de Cadastro',
-            field: 'create_time',
+            label: 'Tipo',
+            field: 'tipo',
             sort: 'asc',
             width: 200
           },
@@ -56,13 +68,19 @@ export default class ListaUser extends Component {
             label: 'Ativo',
             field: 'ativo',
             sort: 'asc',
-            width: 200
+            width: 70
           },
           {
-            label: 'Telefones',
-            field: 'telefones',
+            label: 'Editar',
+            field: 'editar',
             sort: 'asc',
-            width: 200
+            width: 80
+          },
+          {
+            label: 'Deletar',
+            field: 'deletar',
+            sort: 'asc',
+            width: 100
           },
           // {
           //   label: 'Registros de Saídas',
@@ -110,7 +128,7 @@ export default class ListaUser extends Component {
         data.rows.map(linha => {
           linha.edit =
             <div>
-              <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ userIdAtual: linha.id, userNomeAtual: linha.userNome, userEmailAtual: linha.userEmail, userSenhaAtual: linha.userSenha, userTelefoneAtual: linha.userTelefone, userTipoAtual: linha.userTelefone })}>
+              <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ userIdAtual: linha.id, userNomeAtual: linha.nome, userEmailAtual: linha.email, userSenhaAtual: linha.senha, userTelefoneAtual: linha.telefone })}>
                 Editar
               </button>
             </div>
@@ -142,7 +160,6 @@ export default class ListaUser extends Component {
       id: this.state.userIdAtual,
       nome_user: this.state.userNomeNovo,
       email_user: this.state.userEmailNovo,
-      user_senha: this.state.userSenhaNovo,
       telefone: this.state.userTelefoneNovo,
       tipo: this.state.userTipoNovo
     })
@@ -178,10 +195,9 @@ export default class ListaUser extends Component {
         <MDBCollapse isOpen={this.state.collapseID}>
 
           {this.state.erro && <div className="alert alert-danger">{this.state.erro}</div>}
-          <MDBInput label={this.state.userNomeAtual} name="userNome" background icon="door-closed" onChange={(event => this.setState({ userNomeNovo: event.target.value }))} />
-          <MDBInput label={this.state.userEmailAtual} background icon="email" onChange={(event => this.setState({ userEmailNovo: event.target.value }))} />
-          <MDBInput label={this.state.userSenhaAtual} background icon="password" onChange={(event => this.setState({ userSenhaNovo: event.target.value }))} />
-          <MDBInput label={this.state.userTelefoneAtual} background icon="telephone" onChange={(event => this.setState({ userTelefoneNovo: event.target.value }))} />
+          <MDBInput label={this.state.userNomeAtual} name="userNome" background icon="user" onChange={(event => this.setState({ userNomeNovo: event.target.value }))} />
+          <MDBInput label={this.state.userEmailAtual} background icon="envelope" onChange={(event => this.setState({ userEmailNovo: event.target.value }))} />
+          <MDBInput label={this.state.userTelefoneAtual} background icon="phone" onChange={(event => this.setState({ userTelefoneNovo: event.target.value }))} />
    
           <select className="browser-default custom-select" defaultValue={this.state.userTipoAtual} onChange={(event => this.setState({ userTipoNovo: event.target.value }))} >
             <option disabled>Tipo de Usuário</option>
