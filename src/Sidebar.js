@@ -15,6 +15,7 @@ export default props => {
       <Link to="/turma">{'Turmas'}</Link>
       <Link to="/alunos_liberados_entrada">{'Tela de liberação de entrada'}</Link>
       <Link to="/alunos_liberados_saida">{'Tela de liberação de saida'}</Link>
+      <Link to="/Ajuda">{'Ajuda'}</Link>
       {/* <Link to="/">{'Logout'}</Link> */}
     </Menu>
   );
