@@ -33,6 +33,7 @@ export default class MainAluno extends Component {
       id: null,
       nome: this.state.nome,
       email: this.state.email,
+      cpf: this.state.cpf,
     }).then(resposta => {
       alert('Cadastrado sucesso')
     }).catch(resposta => {
@@ -102,6 +103,7 @@ export default class MainAluno extends Component {
                     <div className="card-body">
                       <MDBInput label="Nome" type="text" name="nome" background icon="user" onChange={(e => this.setState({ nome: e.target.value }))} />
                       <MDBInput label="Email" type="text" name="email" background icon="envelope" onChange={(e => this.setState({ email: e.target.value }))} />
+                      <MDBInput label="CPF" type="text" name="cpf" background icon="user" onChange={(e => this.setState({ cpf: e.target.value }))} />
                       {/* <CadastroResposavel change={this.changeResponsavel}></CadastroResposavel> */}
                     </div>
                   </div>
