@@ -9,6 +9,7 @@ export default class ListaUser extends Component {
     super(props);
     this.state = {
       collapseID: false,
+
       userIdAtual: '',
       userNomeAtual: '',
       userEmailAtual: '',
@@ -47,6 +48,12 @@ export default class ListaUser extends Component {
           //   width: 200
           // },
           {
+            label: 'Ativo',
+            field: 'check',
+            sort: 'asc',
+            width: 70
+          },
+          {
             label: 'Telefones',
             field: 'telefones',
             sort: 'asc',
@@ -63,12 +70,6 @@ export default class ListaUser extends Component {
             field: 'tipo',
             sort: 'asc',
             width: 200
-          },
-          {
-            label: 'Ativo',
-            field: 'ativo',
-            sort: 'asc',
-            width: 70
           },
           {
             label: 'Editar',
@@ -122,8 +123,16 @@ export default class ListaUser extends Component {
         let data = { ...this.state.listaUsers }
         data.rows = resposta.data
         data.rows.map(linha => {
-          linha.check =
-            <MDBInput type="checkbox" id={`${linha.id}`} />
+          if (linha.ativo) {
+            linha.ativo = 
+            <input type="checkbox" id={`${linha.id}`} defaultChecked={true} disabled/>;
+            //<MDBInput type="checkbox" id={`${linha.id}`} checked={true}/>;
+          } else {
+            linha.ativo = 
+            <input type="checkbox" id={`${linha.id}`} defaultChecked={false} disabled/>;
+            //<MDBInput type="checkbox" id={`${linha.id}`} unchecked={true}/>;
+          }
+            //console.log(linha.ativo)
         });
         data.rows.map(linha => {
           linha.edit =
@@ -140,7 +149,7 @@ export default class ListaUser extends Component {
             <div className='tyleBotao'>
               <button onClick={() => this.userDelete(linha.id)}>Deletar</button>
             </div>;
-          console.log(linha.perfis)
+          //console.log(linha.perfis)
         });
         //console.log(data)
         this.setState({ listaUsers: data })

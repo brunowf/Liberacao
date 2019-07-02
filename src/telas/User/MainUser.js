@@ -18,7 +18,7 @@ export default class CadastroUsuario extends Component {
         <MDBContainer style={{ marginTop: 60, marginBottom: 60 }}>
           <MDBRow>
             <MDBCol size="1"></MDBCol>
-            <MDBCol size="10" md="10" lg="10" className="mx-auto float-none white z-depth-3 py-2 px-2">
+            <MDBCol size="15" md="15" lg="15" className="mx-auto float-none white z-depth-3 py-2 px-2">
               <MDBCardBody>
                 <MDBCardTitle>Lista de Usuários</MDBCardTitle>
                 <div className="alinhandoEsquerda">
