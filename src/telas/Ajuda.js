@@ -127,8 +127,8 @@ export default class Ajuda extends Component{
                 <h2>Liberação Entrada</h2>
                 <img className="" src="imagens/tela_liberados_entrada.png" width="750" height="500" ></img>
                 <p className="h5">
-                Esta tela somente o professor tem acesso, <br></br>
-                e demonstram os alunos que têm permissão para a entrada tardia em sala de aula. 
+                  Esta tela somente o professor tem acesso, <br></br>
+                  e demonstram os alunos que têm permissão para a entrada tardia em sala de aula. 
                 </p>
               </div>
               <br></br>
@@ -136,8 +136,8 @@ export default class Ajuda extends Component{
                 <h2>Liberação Saida</h2>
                 <img className="" src="imagens/tela_liberados_entrada.png" width="750" height="500" ></img>
                 <p className="h5">
-                Esta página, tanto o professor com o guarda tem acesso, <br></br>
-                ela demonstra os alunos que estão liberados para sair mais cedo das aulas.
+                  Esta página, tanto o professor com o guarda tem acesso, <br></br>
+                  ela demonstra os alunos que estão liberados para sair mais cedo das aulas.
                 </p>
               </div>
             </div>

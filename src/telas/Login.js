@@ -29,7 +29,7 @@ export default class Login extends Component {
       try {
         const response = await api.post("/login", { email, senha });
         login(response.headers.authorization);
-        this.props.history.push("/professor");
+        this.props.history.push("/menu_principal");
       } catch (err) {
         this.setState({
           erro:
