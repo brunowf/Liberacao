@@ -13,8 +13,8 @@ export default class MenuPrincipal extends React.Component {
             <div className="card">
               <div className="card-body">
                 <div>
-                  <a className="btn btn-success" href="http://localhost:3000/alunos_liberados_saida" role="button" style={{ width: 250, height: 100 }}>Saída Antecipado</a>
-                  <a className="btn btn-success" href="http://localhost:3000/alunos_liberados_entrada" role="button" style={{ width: 250, height: 100 }}>Entrada Tardia</a>
+                  <a className="btn btn-success" href="http://localhost:3000/cadastro_saida" role="button" style={{ width: 250, height: 100 }}>Saída Antecipado</a>
+                  <a className="btn btn-success" href="http://localhost:3000/cadastro_entrada" role="button" style={{ width: 250, height: 100 }}>Entrada Tardia</a>
                   <a className="btn btn-success" href="http://localhost:3000/aluno" role="button" style={{ width: 250, height: 100 }}>Cadastro de Aluno</a>
                 </div>
                 <div>

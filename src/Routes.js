@@ -56,7 +56,7 @@ class Routes extends Component {
             <PrivateRoute path="/alunos_liberados_entrada" component={AlunosLiberadosEntrada} />
             <PrivateRoute path="/alunos_liberados_saida" component={AlunosLiberadosSaida} />
             <PrivateRoute path="/ajuda" component={Ajuda} />
-            {/* <PrivateRoute path="/validation_test" component={Validation} />             */}
+            {/* <PrivateRoute path="/validation_test" component={Validation} />*/}
           </div>
         </BrowserRouter>
       </div>
