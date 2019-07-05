@@ -74,12 +74,11 @@ export default class ListaAlunos extends Component {
         let data = { ...this.state.listaAlunos }
         data.rows = resposta.data
         data.rows.map(linha => {
-          linha.edit =
-            <div>
-              <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ alunoIdAtual: linha.id, alunoNomeAtual: linha.nome, alunoCpfAtual: linha.cpf})}>
-                Editar
-              </button>
-            </div>
+          linha.turmas = <div className='tyleBotao'>
+          <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ alunoIdAtual: linha.id, alunoNomeAtual: linha.nome, alunoCpfAtual: linha.cpf})}>
+            Editar
+          </button>
+        </div>
           })
           data.rows.map(linha => {
             // data.rows = linha.slice(1,2)

@@ -123,16 +123,14 @@ export default class ListaUser extends Component {
         let data = { ...this.state.listaUsers }
         data.rows = resposta.data
         data.rows.map(linha => {
-          if (linha.ativo) {
-            linha.ativo = 
-            <input type="checkbox" id={`${linha.id}`} defaultChecked={true} disabled/>;
-            //<MDBInput type="checkbox" id={`${linha.id}`} checked={true}/>;
-          } else {
-            linha.ativo = 
-            <input type="checkbox" id={`${linha.id}`} defaultChecked={false} disabled/>;
-            //<MDBInput type="checkbox" id={`${linha.id}`} unchecked={true}/>;
-          }
-            //console.log(linha.ativo)
+          linha.ativo =
+            <div className='alinhandoCentro'>
+              <input type="checkbox" id={`${linha.id}`} defaultChecked={linha.ativo} disabled />
+            </div>
+          //<MDBInput type="checkbox" id={`${linha.id}`} checked={true}/>;
+          //<MDBInput type="checkbox" id={`${linha.id}`} unchecked={true}/>;
+
+          //console.log(linha.ativo)
         });
         data.rows.map(linha => {
           linha.edit =
@@ -207,7 +205,7 @@ export default class ListaUser extends Component {
           <MDBInput label={this.state.userNomeAtual} name="userNome" background icon="user" onChange={(event => this.setState({ userNomeNovo: event.target.value }))} />
           <MDBInput label={this.state.userEmailAtual} background icon="envelope" onChange={(event => this.setState({ userEmailNovo: event.target.value }))} />
           <MDBInput label={this.state.userTelefoneAtual} background icon="phone" onChange={(event => this.setState({ userTelefoneNovo: event.target.value }))} />
-   
+
           <select className="browser-default custom-select" defaultValue={this.state.userTipoAtual} onChange={(event => this.setState({ userTipoNovo: event.target.value }))} >
             <option disabled>Tipo de Usuário</option>
             <option value="ADMINISTRADOR">Administrador</option>

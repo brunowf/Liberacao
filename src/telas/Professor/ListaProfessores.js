@@ -34,6 +34,11 @@ export default class ListaProfessores extends Component {
           //   width: 200
           // },
           {
+            label: 'Ativo',
+            field: 'ativo',
+            sort: 'asc',  
+          },
+          {
             label: 'Telefone',
             field: 'telefone',
             sort: 'asc',  
@@ -62,7 +67,8 @@ export default class ListaProfessores extends Component {
         data.rows = resposta.data
         data.rows.map(linha => {
           // data.rows = linha.slice(1,2)
-          console.log(linha.perfis)
+          linha.ativo=<input type="checkbox" defaultChecked={linha.ativo} disabled/>;
+          //console.log(linha.perfis)
         });
         // console.log(data)
         this.setState({ listaProfessores: data })
