@@ -15,7 +15,7 @@ export default class MainEntrada extends Component {
           <div className='col-sm-10 alinhandoEsquerda z-depth-3'>
 
             <MDBCardBody>
-              <ListaEntradas></ListaEntradas>
+              {/* <ListaEntradas></ListaEntradas> */}
               <CadastroEntrada></CadastroEntrada>
             </MDBCardBody>
           </div>

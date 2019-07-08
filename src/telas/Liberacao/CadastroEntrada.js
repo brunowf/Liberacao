@@ -8,8 +8,8 @@ import '../../css/styles.css';
 
 
 import { DatePicker } from '../../../node_modules/antd';
-import MenuItem from '../../../node_modules/@material-ui/core/MenuItem';
-import Select from '../../../node_modules/@material-ui/core/Select';
+// import MenuItem from '../../../node_modules/@material-ui/core/MenuItem';
+// import Select from '../../../node_modules/@material-ui/core/Select';
 /*import { SVGIcon } from '../../../node_modules/react-md';// Switch, Grid, Cell, SelectionControl, SelectionControlGroup, 
 
 import favorite from '../../icons/favorite.svg';
@@ -23,10 +23,10 @@ import api from '../../services/api';
 const { RangePicker } = DatePicker;
 
 
-function onChange(value, dateString) {
-  console.log('Selected Time: ', value);
-  console.log('Formatted Selected Time: ', dateString);
-}
+// function onChange(value, dateString) {
+//   console.log('Selected Time: ', value);
+//   console.log('Formatted Selected Time: ', dateString);
+// }
 
 function onOk(value) {
   console.log('onOk: ', value);
@@ -86,11 +86,10 @@ export default class CadastroEntrada extends Component {
     super(props)
     this.handleChangeTurma = this.handleChangeTurma.bind(this)
     this.state = {
-      id: 1,
       hora_entrada: '1970-01-01 20:44:00',
       notificar_prof: true,
       notificar_resp: true,
-      observacao: 'asedfd dfad sfa ds',
+      observacao: 'Teste no front',
       segunda: false,
       terca: false,
       quarta: false,
@@ -99,7 +98,6 @@ export default class CadastroEntrada extends Component {
       sabado: false,
       administrador_id: '2',
       aluno_id: '1',
-      turma: '0',
       nome_aluno: '',
       nome_resp: '',
       tel_aluno: '',
@@ -114,7 +112,6 @@ export default class CadastroEntrada extends Component {
 
   entradaPost() {
     api.post(urlServidor + '/registroentradas', {
-      id: this.state.id,
       hora_entrada: this.state.hora_entrada,
       notificar_prof: this.state.notificar_prof,
       notificar_resp: this.state.notificar_resp,
@@ -124,7 +121,19 @@ export default class CadastroEntrada extends Component {
       quarta: this.state.quarta,
       quinta: this.state.quinta,
       sexta: this.state.sexta,
-      sabado: this.state.sabado
+      sabado: this.state.sabado,
+      aluno: {
+        "id": 1
+      },
+      administrador: {
+        "id": 2
+      },
+      professores: [
+        {
+          "id": 8
+        }
+      ]
+
       /*administrador_id: this.state.adminnistrador_id,
       aluno_id: this.state.aluno_id*/
 
@@ -141,11 +150,11 @@ export default class CadastroEntrada extends Component {
 
 
   buscaAluno() {
-    api.get(urlServidor + '/alunos/'+ this.state.id)
+    api.get(urlServidor + '/alunos/' + this.state.id)
       .then(resposta => {
         console.log(resposta)
         this.setState({ name: resposta.data.nome, aluno_id: resposta.data.id });
-        
+
 
       })
       .catch(resposta => {
@@ -171,7 +180,21 @@ export default class CadastroEntrada extends Component {
               <MDBCardTitle></MDBCardTitle>
               <form className='alinhandoEsquerda'>
                 <MDBInput hint="CPF" type="text" containerClass="active-pink active-pink-2 mt-0 mb-3" />
-          
+                <select>
+                  <option value='1'>alunos</option>
+                </select>
+                <select>
+                  <option value='1'>professor</option>
+                </select>
+                <br></br>
+                <label htmlFor='notProf'>notificar_prof :</label>
+                <input type='checkbox' id='notProf'></input>
+                <br></br>
+                <label htmlFor='notResp'>notificar_resp :</label>
+                <input type='checkbox' id='notResp'></input>
+
+                {/**to do: administrador no post */}
+
 
                 <MDBInput label="Nome Completo" icon="user" group type="text" id='nome' value={this.state.name} />
                 <MDBInput label="Responsável" icon="envelope" color="success" group type='email' id='email' />
@@ -209,11 +232,11 @@ export default class CadastroEntrada extends Component {
                 <MDBInput label="Nome Professor" icon="user" group type="text" id='professor' />
               </form>
               {/*<InputLabel htmlFor="turma-simple">Turma</InputLabel>*/}
-              <Select
+              {/* <Select
                 value={this.state.turma}
                 onChange={this.handleChangeTurma}
               >
-                {/*inputProps={{name: 'turma',id: 'turma-simple',}}*/}
+                
 
                 <MenuItem value={0}>
                   <em>Escolha Turma</em>
@@ -221,7 +244,8 @@ export default class CadastroEntrada extends Component {
                 <MenuItem value={10}> Connect 2A </MenuItem>
                 <MenuItem value={20}> Connect 2B </MenuItem>
 
-              </Select>
+              </Select> */}
+              {/*inputProps={{name: 'turma',id: 'turma-simple',}}*/}
               <hr />
 
 
@@ -229,7 +253,6 @@ export default class CadastroEntrada extends Component {
                 showTime={{ format: 'HH:mm' }}
                 format="YYYY-MM-DD HH:mm"
                 placeholder={['Start Time', 'End Time']}
-                onChange={onChange}
                 onOk={onOk}
               />
 
