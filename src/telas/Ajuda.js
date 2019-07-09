@@ -60,7 +60,7 @@ export default class Ajuda extends Component{
                 <h2>Cadastro de Usuario</h2>
                 <img alt='Imagem da Tela de Cadastro de Usuários do Sistema' className="" src="imagens/tela_cadastro_user.png" width="750" height="600" ></img>
                 <p className="h5">
-                <h4>Cadastro de Guarda</h4>
+                  Cadastro de Guarda
                   1.Insira o nome do guarda;<br></br>
                   2.Insira o email do guarda;<br></br>
                   3.Insira uma senha para o guarda;<br></br>
