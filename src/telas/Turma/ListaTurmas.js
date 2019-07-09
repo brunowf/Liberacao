@@ -89,7 +89,7 @@ export default class ListaTurmas extends Component {
         //this.setState({ listaTurmas: resposta.data })
         let data = { ...this.state.listaTurmas }
         data.rows = resposta.data
-        data.rows.map(linha => {
+        data.rows.forEach(linha => {
           linha.edit =
             <div>
               <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ turmaIdAtual: linha.id, turmaNomeAtual: linha.nome_curso, turmaFaseAtual: linha.fase, AnoSemestreAtual: linha.ano_semestre, turmaPeriodoAtual:linha.periodo })}>
@@ -97,7 +97,7 @@ export default class ListaTurmas extends Component {
               </button>
             </div>
         })
-        data.rows.map(linha => {
+        data.rows.forEach(linha => {
           // data.rows = linha.slice(1,2)
           linha.delete =
             <div className='tyleBotao'>

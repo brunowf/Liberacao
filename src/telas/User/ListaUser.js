@@ -122,7 +122,7 @@ export default class ListaUser extends Component {
         //this.setState({ listaProfessores: resposta.data })
         let data = { ...this.state.listaUsers }
         data.rows = resposta.data
-        data.rows.map(linha => {
+        data.rows.forEach(linha => {
           linha.ativo =
             <div className='alinhandoCentro'>
               <input type="checkbox" id={`${linha.id}`} defaultChecked={linha.ativo} disabled />
@@ -132,7 +132,7 @@ export default class ListaUser extends Component {
 
           //console.log(linha.ativo)
         });
-        data.rows.map(linha => {
+        data.rows.forEach(linha => {
           linha.edit =
             <div>
               <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ userIdAtual: linha.id, userNomeAtual: linha.nome, userEmailAtual: linha.email, userSenhaAtual: linha.senha, userTelefoneAtual: linha.telefone })}>
@@ -141,7 +141,7 @@ export default class ListaUser extends Component {
             </div>
         })
 
-        data.rows.map(linha => {
+        data.rows.forEach(linha => {
           // data.rows = linha.slice(1,2)
           linha.delete =
             <div className='tyleBotao'>

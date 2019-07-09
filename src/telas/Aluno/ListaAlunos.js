@@ -73,14 +73,14 @@ export default class ListaAlunos extends Component {
         //this.setState({ listaAlunos: resposta.data })
         let data = { ...this.state.listaAlunos }
         data.rows = resposta.data
-        data.rows.map(linha => {
+        data.rows.forEach(linha => {
           linha.turmas = <div className='tyleBotao'>
           <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ alunoIdAtual: linha.id, alunoNomeAtual: linha.nome, alunoCpfAtual: linha.cpf})}>
             Editar
           </button>
         </div>
           })
-          data.rows.map(linha => {
+          data.rows.forEach(linha => {
             // data.rows = linha.slice(1,2)
             linha.delete =
               <div className='tyleBotao'>

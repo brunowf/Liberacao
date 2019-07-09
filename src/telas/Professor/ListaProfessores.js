@@ -65,7 +65,7 @@ export default class ListaProfessores extends Component {
         //this.setState({ listaProfessores: resposta.data })
         let data = { ...this.state.listaProfessores }
         data.rows = resposta.data
-        data.rows.map(linha => {
+        data.rows.forEach(linha => {
           // data.rows = linha.slice(1,2)
           linha.ativo=<input type="checkbox" defaultChecked={linha.ativo} disabled/>;
           //console.log(linha.perfis)
