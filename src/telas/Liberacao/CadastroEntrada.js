@@ -6,7 +6,6 @@ import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
 import { MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBFormInline } from "../../../node_modules/mdbreact";
 import '../../css/styles.css';
 
-
 import { DatePicker } from '../../../node_modules/antd';
 // import MenuItem from '../../../node_modules/@material-ui/core/MenuItem';
 // import Select from '../../../node_modules/@material-ui/core/Select';
@@ -203,7 +202,7 @@ export default class CadastroEntrada extends Component {
                 <select defaultValue='n/selecionado' onChange={(event => this.setState({ professorSlc: event.target.value }) + console.log(event.target.value))}>
                   <option value='n/selecionado' disabled>Professores</option>
                   {this.state.listaProf.map(lista =>
-                    <option key={lista.id} value={lista.id}>{lista.nome}</option>
+                    <option  key={lista.id} value={lista.id}>{lista.nome}</option>
                   )}
                 </select>
                 <br />
