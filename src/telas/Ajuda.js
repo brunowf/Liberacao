@@ -13,7 +13,7 @@ export default class Ajuda extends Component{
           <div className="cord-body">
               <div>
                 <h2>Login</h2>
-                <img className="" src="imagens/Tela_login.png" width="750" height="400" ></img>
+                <img alt='Imagem da Tela de Login' className="" src="imagens/Tela_login.png" width="750" height="400" ></img>
                 <p className="h5">
                    1. Digite seu email no campo Email;<br></br>
                    2. Digite sua senha no campo Senha;<br></br>
@@ -23,7 +23,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
               <h2>Menu</h2>
-                <img className="" src="imagens/tela menu.png" width="750" height="400" ></img>
+                <img alt='Imagem da Tela de Menu Principal' className="" src="imagens/tela menu.png" width="750" height="400" ></img>
                 <p className="h5">
                   1. Escolha a página de destino na lista do menu do lado esquerdo;<br></br>
                   2. Clique no nome da página para ir à página de destino;<br></br>
@@ -33,7 +33,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
               <h2>Cadastro de Entrada</h2>
-                <img className="" src="imagens/tela_cadastro_entrada.png" width="750" height="400" ></img>
+                <img alt='Imagem da Tela de Cadastro de Entrada Tardia de Alunos' className="" src="imagens/tela_cadastro_entrada.png" width="750" height="400" ></img>
                 <p className="h5">
                   1.Inserir o CPF do aluno já cadastrado;<br></br>
                   2.O sistema irá alto preencher os demais campos;<br></br>
@@ -46,7 +46,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
                 <h2>Cadastro Saida</h2>
-                <img className="" src="imagens/tela_cadastro_saida.png" width="750" height="400" ></img>
+                <img alt='Imagem da Tela de Cadastro de Saída Antecipada de Alunos' className="" src="imagens/tela_cadastro_saida.png" width="750" height="400" ></img>
                 <p className="h5">
                   1.Inserir o CPF do aluno já cadastrado;<br></br>
                   2.O sistema irá alto preencher os demais campos;<br></br>
@@ -58,7 +58,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
                 <h2>Cadastro de Usuario</h2>
-                <img className="" src="imagens/tela_cadastro_user.png" width="750" height="600" ></img>
+                <img alt='Imagem da Tela de Cadastro de Usuários do Sistema' className="" src="imagens/tela_cadastro_user.png" width="750" height="600" ></img>
                 <p className="h5">
                 <h4>Cadastro de Guarda</h4>
                   1.Insira o nome do guarda;<br></br>
@@ -77,7 +77,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
                 <h2>Cadastro de Professor</h2>
-                <img className="" src="imagens/tela_cadastro_professor.png" width="750" height="600" ></img>
+                <img alt='Imagem da Tela de Cadastro de Professores' className="" src="imagens/tela_cadastro_professor.png" width="750" height="600" ></img>
                 <p className="h5">
                   1.Insira o nome do professor;<br></br>
                   2.Insira o email do professor;<br></br>
@@ -88,7 +88,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
                 <h2>Cadastro de Aluno</h2>
-                <img className="" src="imagens/tela_cadastro_aluno.png" width="750" height="600" ></img>
+                <img alt='Imagem da Tela de Cadastro de Alunos' className="" src="imagens/tela_cadastro_aluno.png" width="750" height="600" ></img>
                 <p className="h5">
                     <h4>Cadastro de Aluno</h4>
                       1.Insira o CPF do aluno;<br></br>
@@ -110,7 +110,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
                 <h2>Cadastro de Turma</h2>
-                <img className="" src="imagens/tela_cadastro_turma.png" width="750" height="600" ></img>
+                <img alt='Imagem da Tela de Cadastro de Turmas' className="" src="imagens/tela_cadastro_turma.png" width="750" height="600" ></img>
                 <p className="h5">
                   <h4>Cadastro de Turma</h4>
                     1.Insira nome da turma;<br></br>
@@ -125,7 +125,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
                 <h2>Liberação Entrada</h2>
-                <img className="" src="imagens/tela_liberados_entrada.png" width="750" height="500" ></img>
+                <img alt='Imagem da Tela de Liberação para Entrada Tardia' className="" src="imagens/tela_liberados_entrada.png" width="750" height="500" ></img>
                 <p className="h5">
                   Esta tela somente o professor tem acesso, <br></br>
                   e demonstram os alunos que têm permissão para a entrada tardia em sala de aula. 
@@ -134,7 +134,7 @@ export default class Ajuda extends Component{
               <br></br>
               <div>
                 <h2>Liberação Saida</h2>
-                <img className="" src="imagens/tela_liberados_entrada.png" width="750" height="500" ></img>
+                <img alt='Imagem da Tela de Liberação para Saída Antecipada' className="" src="imagens/tela_liberados_entrada.png" width="750" height="500" ></img>
                 <p className="h5">
                   Esta página, tanto o professor com o guarda tem acesso, <br></br>
                   ela demonstra os alunos que estão liberados para sair mais cedo das aulas.
