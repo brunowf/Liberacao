@@ -8,10 +8,10 @@ export default class MenuPrincipal extends React.Component {
     return (
       <div id="App">
         <div id="page-wrap">
-          <h1>Menu Principal</h1>
           <div className="container" style={{ marginBottom: 30, marginTop: 30 }}>
             <div className="card">
               <div className="card-body">
+                <h1>Menu Principal</h1>
                 <div>
                   <a className="btn btn-success" href="http://localhost:3000/cadastro_saida" role="button" style={{ width: 250, height: 100 }}>Saída Antecipado</a>
                   <a className="btn btn-success" href="http://localhost:3000/cadastro_entrada" role="button" style={{ width: 250, height: 100 }}>Entrada Tardia</a>
@@ -24,7 +24,7 @@ export default class MenuPrincipal extends React.Component {
                 </div>
               </div>
             </div>
-         </div>
+          </div>
         </div>
       </div>
     );

@@ -55,7 +55,7 @@ export default class Login extends Component {
               <MDBInput label="Email" type="email" background icon="envelope" onChange={(event => this.setState({ email: event.target.value }))}/>
               <MDBInput label="Senha" type="password" background icon="key" onChange={(event => this.setState({ senha: event.target.value }))}/>
               <div className='alinhandoDireita tyleBotao'>
-                <MDBBtn className="dusty-grass-gradient" type="submit">Salvar</MDBBtn>
+                <MDBBtn className="dusty-grass-gradient" type="submit">Login</MDBBtn>
               </div>
             </form>
           </div>
