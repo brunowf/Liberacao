@@ -47,7 +47,7 @@ export default class Login extends Component {
           <div className='col-sm-8'>
           <div class="text-center">
 
-          <img id="profile-img" class="rounded-circle profile-img-card" src="https://98fmapucarana.com.br/wp-content/uploads/2018/06/56822-Senai-Arauc%C3%A1ria-Cursos-Gratuitos-no-Paran%C3%A1-2.jpg" />
+          <img alt='Logo Senai' id="profile-img" class="rounded-circle profile-img-card" src="https://98fmapucarana.com.br/wp-content/uploads/2018/06/56822-Senai-Arauc%C3%A1ria-Cursos-Gratuitos-no-Paran%C3%A1-2.jpg" />
           </div>
             <h1>Login</h1>
             {this.state.erro && <div className="alert alert-danger">{this.state.erro}</div>}
