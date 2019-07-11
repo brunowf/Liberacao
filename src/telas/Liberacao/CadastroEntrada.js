@@ -17,7 +17,7 @@ import favoriteBorder from '../../icons/favorite_border.svg';*/
 import { urlServidor } from '../../Variaveis.json';
 import api from '../../services/api';
 
-// Range Picker
+// Marcelo
 
 const { RangePicker } = DatePicker;
 
@@ -73,6 +73,7 @@ const radioControls = [{
 }];
 
 */
+const dataAtual = new Date();
 
 
 export default class CadastroEntrada extends Component {
@@ -90,6 +91,7 @@ export default class CadastroEntrada extends Component {
       .then(resposta => {
         this.setState({ listaAlunos: resposta.data })
         console.log(this.state.listaAlunos)
+        console.log(this.state.listaAlunos.length)
       })
       .catch(resposta => {
         //se deu errado:
@@ -115,7 +117,7 @@ export default class CadastroEntrada extends Component {
       alert("Preencha e selecione todos os campos!")
     } else {
       api.post(urlServidor + '/registroentradas', {
-        hora_entrada: null,
+        hora_entrada: this.state.horaEntrada,
         notificar_prof: this.state.notificar_prof,
         notificar_resp: this.state.notificar_resp,
         observacao: this.state.observacao,
@@ -161,8 +163,8 @@ export default class CadastroEntrada extends Component {
     this.state = {
       listaAlunos: [],
       listaProf: [],
-      dataEntrada:null,
-      horaEntrada: null,
+      dataEntrada: null,
+      horaEntrada: dataAtual.getHours() + ':' + dataAtual.getMinutes(),
       notificar_prof: true,
       notificar_resp: true,
       observacao: null,
@@ -192,7 +194,7 @@ export default class CadastroEntrada extends Component {
             <MDBCardBody>
               <MDBCardTitle></MDBCardTitle>
               <form className='alinhandoEsquerda'>
-                <MDBInput hint="CPF" type="text" containerClass="active-pink active-pink-2 mt-0 mb-3" />
+                {/* <MDBInput hint="CPF" type="text" containerClass="active-pink active-pink-2 mt-0 mb-3" /> */}
                 <select defaultValue='n/selecionado' onChange={(event => this.setState({ alunoSlc: event.target.value }) + console.log(event.target.value))}>
                   <option value='n/selecionado' disabled>Alunos</option>
                   {this.state.listaAlunos.map(lista =>
@@ -202,31 +204,39 @@ export default class CadastroEntrada extends Component {
                 <select defaultValue='n/selecionado' onChange={(event => this.setState({ professorSlc: event.target.value }) + console.log(event.target.value))}>
                   <option value='n/selecionado' disabled>Professores</option>
                   {this.state.listaProf.map(lista =>
-                    <option  key={lista.id} value={lista.id}>{lista.nome}</option>
+                    <option key={lista.id} value={lista.id}>{lista.nome}</option>
                   )}
                 </select>
                 <br />
                 <label htmlFor='notProf'>notificar_prof :</label>
-                <input type='checkbox' id='notProf'></input>
+                <input type='checkbox' id='notProf' onChange={(event => this.setState({ notificar_prof: event.target.checked }))}></input>
                 <br />
                 <label htmlFor='notResp'>notificar_resp :</label>
-                <input type='checkbox' id='notResp'></input>
+                <input type='checkbox' id='notResp' onChange={(event => this.setState({ notificar_resp: event.target.checked }))}></input>
                 <br />
                 <textarea onChange={(event => this.setState({ observacao: event.target.value }) + console.log(event.target.value))}></textarea>
-                <br/>
+                <br />
                 <input type='date' onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}></input>
-                <br/>
-                <input type='time' onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}></input>
-
+                <br />
+                {/* <button onClick={(event => event.preventDefault() + console.log(this.state.horaEntrada))}>teste</button> */}
+                
+                <input type='time' defaultValue={dataAtual.getHours() + ':' + (dataAtual.getMinutes() < 9 ? '0' + dataAtual.getMinutes() : dataAtual.getMinutes())} onChange={(event => this.setState({horaEntrada: event.target.value}))}></input>
+                <br />
+                
+                <MDBInput label="SEG" type="checkbox" onChange={(event => this.setState({ segunda: event.target.checked }) + console.log(event.target.checked))} />
+                <MDBInput label="TER" type="checkbox" onChange={(event => this.setState({ terca: event.target.checked }) + console.log(event.target.checked))} />
+                <MDBInput label="QUA" type="checkbox" onChange={(event => this.setState({ quarta: event.target.checked }) + console.log(event.target.checked))} />
+                <MDBInput label="QUI" type="checkbox" onChange={(event => this.setState({ quinta: event.target.checked }) + console.log(event.target.checked))} />
+                <MDBInput label="SEX" type="checkbox" onChange={(event => this.setState({ sexta: event.target.checked }) + console.log(event.target.checked))} />
+                <MDBInput label="SAB" type="checkbox" onChange={(event => this.setState({ sabado: event.target.checked }) + console.log(event.target.checked))} />
                 {/**to do: administrador no post */}
 
-
-                <MDBInput label="Nome Completo" icon="user" group type="text" id='nome' value={this.state.name} />
+                {/* <MDBInput label="Nome Completo" icon="user" group type="text" id='nome' value={this.state.name} />
                 <MDBInput label="Responsável" icon="envelope" color="success" group type='email' id='email' />
                 <MDBInput label="Whatsapp" icon="key" group type='password' id='senha' />
 
 
-                <MDBInput label="Telefone / WhatsApp" icon="phone" group type='tel' id='telefone' />
+                <MDBInput label="Telefone / WhatsApp" icon="phone" group type='tel' id='telefone' /> */}
 
 
 

@@ -5,7 +5,7 @@ import { login } from '../services/auth';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
-//Daniel / Bruno
+//Bruno
 
 export default class Login extends Component {
 

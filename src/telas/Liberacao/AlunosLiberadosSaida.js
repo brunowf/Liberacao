@@ -1,7 +1,7 @@
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-//Daniel
+//Rodrigo
 
 import React, { Component } from '../../../node_modules/react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';

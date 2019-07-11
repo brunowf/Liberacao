@@ -1,5 +1,5 @@
 import React, { Component } from '../../../node_modules/react';
-//Daniel
+//Rodrigo
 export default class AlunosLiberadosEntrada extends Component {
   showSettings(event) {
     event.preventDefault();
