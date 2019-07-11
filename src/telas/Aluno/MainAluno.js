@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import { MDBBtn, MDBRow, MDBCol, MDBInput } from "mdbreact";
-import Imagem from '../../foto.jpg';
+//import Imagem from '../../foto.jpg';
 // import CadastroResposavel from "./CadastroResponsavel";
 import CadastroAluno from "./CadastroAluno";
 import ListaAlunos from "./ListaAlunos";
@@ -18,10 +18,11 @@ export default class MainAluno extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      listaAlunos: [],
       aluno: {
         id: null,
-        nome: '',
-        cpf: '',
+        nome: null,
+        cpf: null,
       },
       id: null,
       listaTurmas: [],
@@ -29,8 +30,8 @@ export default class MainAluno extends Component {
       email: 'gyugy',
       responsavel: {
         id: null,
-        nome: '',
-        email: '',
+        nome: null,
+        email: null,
       },
       turmaIdSlc: null,
     }
@@ -56,36 +57,65 @@ export default class MainAluno extends Component {
         alert('Deu errado!')
         console.log(resposta)
       })
+
+    api.get(urlServidor + '/alunos')
+      .then(resposta => {
+        //se deu certo:
+        //this.setState({ listaAlunos: resposta.data })
+        console.log(resposta.data)
+        this.setState({ listaAlunos: resposta.data })
+      })
+      .catch(resposta => {
+        //se deu errado:
+        alert('Deu errado!')
+        console.log(resposta)
+      })
   }
 
+
   alunoPost() {
-    api.post(urlServidor + '/alunos', {
-      id: null,
-      nome: this.state.aluno.nome,
-      cpf: this.state.aluno.cpf,
-      turmas: [
-        {
-          "id": this.state.turmaIdSlc
-        }
-      ]
-    }).then(resposta => {
-      alert('Cadastrado com sucesso')
-    }).catch(resposta => {
-      alert('Não cadastrado')
-    })
+    let tamanhoLista = this.state.listaAlunos.length + 1
+    if (!this.state.aluno.nome | !this.state.aluno.cpf | !this.state.nome | !this.state.cpf | !this.state.email | !this.state.turmaIdSlc) {
+      alert("prencha todos os campos")
+    } else {
+      api.post(urlServidor + '/alunos', {
+        id: null,
+        nome: this.state.aluno.nome,
+        cpf: this.state.aluno.cpf,
+        turmas: [
+          {
+            "id": this.state.turmaIdSlc
+          }
+        ]
+      }).then(resposta => {
+        api.post(urlServidor + '/responsavel', {
+          id: null,
+          nome: this.state.nome,
+          email: this.state.email,
+          cpf: this.state.cpf,
+          aluno:
+          {
+            "id": tamanhoLista
+          }
+
+        }).then(resposta => {
+          alert('Responsavel')
+          console.log(tamanhoLista)
+        }).catch(resposta => {
+          alert('Não Responsavel')
+          console.log(tamanhoLista)
+        })
+      }).catch(resposta => {
+        alert('Não cadastrado')
+      })
+
+    }
+
   }
 
   responsavelPost() {
-    api.post(urlServidor + '/responsavel', {
-      id: null,
-      nome: this.state.nome,
-      email: this.state.email,
-      cpf: this.state.cpf,
-    }).then(resposta => {
-      alert('Cadastrado sucesso')
-    }).catch(resposta => {
-      alert('Não cadastrado')
-    })
+
+
   }
 
 
@@ -140,7 +170,7 @@ export default class MainAluno extends Component {
               <div className="col">
                 <div className="card">
                   <div className="card-body">
-                    <img className="foto" src={Imagem} alt="Foto do aluno"></img>
+                    <img className="foto" src="imagens/foto.jpg" alt="Foto do aluno"></img>
                   </div>
                   <div>
                     <MDBBtn color="success" className="text-xs-left"><i className="fas fa-camera"></i></MDBBtn>
@@ -162,7 +192,7 @@ export default class MainAluno extends Component {
                   </div>
                   <br></br>
                   <div>
-                    <MDBBtn color="success" className="text-xs-left" onClick={() => this.alunoPost()}>Cadastrar</MDBBtn>
+                    <MDBBtn color="success" className="text-xs-left" onClick={() => this.alunoPost() + this.responsavelPost()}>Cadastrar</MDBBtn>
                   </div>
                 </div>
               </div>

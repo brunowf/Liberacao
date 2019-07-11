@@ -39,13 +39,7 @@ export default class ListaAlunos extends Component {
             sort: 'asc',
             width: 270
           },
-          {
-            label: 'Deletar',
-            field: 'deletar',
-            sort: 'asc',
-            width: 270
-            
-          },
+      
         ],
         rows: [
           {
@@ -82,10 +76,6 @@ export default class ListaAlunos extends Component {
           })
           data.rows.forEach(linha => {
             // data.rows = linha.slice(1,2)
-            linha.delete =
-              <div className='tyleBotao'>
-                <button onClick={() => this.alunoDelete(linha.id)}>Deletar</button>
-              </div>;
             console.log(linha.perfis)
           });
         console.log(data)
@@ -109,19 +99,6 @@ export default class ListaAlunos extends Component {
     })
   }
 
-  alunoDelete(idzinho) {
-    api.delete(urlServidor + '/alunos/' + idzinho)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        alert('aluno deletada')
-        window.location.reload();
-      }).catch(resposta => {
-        //se der errado
-        console.log(resposta);
-        alert('Dados incorretos!');
-      })
-  }
 
 
   render() {
