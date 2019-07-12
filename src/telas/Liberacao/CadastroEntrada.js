@@ -3,7 +3,7 @@ import React, { Component } from '../../../node_modules/react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../node_modules/antd/dist/antd.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
-import { MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBFormInline } from "../../../node_modules/mdbreact";
+import { MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBRow, MDBCol} from "../../../node_modules/mdbreact";
 import '../../css/styles.css';
 
 import { DatePicker } from '../../../node_modules/antd';
@@ -208,20 +208,20 @@ export default class CadastroEntrada extends Component {
                   )}
                 </select>
                 <br />
-                <label htmlFor='notProf'>notificar_prof :</label>
-                <input type='checkbox' id='notProf' onChange={(event => this.setState({ notificar_prof: event.target.checked }))}></input>
-                <br />
-                <label htmlFor='notResp'>notificar_resp :</label>
-                <input type='checkbox' id='notResp' onChange={(event => this.setState({ notificar_resp: event.target.checked }))}></input>
-                <br />
+                {/*<label htmlFor='notProf'>notificar_prof :</label>*/}
+                <MDBInput label="notProf" type='checkbox' id='notProf' onChange={(event => this.setState({ notificar_prof: event.target.checked }))}></MDBInput>
+                
+                {/* <label htmlFor='notResp'>notificar_resp :</label> */}
+                <MDBInput label="notResp" type='checkbox' id='notResp' onChange={(event => this.setState({ notificar_resp: event.target.checked }))}></MDBInput>
+                
                 <textarea onChange={(event => this.setState({ observacao: event.target.value }) + console.log(event.target.value))}></textarea>
-                <br />
-                <input type='date' onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}></input>
-                <br />
+                
+                <MDBInput type='date' onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}></MDBInput>
+                
                 {/* <button onClick={(event => event.preventDefault() + console.log(this.state.horaEntrada))}>teste</button> */}
                 
-                <input type='time' defaultValue={dataAtual.getHours() + ':' + (dataAtual.getMinutes() < 9 ? '0' + dataAtual.getMinutes() : dataAtual.getMinutes())} onChange={(event => this.setState({horaEntrada: event.target.value}))}></input>
-                <br />
+                <MDBInput type='time' defaultValue={dataAtual.getHours() + ':' + (dataAtual.getMinutes() < 9 ? '0' + dataAtual.getMinutes() : dataAtual.getMinutes())} onChange={(event => this.setState({horaEntrada: event.target.value}))}></MDBInput>
+                
                 
                 <MDBInput label="SEG" type="checkbox" onChange={(event => this.setState({ segunda: event.target.checked }) + console.log(event.target.checked))} />
                 <MDBInput label="TER" type="checkbox" onChange={(event => this.setState({ terca: event.target.checked }) + console.log(event.target.checked))} />
@@ -291,14 +291,14 @@ export default class CadastroEntrada extends Component {
                 onOk={onOk}
               />
 
-              <MDBFormInline>
+              {/*<MDBFormInline>
                 <MDBInput label="SEG" type="checkbox" id="segunda" name="segunda" value="true" />
                 <MDBInput label="TER" type="checkbox" id="terca" name="terca" value="true" />
                 <MDBInput label="QUA" type="checkbox" id="quarta" name="quarta" value="true" />
                 <MDBInput label="QUI" type="checkbox" id="quinta" name="quinta" value="true" />
                 <MDBInput label="SEX" type="checkbox" id="sexta" name="sexta" value="true" />
                 <MDBInput label="SAB" type="checkbox" id="sabado" name="sabado" value="true" />
-              </MDBFormInline>
+              </MDBFormInline>*/}
 
               <MDBBtn color="success" className="text-xs-left embaixo" onClick={() => this.entradaPost()}>Salvar</MDBBtn>
             </MDBCardBody>
