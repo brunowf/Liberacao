@@ -79,7 +79,6 @@ export default class CadastroEntrada extends Component {
       }).then(resposta => {
         //se deu certo:
         alert('Cadastrado com sucesso!')
-        window.location.reload();
       })
         .catch(resposta => {
           //se der errado
