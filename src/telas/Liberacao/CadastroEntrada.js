@@ -4,15 +4,16 @@ import '../../../node_modules/antd/dist/antd.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
 import { MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBFormInline} from "../../../node_modules/mdbreact";
 import '../../css/styles.css';
-import { DatePicker } from '../../../node_modules/antd';
+
 import { urlServidor } from '../../Variaveis.json';
 import api from '../../services/api';
 
 // Marcelo
-const { RangePicker } = DatePicker;
+
 const dataAtual = new Date();
 
 export default class CadastroEntrada extends Component {
+  
   onOk(value) {
     console.log('onOk: ', value);
   }
@@ -156,8 +157,19 @@ export default class CadastroEntrada extends Component {
                 placeholder={['Start Time', 'End Time']}
                 onOk={this.state.onOk}
                   />  */}
-              <MDBInput type='date' onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}></MDBInput>
-              <MDBInput type='time' defaultValue={dataAtual.getHours() + ':' + (dataAtual.getMinutes() < 9 ? '0' + dataAtual.getMinutes() : dataAtual.getMinutes())} onChange={(event => this.setState({ horaEntrada: event.target.value }))}></MDBInput>
+
+                  {/*
+  import { DatePicker } from '../../../node_modules/antd';
+const { RangePicker } = DatePicker;
+*/}
+              <MDBInput type='date' 
+                          onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}>
+              </MDBInput>
+              
+              <MDBInput type='time' 
+                          defaultValue={ ((dataAtual.getHours() + ':' + (dataAtual.getMinutes()) < 9 ) ? 
+                                                                  '0' + dataAtual.getMinutes() : dataAtual.getMinutes())} 
+                          onChange={(event => this.setState({ horaEntrada: event.target.value }))}></MDBInput>
               <MDBFormInline>
                 <MDBInput label="SEG" type="checkbox" onChange={(event => this.setState({ segunda: event.target.checked }) + console.log(event.target.checked))} />
                 <MDBInput label="TER" type="checkbox" onChange={(event => this.setState({ terca: event.target.checked }) + console.log(event.target.checked))} />
