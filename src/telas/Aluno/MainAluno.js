@@ -149,7 +149,7 @@ export default class MainAluno extends Component {
                           <img className="foto" src="imagens/foto.jpg" alt="Foto do aluno"></img>
                           {/* Botão Tirar Foto */}
                           <MDBCol size="4"></MDBCol>
-                          <MDBCol size="4"><MDBBtn color="success" className="text-xs-left alinhandoEsquerda"><i className="fas fa-camera"></i></MDBBtn></MDBCol>
+                          <MDBCol size="4"><MDBBtn color="success" className="text-xs-left "><i className="fas fa-camera"></i></MDBBtn></MDBCol>
                           <MDBCol size="4"></MDBCol>
                           {/* Select da Turma */}
                           <MDBCol size="2"></MDBCol>
