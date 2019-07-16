@@ -122,7 +122,7 @@ export default class CadastroSaida extends Component {
   }
   render() {
     return (
-      <MDBContainer style={{ marginTop: 50, marginBottom: 50 }} >
+      <MDBContainer className="alinhandoEsquerda" style={{ marginTop: 50, marginBottom: 50 }} >
         <MDBRow >
           <MDBCol size="3"></MDBCol>
           <MDBCol size="5" md="10" lg="5" className="white z-depth-3 py-2 px-2 card">

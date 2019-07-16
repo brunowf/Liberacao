@@ -47,7 +47,7 @@ export default class CadastroEntrada extends Component {
   }
 
   entradaPost() {
-    if (!this.state.observacao || !this.state.alunoSlc || !this.state.professorSlc) {
+    if (!this.state.alunoSlc || !this.state.professorSlc) {
       alert("Preencha e selecione todos os campos!")
     } else {
       api.post(urlServidor + '/registroentradas', {
@@ -79,6 +79,7 @@ export default class CadastroEntrada extends Component {
       }).then(resposta => {
         //se deu certo:
         alert('Cadastrado com sucesso!')
+        // window.location.reload();
       })
         .catch(resposta => {
           //se der errado
