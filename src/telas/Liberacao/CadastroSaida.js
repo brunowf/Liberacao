@@ -41,9 +41,21 @@ export default class CadastroSaida extends Component {
         console.log(resposta)
         this.props.history.push("/");
       })
+    api.get(urlServidor + '/users/administradores')
+      .then(resposta => {
+        //console.log(this.state.listaAdmin.perfis)
+        this.setState({ listaAdmin: resposta.data })
+
+        //console.log(this.state.listaAdmin[0].perfis[0])
+      })
+      .catch(resposta => {
+        alert('Deu errado!')
+        console.log(resposta)
+        this.props.history.push("/");
+      })
   }
   entradaPost() {
-    if (!this.state.observacao || !this.state.alunoSlc || !this.state.professorSlc) {
+    if (!this.state.observacao || !this.state.alunoSlc || !this.state.professorSlc || !this.state.administradorSlc) {
       alert("Preencha e selecione todos os campos!")
     } else {
       api.post(urlServidor + '/registroentradas', {
@@ -61,7 +73,7 @@ export default class CadastroSaida extends Component {
           "id": this.state.alunoSlc
         },
         administrador: {
-          "id": 2
+          "id": this.state.administradorSlc
         },
         professores: [
           {
@@ -90,6 +102,7 @@ export default class CadastroSaida extends Component {
     this.state = {
       listaAlunos: [],
       listaProf: [],
+      listaAdmin: [],
       dataEntrada: null,
       horaEntrada: dataAtual.getHours() + ':' + dataAtual.getMinutes(),
       notificar_prof: true,
@@ -104,6 +117,7 @@ export default class CadastroSaida extends Component {
       administrador_id: '2',
       alunoSlc: null,
       professorSlc: null,
+      administradorSlc: null
     }
   }
   render() {
@@ -123,16 +137,26 @@ export default class CadastroSaida extends Component {
                   <option key={lista.id} value={lista.id}>{lista.nome}</option>
                 )}
               </select >
-              <br /><br /><br />
+              <br /><br />
               <select className="browser-default  custom-select" defaultValue='n/selecionado' onChange={(event => this.setState({ professorSlc: event.target.value }) + console.log(event.target.value))}>
                 <option value='n/selecionado' disabled>Professores</option>
                 {this.state.listaProf.map(lista =>
                   <option key={lista.id} value={lista.id}>{lista.nome}</option>
                 )}
               </select>
+              <br /><br />
+              <select className="browser-default  custom-select" defaultValue='n/selecionado' onChange={(event => this.setState({ administradorSlc: event.target.value }) + console.log(event.target.value))}>
+                <option value='n/selecionado' disabled>Administrador</option>
+                {this.state.listaAdmin.map(lista =>
+                  <option key={lista.id} value={lista.id}>{lista.nome}</option>
+                )}
+              </select>
+              {/*
               <MDBInput label="Nome Completo" icon="user" group type="text" id='nome' />
               <MDBInput label="Responsável" icon="envelope" color="success" group type='email' id='email' />
               <MDBInput label="Whatsapp" icon="key" group type='password' id='senha' />
+              */}
+
               <MDBInput type="textarea" label="Observações" onChange={(event => this.setState({ observacao: event.target.value }) + console.log(event.target.value))}></MDBInput>
               <MDBFormInline>
                 <MDBInput label="notificar professor" type='checkbox' id='notProf' onChange={(event => this.setState({ notificar_prof: event.target.checked }))} ></MDBInput>
@@ -142,7 +166,7 @@ export default class CadastroSaida extends Component {
             </MDBCardBody>
           </MDBCol>
           <MDBCol size="2"></MDBCol>
-        </MDBRow><br />
+        </MDBRow> <br />
         <MDBRow >
           <MDBCol size="3"></MDBCol>
           <MDBCol size="5" md="10" lg="5" className="white z-depth-3 py-2 px-2 card">
