@@ -93,8 +93,9 @@ export default class MainAluno extends Component {
           }
 
         }).then(resposta => {
-          alert('Responsavel')
+          alert('Cadastrado com sucesso!')
           console.log(tamanhoLista)
+          window.location.reload();
         }).catch(resposta => {
           alert('Não Responsavel')
           console.log(tamanhoLista)
@@ -136,37 +137,28 @@ export default class MainAluno extends Component {
                 <MDBCard>
                   <MDBCardBody>
                     <MDBRow>
-                      <MDBCol size="6">
+                      <MDBCol size="1">
+                      </MDBCol>
+                      <MDBCol size="10">
                         <h3>Cadastro de Aluno</h3>
                         <CadastroAluno change={this.changeAluno}></CadastroAluno>
                         <h3>Cadastro de Responsável</h3>
                         <MDBInput label="Nome" type="text" name="nome" background icon="fas fa-user" onChange={(e => this.setState({ nome: e.target.value }))} />
                         <MDBInput label="Email" type="text" name="email" background icon="fas fa-envelope" onChange={(e => this.setState({ email: e.target.value }))} />
                         <MDBInput label="CPF" type="text" name="cpf" background icon="fas fa-id-card" onChange={(e => this.setState({ cpf: e.target.value }))} />
+                        {/* Select da Turma */}
+                        <select className="custom-select custom-select-lg mb-5" id="Turma" defaultValue="1" onChange={(e => this.setState({ turmaIdSlc: e.target.value }) + console.log(this.state.turmaIdSlc))}>
+                          <option disabled value="1">Turma</option>
+                          {this.state.listaTurmas.map(tur =>
+                            <option key={tur.id} value={tur.id}>{tur.nome_curso}</option>
+                          )}
+                        </select>
+                        {/* Botão Cadastrar */}
+                        <div className='alinhandoCentro'>
+                        <MDBBtn color="success" className="text-xs-left" onClick={() => this.alunoPost() + this.responsavelPost()}>Cadastrar</MDBBtn>
+                        </div>
                       </MDBCol>
-                      <MDBCol size="6">
-                        <MDBRow>
-                          <img className="foto" src="imagens/foto.jpg" alt="Foto do aluno"></img>
-                          {/* Botão Tirar Foto */}
-                          <MDBCol size="4"></MDBCol>
-                          <MDBCol size="4"><MDBBtn color="success" className="text-xs-left "><i className="fas fa-camera"></i></MDBBtn></MDBCol>
-                          <MDBCol size="4"></MDBCol>
-                          {/* Select da Turma */}
-                          <MDBCol size="2"></MDBCol>
-                          <MDBCol size="8">
-                            <select className="custom-select custom-select-lg mb-5" id="Turma" defaultValue="1" onChange={(e => this.setState({ turmaIdSlc: e.target.value }) + console.log(this.state.turmaIdSlc))}>
-                              <option disabled value="1">Turma</option>
-                              {this.state.listaTurmas.map(tur =>
-                                <option key={tur.id} value={tur.id}>{tur.nome_curso}</option>
-                              )}
-                            </select>
-                          </MDBCol>
-                          <MDBCol size="1"></MDBCol>
-                          {/* Botão Cadastrar */}
-                          <MDBCol size="4"></MDBCol>
-                          <MDBCol size="4"><MDBBtn color="success" className="text-xs-left" onClick={() => this.alunoPost() + this.responsavelPost()}>Cadastrar</MDBBtn></MDBCol>
-                          <MDBCol size="4"></MDBCol>
-                        </MDBRow>
+                      <MDBCol size="1">
                       </MDBCol>
                     </MDBRow>
                   </MDBCardBody>

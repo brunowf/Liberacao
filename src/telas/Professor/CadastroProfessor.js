@@ -54,7 +54,7 @@ export default class CadastroProfessor extends Component {
           <MDBInput label="Senha" type="password" background icon="key" onChange={(event => this.setState({ professorSenha: event.target.value }))} />
           <MDBInput label="Telefone" type="tel" background icon="phone" onChange={(event => this.setState({ professorTelefone: event.target.value }))} />
           <div className='tyleBotao'>
-            <MDBBtn className="dusty-grass-gradient" onClick={() => this.professorPost()}>Salvar</MDBBtn>
+            <MDBBtn color="success" onClick={() => this.professorPost()}>Salvar</MDBBtn>
           </div>
         </form>
       </div>

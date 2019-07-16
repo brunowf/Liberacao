@@ -2,7 +2,7 @@ import React, { Component } from '../../../node_modules/react';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../../node_modules/antd/dist/antd.css';
 import '../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
-import { MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBFormInline} from "../../../node_modules/mdbreact";
+import { MDBInput, MDBCardBody, MDBCardTitle, MDBBtn, MDBContainer, MDBRow, MDBCol, MDBFormInline } from "../../../node_modules/mdbreact";
 import '../../css/styles.css';
 
 import { urlServidor } from '../../Variaveis.json';
@@ -13,7 +13,7 @@ import api from '../../services/api';
 const dataAtual = new Date();
 
 export default class CadastroEntrada extends Component {
-  
+
   onOk(value) {
     console.log('onOk: ', value);
   }
@@ -79,7 +79,7 @@ export default class CadastroEntrada extends Component {
       }).then(resposta => {
         //se deu certo:
         alert('Cadastrado com sucesso!')
-        // window.location.reload();
+        window.location.reload();
       })
         .catch(resposta => {
           //se der errado
@@ -120,7 +120,7 @@ export default class CadastroEntrada extends Component {
           <MDBCol size="5" md="10" lg="5" className="white z-depth-3 py-2 px-2 card">
             <MDBCardBody >
               <br />
-              <MDBCardTitle >Pessoas</MDBCardTitle>
+              <MDBCardTitle >Cadastro de Entrada Tardia</MDBCardTitle>
               <br /><hr />
               <br />
               <select className="browser-default custom-select" defaultValue='n/selecionado' onChange={(event => this.setState({ alunoSlc: event.target.value }) + console.log(event.target.value))}>
@@ -149,8 +149,7 @@ export default class CadastroEntrada extends Component {
           <MDBCol size="3"></MDBCol>
           <MDBCol size="5" md="10" lg="5" className="white z-depth-3 py-2 px-2 card">
             <MDBCardBody><br />
-              <MDBCardTitle >Dia/Hora</MDBCardTitle>
-              <br /><hr />
+              <br />
               {/*              <RangePicker className='alinhandoCentro'
                 showTime={{ format: 'HH:mm' }}
                 format="YYYY-MM-DD HH:mm"
@@ -158,18 +157,17 @@ export default class CadastroEntrada extends Component {
                 onOk={this.state.onOk}
                   />  */}
 
-                  {/*
+              {/*
   import { DatePicker } from '../../../node_modules/antd';
 const { RangePicker } = DatePicker;
 */}
-              <MDBInput type='date' 
-                          onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}>
-              </MDBInput>
-              
-              <MDBInput type='time' 
-                          defaultValue={ ((dataAtual.getHours() + ':' + (dataAtual.getMinutes()) < 9 ) ? 
-                                                                  '0' + dataAtual.getMinutes() : dataAtual.getMinutes())} 
-                          onChange={(event => this.setState({ horaEntrada: event.target.value }))}></MDBInput>
+              {/* <MDBInput type='date'
+                onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}>
+              </MDBInput> */}
+
+              <input type='time'
+                defaultValue={dataAtual.getHours() + ':' + (dataAtual.getMinutes() < 9 ? '0' + dataAtual.getMinutes() : dataAtual.getMinutes())}
+                onChange={(event => this.setState({ horaEntrada: event.target.value }))}></input>
               <MDBFormInline>
                 <MDBInput label="SEG" type="checkbox" onChange={(event => this.setState({ segunda: event.target.checked }) + console.log(event.target.checked))} />
                 <MDBInput label="TER" type="checkbox" onChange={(event => this.setState({ terca: event.target.checked }) + console.log(event.target.checked))} />

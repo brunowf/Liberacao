@@ -67,12 +67,6 @@ export default class ListaUser extends Component {
           //   width: 200
           // },
           {
-            label: 'Tipo',
-            field: 'tipo',
-            sort: 'asc',
-            width: 200
-          },
-          {
             label: 'Editar',
             field: 'editar',
             sort: 'asc',
@@ -134,7 +128,7 @@ export default class ListaUser extends Component {
           //console.log(linha.ativo)
         });
         data.rows.forEach(linha => {
-          linha.edit =
+          linha.perfis =
             <div>
               <button color="primary" onClick={() => this.toggleCollapse() + this.setState({ userIdAtual: linha.id, userNomeAtual: linha.nome, userEmailAtual: linha.email, userSenhaAtual: linha.senha, userTelefoneAtual: linha.telefone })}>
                 Editar

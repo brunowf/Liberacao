@@ -55,10 +55,10 @@ export default class CadastroSaida extends Component {
       })
   }
   entradaPost() {
-    if (!this.state.observacao || !this.state.alunoSlc || !this.state.professorSlc || !this.state.administradorSlc) {
+    if (!this.state.alunoSlc || !this.state.professorSlc || !this.state.administradorSlc) {
       alert("Preencha e selecione todos os campos!")
     } else {
-      api.post(urlServidor + '/registroentradas', {
+      api.post(urlServidor + '/registrosaidas', {
         hora_entrada: this.state.horaEntrada,
         notificar_prof: this.state.notificar_prof,
         notificar_resp: this.state.notificar_resp,
@@ -122,13 +122,13 @@ export default class CadastroSaida extends Component {
   }
   render() {
     return (
-      <MDBContainer className="alinhandoEsquerda" style={{ marginTop: 50, marginBottom: 50 }} >
+      <MDBContainer style={{ marginTop: 50, marginBottom: 50 }} >
         <MDBRow >
           <MDBCol size="3"></MDBCol>
           <MDBCol size="5" md="10" lg="5" className="white z-depth-3 py-2 px-2 card">
             <MDBCardBody >
               <br />
-              <MDBCardTitle >Pessoas</MDBCardTitle>
+              <MDBCardTitle >Cadastro de Saída Antecipada</MDBCardTitle>
               <br /><hr />
               <br />
               <select className="browser-default custom-select" defaultValue='n/selecionado' onChange={(event => this.setState({ alunoSlc: event.target.value }) + console.log(event.target.value))}>
@@ -155,13 +155,14 @@ export default class CadastroSaida extends Component {
               <MDBInput label="Nome Completo" icon="user" group type="text" id='nome' />
               <MDBInput label="Responsável" icon="envelope" color="success" group type='email' id='email' />
               <MDBInput label="Whatsapp" icon="key" group type='password' id='senha' />
+              <MDBInput label="Telefone / WhatsApp" icon="phone" group type='tel' id='telefone' />
               */}
-
               <MDBInput type="textarea" label="Observações" onChange={(event => this.setState({ observacao: event.target.value }) + console.log(event.target.value))}></MDBInput>
+
               <MDBFormInline>
                 <MDBInput label="notificar professor" type='checkbox' id='notProf' onChange={(event => this.setState({ notificar_prof: event.target.checked }))} ></MDBInput>
                 <MDBInput label="notificar responsável" type='checkbox' id='notResp' onChange={(event => this.setState({ notificar_resp: event.target.checked }))}></MDBInput>
-                <MDBInput label="Telefone / WhatsApp" icon="phone" group type='tel' id='telefone' />
+
               </MDBFormInline>
             </MDBCardBody>
           </MDBCol>
@@ -171,15 +172,13 @@ export default class CadastroSaida extends Component {
           <MDBCol size="3"></MDBCol>
           <MDBCol size="5" md="10" lg="5" className="white z-depth-3 py-2 px-2 card">
             <MDBCardBody><br />
-              <MDBCardTitle >Dia/Hora</MDBCardTitle>
-              <br /><hr />
-              <MDBInput type='date'
+              <br />
+              {/* <MDBInput type='date'
                 onChange={(event => this.setState({ horaEntrada: event.target.value }) + console.log(event.target.value))}>
-              </MDBInput>
-              <MDBInput type='time'
-                defaultValue={((dataAtual.getHours() + ':' + (dataAtual.getMinutes()) < 9) ?
-                  '0' + dataAtual.getMinutes() : dataAtual.getMinutes())}
-                onChange={(event => this.setState({ horaEntrada: event.target.value }))}></MDBInput>
+              </MDBInput> */}
+              <input type='time'
+                defaultValue={dataAtual.getHours() + ':' + (dataAtual.getMinutes() < 9 ? '0' + dataAtual.getMinutes() : dataAtual.getMinutes())}
+                onChange={(event => this.setState({ horaEntrada: event.target.value }))}></input>
               <MDBFormInline>
                 <MDBInput label="SEG" type="checkbox" onChange={(event => this.setState({ segunda: event.target.checked }) + console.log(event.target.checked))} />
                 <MDBInput label="TER" type="checkbox" onChange={(event => this.setState({ terca: event.target.checked }) + console.log(event.target.checked))} />

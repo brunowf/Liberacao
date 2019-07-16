@@ -45,7 +45,7 @@ export default class ListaProfessores extends Component {
             sort: 'asc',  
           },
           {
-            label: 'Tipo',
+            label: 'Perfil',
             field: 'perfil',
             sort: 'asc',  
           },
@@ -68,6 +68,7 @@ export default class ListaProfessores extends Component {
         data.rows = resposta.data
         data.rows.forEach(linha => {
           // data.rows = linha.slice(1,2)
+          linha.perfis=<p>Professor</p>
           linha.ativo=<input type="checkbox" defaultChecked={linha.ativo} disabled/>;
           //console.log(linha.perfis)
         });

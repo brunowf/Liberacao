@@ -187,7 +187,8 @@ export default class Ajuda extends Component {
                 <div className="col-3"></div>
                 <div className="col-6 alinhandoEsquerda">
                   <p className="h6">
-                    Esta tela somente o professor tem acesso, e demonstram os alunos que têm permissão para a entrada tardia em sala de aula.
+                    1.Essa tela demonstra os alunos que têm permissão para a entrada tardia em sala de aula.<br/>
+                    2.O botão deletar retiram os alunos da lista de liberados para entrada tardia.
                 </p>
                 </div>
                 <div className="col-4"></div>
@@ -201,7 +202,8 @@ export default class Ajuda extends Component {
                 <div className="col-3"></div>
                 <div className="col-6 alinhandoEsquerda">
                   <p className="h6">
-                  Esta página, tanto o professor com o guarda tem acesso ela demonstra os alunos que estão liberados para sair mais cedo das aulas
+                    1.Essa tela demonstra os alunos que têm permissão para a Saida Antecipada da sala de aula.<br/>
+                    2.O botão deletar retiram os alunos da lista de liberados para Saida Antecipada.
                   </p>
                 </div>
                 <div className="col-4"></div>

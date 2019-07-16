@@ -50,12 +50,9 @@ export default class AlunosLiberadosEntrada extends Component {
         <div className='row'>
           <div className='col-sm-1'></div>
           <div className='col-sm-10 alinhandoEsquerda'>
-
-          
-
             <div>
+              <h2 className='alinhandoCentro font-weight-bold'>Alunos Liberados para Entrar</h2>
               <div className='card-columns' style={{ marginTop: 20, marginBottom: 5 }}>
-                
                 {this.state.listaEntrada.map(lista =>
                   <div className='text-capitalize' key={lista.id}>
                     <div className="card" style={{ marginTop: 10, marginBottom: 5 }}>

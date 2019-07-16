@@ -97,15 +97,15 @@ export default class ListaTurmas extends Component {
                 Editar
               </button>
             </div>
-        })
-        data.rows.forEach(linha => {
-          // data.rows = linha.slice(1,2)
-          linha.delete =
-            <div className='tyleBotao'>
-              <button onClick={() => this.turmaDelete(linha.id)}>Deletar</button>
-            </div>;
-          console.log(linha.perfis)
         });
+        // data.rows.forEach(linha => {
+        //   // data.rows = linha.slice(1,2)
+        //   linha.delete =
+        //     <div className='tyleBotao'>
+        //       <button onClick={() => this.turmaDelete(linha.id)}>Deletar</button>
+        //     </div>;
+        //   console.log(linha.perfis)
+        // });
         console.log(data)
         this.setState({ listaTurmas: data })
 
@@ -130,19 +130,19 @@ export default class ListaTurmas extends Component {
     })
   }
 
-  turmaDelete(idzin) {
-    axios.delete(urlServidor + '/turmas/' + idzin)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        alert('Turma deletada')
-        window.location.reload();
-      }).catch(resposta => {
-        //se der errado
-        console.log(resposta);
-        alert('Dados incorretos!');
-      })
-  }
+  // turmaDelete(idzin) {
+  //   axios.delete(urlServidor + '/turmas/' + idzin)
+  //     .then(res => {
+  //       console.log(res);
+  //       console.log(res.data);
+  //       alert('Turma deletada')
+  //       window.location.reload();
+  //     }).catch(resposta => {
+  //       //se der errado
+  //       console.log(resposta);
+  //       alert('Dados incorretos!');
+  //     })
+  // }
 
 
   render() {
